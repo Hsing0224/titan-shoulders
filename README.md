@@ -7,9 +7,6 @@
 **p.s. 內容或觀念可能有誤，如果您看到有錯誤，那您一定是對的。**<br>
 
 
-## 巨人們
-- [TypeScript 邁向專家之路：零基礎 JavaScript 打通 Angular、React 與 Vue.js 前端框架實戰 (Essential TypeScript: From Beginner to Pro)](https://www.tenlong.com.tw/products/9789863126904?list_name=lv)
-
 ## 特別感謝
 
 ### [PJCHENder](https://pjchender.dev/)
