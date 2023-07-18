@@ -43,7 +43,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Hsing0224/titanShoulders/tree/master/docs/',
+            'https://github.com/Hsing0224/titanShoulders/tree/master/',
         },
         blog: false,
         // blog: {
@@ -51,7 +51,7 @@ const config = {
         //   // Please change this to your repo.
         //   // Remove this to remove the "edit this page" links.
         //   editUrl:
-        //     'https://github.com/Hsing0224/titanShoulders/tree/master/blog/',
+        //     'https://github.com/Hsing0224/titanShoulders/tree/master/',
         // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
