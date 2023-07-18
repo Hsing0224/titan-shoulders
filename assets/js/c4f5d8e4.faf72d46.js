@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktitan_shoulders=self.webpackChunktitan_shoulders||[]).push([[195],{2841:(t,e,s)=>{s.r(e),s.d(e,{default:()=>r});var n=s(7294),u=s(6550);function r(){return n.createElement(u.l_,{to:"https://hsing0224.github.io/titanShoulders/docs/intro"})}}}]);
