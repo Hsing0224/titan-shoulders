@@ -129,7 +129,17 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-
+  plugins: [
+    [
+      '@docusaurus/plugin-search-algolia',
+      {
+        apiKey: '158d94595f311e3b70133c49bfb0e138',
+        indexName: 'docusaurus',
+        searchFields: ['title', 'content'],
+        searchPaths: ['/docs'],
+      }
+    ]
+  ]
 };
 
 module.exports = config;
