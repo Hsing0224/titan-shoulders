@@ -4,7 +4,7 @@ sidebar_position: 31
 
 # isNaN() vs Number.isNaN()
 ## isNaN()
-判斷值是否為NaN(Not a Number)，js會轉型來判斷，如果無法轉成數字，那將會`return true`<br>
+判斷值是否為NaN(Not a Number)，js會轉型來判斷，如果無法轉成數字，那將會`return true`<br />
 example:
 ```javascript
 isNaN(NaN) // true
@@ -16,7 +16,7 @@ isNaN(true) // false
 isNaN(false) // false
 ```
 ## Number.isNaN()
-ES6後所新增，不會強制轉換非數字的值，它只為在值本身為NaN時候才會`return true`<br>
+ES6後所新增，不會強制轉換非數字的值，它只為在值本身為NaN時候才會`return true`<br />
 會出現NaN的狀況
 ```javascript
 Math.sqrt(-1);     // NaN，無法對負數進行平方根運算
@@ -38,5 +38,5 @@ Number.isNaN(false) // false
 ```
 
 ## Reference
-> [MDN - isNAN()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/isNaN)<br>
+> [MDN - isNAN()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/isNaN)<br />
 > [MDN - Number.isNaN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)

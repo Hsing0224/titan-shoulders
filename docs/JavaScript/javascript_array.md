@@ -240,7 +240,7 @@ arr.join('-'); // '0-1-2-3'
 const deepArr = [0, 1, [2, 3, [4, 5, [6, 7]]]];
 deepArr.join(); // '0,1,2,3,4,5,6,7'
 ```
-~~奇淫技巧~~<br>
+~~奇淫技巧~~<br />
 如果搭配字串的.split()，可以達到扁平化陣列的效果，但有個問題是裡面的值不能有`,`，避免輸出錯誤
 ```javascript
 const deepArr = [0, 1, [2, 3, [4, 5, [6, 7]]]];
@@ -345,7 +345,7 @@ arr.some(element => element % 2 === 0); // true
 arr.some(element => element > 5); // false
 ```
 ## .sort()
-默認排序是將元素轉為字符，按照UTF-16碼以升冪排序。<br>
+默認排序是將元素轉為字符，按照UTF-16碼以升冪排序。<br />
 兩者以 `-1`, `0`, `1`來決定排序
 | `compareFn(a, b)`回傳值 | 順序                   |
 | :---------------------: | ---------------------- |
@@ -368,7 +368,7 @@ function compareNumbers(a, b) {
 arr.sort(compareNumbers); // [1, 5, 40, 200]
 ```
 ## .splice()
-在指定的位置，移除/替換/新增新的元素<br>
+在指定的位置，移除/替換/新增新的元素<br />
 `.splice()`會影響原本的陣列，如果不想要影響原本的陣列，可使用`.toSpliced()`
 ```javascript
 /*

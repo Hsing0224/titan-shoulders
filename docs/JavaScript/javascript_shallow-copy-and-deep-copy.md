@@ -20,7 +20,7 @@ newObj.name = 'Eric';
 console.log(obj); // { name: 'Eric', age: 10 }
 ```
 
-當要複製一個陣列或物件，受到`call by reference`特性影響，我們可以用幾個方式來達成淺拷貝<br>
+當要複製一個陣列或物件，受到`call by reference`特性影響，我們可以用幾個方式來達成淺拷貝<br />
 > 陣列淺拷貝的方法
 ```javascript
 const arr = [0, 1, 2];
@@ -140,7 +140,7 @@ function deepCopy(obj) {
 ```
 
 ## Reference
-> [MDN - Shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)<br>
-> [MDN - Deep copy](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)<br>
-> [為了轉生而點技能-JavaScript，day8(淺筆記-物件之淺層複製與深層複製](https://ithelp.ithome.com.tw/articles/10282829)<br>
+> [MDN - Shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)<br />
+> [MDN - Deep copy](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)<br />
+> [為了轉生而點技能-JavaScript，day8(淺筆記-物件之淺層複製與深層複製](https://ithelp.ithome.com.tw/articles/10282829)<br />
 > [JS 中的淺拷貝 (Shallow copy) 與深拷貝 (Deep copy) 原理與實作](https://www.programfarmer.com/articles/2021/javascript-shallow-copy-deep-copy)

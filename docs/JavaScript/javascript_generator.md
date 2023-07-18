@@ -67,7 +67,7 @@ iterator.next().value; // 6
 ```
 
 ## .next()
-使用`.next()`可以走訪到一個`yield`，回傳會是一個object`{value: yield的值, done: 此函式是否已經結束}`<br>
+使用`.next()`可以走訪到一個`yield`，回傳會是一個object`{value: yield的值, done: 此函式是否已經結束}`<br />
 Generator function的執行分成兩個階段
 1. 啟動: 在呼叫`.next()`時，函式還沒正式開始，而是在第一個`yield`之前暫停
 2. 恢復: 再次呼叫`.next()`，函式從上次暫停的地方恢復執行
@@ -194,5 +194,5 @@ for (let i = 0; i < 10; i++) {
 ```
 
 ## Reference
-> [淺入淺出 Generator Function](https://denny.qollie.com/2016/05/08/es6-generator-func/)<br>
+> [淺入淺出 Generator Function](https://denny.qollie.com/2016/05/08/es6-generator-func/)<br />
 > [[JS] JavaScript Generator 的使用](https://pjchender.dev/javascript/js-generator/)
