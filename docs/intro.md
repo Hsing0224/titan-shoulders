@@ -1,7 +1,6 @@
 ---
 sidebar_label: README
 sidebar_position: 1
-slug: /
 ---
 # 感謝這些讓我站在肩膀的巨人們
 網站內容都是由這些課程、書，在我學習後所做的整理筆記。
