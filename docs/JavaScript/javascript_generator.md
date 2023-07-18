@@ -1,5 +1,7 @@
 ---
 sidebar_position: 32
+description: 這個酷酷的function*是什麼
+
 ---
 
 # GeneratorFunction

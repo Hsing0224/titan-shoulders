@@ -1,5 +1,6 @@
 ---
 sidebar_position: 31
+description: 這對雙胞胎有什麼差異
 ---
 
 # isNaN() vs Number.isNaN()
