@@ -61,9 +61,9 @@ const config = {
   ],
 
   themes: [
-    require.resolve('@docusaurus/theme-live-codeblock'),
+    // require.resolve('@docusaurus/theme-live-codeblock'),
     // require.resolve('@docusaurus/theme-search-algolia'),
-    require.resolve('@docusaurus/theme-classic'),
+    // require.resolve('@docusaurus/theme-classic'),
   ],
 
   themeConfig:
