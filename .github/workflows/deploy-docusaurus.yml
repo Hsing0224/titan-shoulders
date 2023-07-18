@@ -28,10 +28,8 @@ jobs:
           publish_dir: ./build
 
       # 發送 LINE Notify 通知
-      - uses: raeperd/line-in-action@v1.0
-        with:
-          token: ${{ secrets.LINE_NOTIFY_TOKEN }}
-          message: 因為${{ github.actor }}的餵食，Docusaurus又長大了
-          notificationDisabled: false # optional
-          stickerPackageId: 11538     # optional
-          stickerId: 51626498         # optional
+      - name: Send LINE Notify
+        env:
+          LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }} # 使用之前設定的 Secrets
+          GITHUB_ACTOR: ${{ github.actor }} # 使用之前設定的 Secrets
+        run: node deploy.js
