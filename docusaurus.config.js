@@ -14,7 +14,7 @@ const config = {
   url: 'https://hsing0224.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/titanShoulders/',
+  baseUrl: '/titanShoulders/doc/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -59,11 +59,11 @@ const config = {
     ],
   ],
 
-  // themes: [
-  //   require.resolve('@docusaurus/theme-live-codeblock'),
-  //   require.resolve('@docusaurus/theme-search-algolia'),
-  //   require.resolve('@docusaurus/theme-classic'),
-  // ],
+  themes: [
+    require.resolve('@docusaurus/theme-live-codeblock'),
+    require.resolve('@docusaurus/theme-search-algolia'),
+    require.resolve('@docusaurus/theme-classic'),
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -84,6 +84,10 @@ const config = {
           //   label: 'Tutorial',
           // },
           { to: '/docs/intro', label: 'Notes', position: 'left' },
+          {
+            type: 'search',
+            position: 'right'
+          },
         ],
       },
       footer: {
