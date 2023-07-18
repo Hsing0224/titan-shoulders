@@ -1,5 +1,5 @@
 ---
-title: README
+sidebar_label: README
 sidebar_position: 1
 ---
 
