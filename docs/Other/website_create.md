@@ -121,10 +121,14 @@ jobs:
 ```
 ## LINE notify
 前往[LINE notify](https://notify-bot.line.me/zh_TW/)，登入後，右上角點`自己名稱 > 個人頁面`，按下`發行權仗`。<br />
-![LINE notify](./img/notify.png)
+![LINE notify](./img/notify.png)<br />
 整個訊息的架構為【權杖名稱】 + 設定的訊息
 
 ```yml
+      # 發送 LINE Notify 通知
+      - name: Install node-fetch
+        run: npm install node-fetch
+
       - name: Send LINE Notify
         env:
           LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }} # 使用之前設定的 Secrets
@@ -138,7 +142,7 @@ const actor = process.env.GITHUB_ACTOR;
 const message = `因為${actor}的餵食，Docusaurus又長大了`;
 
 const url = 'https://notify-api.line.me/api/notify';
-const data = `message=${encodeURIComponent(message)}&stickerPackageId=11538&stickerId=51626498`;
+const data = `message=${encodeURIComponent(message)}&stickerPackageId=6362&stickerId=11087940`;
 
 fetch(url, {
   method: 'POST',
