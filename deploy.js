@@ -3,7 +3,7 @@ const actor = process.env.GITHUB_ACTOR;
 const message = `因為${actor}的餵食，Docusaurus又長大了`;
 
 const url = 'https://notify-api.line.me/api/notify';
-const data = `message=${encodeURIComponent(message)}&stickerPackageId=11538&stickerId=51626498`;
+const data = `message=${encodeURIComponent(message)}&stickerPackageId=6362&stickerId=11087940`;
 
 fetch(url, {
   method: 'POST',

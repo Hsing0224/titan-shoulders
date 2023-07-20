@@ -28,6 +28,9 @@ jobs:
           publish_dir: ./build
 
       # 發送 LINE Notify 通知
+      - name: Install node-fetch
+        run: npm install node-fetch
+
       - name: Send LINE Notify
         env:
           LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }} # 使用之前設定的 Secrets
