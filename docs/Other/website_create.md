@@ -133,7 +133,7 @@ jobs:
         run: |
           curl -X POST https://notify-api.line.me/api/notify \
           -H "Authorization: Bearer $LINE_NOTIFY_TOKEN" \
-          -F "message=因為$GITHUB_ACTOR的餵食，Docusaurus又長大了" \
+          -F "message=\n因為$GITHUB_ACTOR的餵食，Docusaurus又長大了" \
           -F "stickerPackageId=6362" \
           -F "stickerId=11087940"
 ```
