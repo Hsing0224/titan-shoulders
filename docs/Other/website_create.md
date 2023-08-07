@@ -126,38 +126,14 @@ jobs:
 
 ```yml
       # 發送 LINE Notify 通知
-      - name: Install node-fetch
-        run: npm install node-fetch
-
       - name: Send LINE Notify
         env:
           LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }} # 使用之前設定的 Secrets
           GITHUB_ACTOR: ${{ github.actor }} # 使用之前設定的 Secrets
-        run: node deploy.js
-```
-
-```js title="./deploy.js"
-const token = process.env.LINE_NOTIFY_TOKEN;
-const actor = process.env.GITHUB_ACTOR;
-const message = `因為${actor}的餵食，Docusaurus又長大了`;
-
-const url = 'https://notify-api.line.me/api/notify';
-const data = `message=${encodeURIComponent(message)}&stickerPackageId=6362&stickerId=11087940`;
-
-fetch(url, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'Authorization': `Bearer ${token}`,
-  },
-  body: data,
-}).then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  console.log('Docusaurus又更厲害拉');
-}).catch(error => {
-  console.error('Docusaurus因為 ' + error.message + ' 跌了一跤');
-  throw error;
-});
+        run: |
+          curl -X POST https://notify-api.line.me/api/notify \
+          -H "Authorization: Bearer $LINE_NOTIFY_TOKEN" \
+          -F "message=因為$GITHUB_ACTOR的餵食，Docusaurus又長大了" \
+          -F "stickerPackageId=6362" \
+          -F "stickerId=11087940"
 ```
