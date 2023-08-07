@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+description: TS的基本型別
+---
+
 ## 型別註記
 
 ## any
