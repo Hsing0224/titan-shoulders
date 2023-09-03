@@ -69,17 +69,6 @@ for(value of arr) {
 const uniqueArr = [...testSet]; // [1, 2, 3, 4, 5]
 ```
 
-### 轉陣列
-```javascript
-const testSet = new Set([1, 2, 3, 4, 5]);
-
-// 使用Array.from()
-const fromArray = Array.from(testSet); // (5) [1, 2, 3, 4, 5]
-
-// 利用展開運算子
-const spreadArray = [...testSet]; // (5) [1, 2, 3, 4, 5]
-```
-
 ### 迭代器
 在`Set`中，key和value都是同一個
 ```javascript
@@ -89,6 +78,17 @@ testSet.values(); // SetIterator {1, 2, 3, 4, 5}
 
 // 可以用entries()來看key => value
 testSet.entries(); // SetIterator {1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5}
+```
+
+### 轉陣列
+```javascript
+const testSet = new Set([1, 2, 3, 4, 5]);
+
+// 使用Array.from()
+const fromArray = Array.from(testSet); // (5) [1, 2, 3, 4, 5]
+
+// 利用展開運算子
+const spreadArray = [...testSet]; // (5) [1, 2, 3, 4, 5]
 ```
 
 ## Map
@@ -153,7 +153,10 @@ one => oneValue
 three => threeValue
 4 => fourValue
 */
+```
 
+### 迭代器
+```javascript
 // keys()，返回一個key的迭代器
 const keysIterator = testMap.keys(); // MapIterator {0, 'one', 2, 'three', 4}
 for(const key of keysIterator) {
