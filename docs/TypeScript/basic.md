@@ -2,7 +2,9 @@
 sidebar_position: 2
 description: TS的基本型別
 ---
-
+:::danger TODO
+TODO angular打完補上
+:::
 ## 型別註記
 
 ## any
