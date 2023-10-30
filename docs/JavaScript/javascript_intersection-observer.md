@@ -111,10 +111,17 @@ observer.disconnect();
 ## 額外思考
 因`IntersectionObserver`是畫面進入視窗(我們這邊假定root:null)就觸發。<br />
 就以往經驗是會在視窗的可能25%、30%等來做區塊的fadeIn。如果只單純使用`threshold`，這是依照觀察者自己進入視窗的百分比來觸發，也不太符合需求。<br />
-經過思考後，我認為可以搭配`threshold`來讓觀察者在一個比例時觸發，利用`IntersectionObserver`提供的method來判斷他是否已在視窗設定的觸發值，進而達成需求。
+經過思考後，我認為可以搭配`threshold`來讓觀察者在一個比例時觸發，我是以觀察對象的每10%做一個觸發，利用`IntersectionObserver`提供的method來判斷他是否已在視窗設定的觸發值，進而達成需求。
 ```javascript
 const toggle = false; // 是否讓.show可以來回觸發
 const triggerPoint = 0.25; // 畫面多少百分比來觸發
+const thresholdPoint = () => {
+  const thresholdArray = [];
+  for (let i = 0; i <= 10; i++) {
+    thresholdArray.push(i / 10);
+  }
+  return thresholdArray;
+}
 
 const callback = (entries) => {
   entries.forEach(entry => {
