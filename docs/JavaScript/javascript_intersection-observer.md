@@ -108,6 +108,9 @@ observer.disconnect();
 ### intersectionRatio
 當有觸發事件時，該觀察對象跟`root`的交集比例
 
+### rootBounds
+觀察對象的root相關資訊
+
 ## 額外思考
 因`IntersectionObserver`是畫面進入視窗(我們這邊假定root:null)就觸發。<br />
 就以往經驗是會在視窗的可能25%、30%等來做區塊的fadeIn。如果只單純使用`threshold`，這是依照觀察者自己進入視窗的百分比來觸發，也不太符合需求。<br />
