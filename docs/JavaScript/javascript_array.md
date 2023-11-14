@@ -127,7 +127,10 @@ const result = arr.findIndex(value => value > 35); // 3
 const arr = [0, 1, 2, 3, 4];
 const result = arr.findLast(value => value > 2); // 4
 ```
-> 跟.indexOf()的差異在indexOf()是傳入一個值，而.findIndex()是傳入條件
+:::note
+跟.indexOf()的差異在indexOf()是傳入一個值，而.findIndex()是傳入條件
+:::
+
 ## .findLastIndex()
 類似`.findIndex()`，從最後開始找，回傳第一個符合的索引值，如果沒找到會回傳`-1`
 ```javascript
@@ -177,7 +180,10 @@ arr.forEach(element => console.log(element));
 ```
 ## Array.from()
 可將arrayLike轉為Array來使用，或是對於Array的每個元素還做處理
-> arrayLike，類似array，但無array的方法
+:::tip
+arrayLike，類似array，但無array的方法
+:::
+
 ```javascript
 /*
   from的參數
@@ -247,7 +253,9 @@ deepArr.join(); // '0,1,2,3,4,5,6,7'
 const deepArr = [0, 1, [2, 3, [4, 5, [6, 7]]]];
 deepArr.join().split(','); // ['0', '1', '2', '3', '4', '5', '6', '7']
 ```
-> 結論:還是乖乖用.flat()
+:::note
+結論:還是乖乖用.flat()
+:::
 
 ## .lastIndexOf()
 與`.indexOf`相同，但它是由後面往前找，會回傳符合的第一個索引，*意味為陣列裡最後一個*，當都沒有符合則回傳`-1`
