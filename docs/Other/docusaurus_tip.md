@@ -97,3 +97,8 @@ keywords: #關鍵詞
 :::
 
 [更多用法](https://docusaurus.io/docs/markdown-features/admonitions)
+
+## code block
+
+在 markdown 裡使用程式碼區塊，可以支援的語言
+[支援的語言](https://prismjs.com/#supported-languages)
