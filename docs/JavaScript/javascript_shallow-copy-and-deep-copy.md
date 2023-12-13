@@ -22,7 +22,9 @@ console.log(obj); // { name: 'Eric', age: 10 }
 ```
 
 當要複製一個陣列或物件，受到`call by reference`特性影響，我們可以用幾個方式來達成淺拷貝<br />
-> 陣列淺拷貝的方法
+
+### 陣列淺拷貝的方法
+
 ```javascript
 const arr = [0, 1, 2];
 
@@ -45,7 +47,9 @@ console.log(arr); // [0, 1, 2];
 operatorArr[0] = 3;
 console.log(arr); // [0, 1, 2];
 ```
-> 物件淺拷貝的方法
+
+### 物件淺拷貝的方法
+
 ```javascript
 const obj = { name: 'Stan', age: 10 };
 
@@ -62,25 +66,29 @@ operatorObj.name = 'Kyle';
 console.log(obj); // { name: 'Stan', age: 10 }
 ```
 
-> 以上方法只適用一維的陣列和一層的物件，在二維以上和兩層的物件就會因為`call by reference`而會受到影響
-> ```javascript
-> const arr = [0, 1, [2, 3]];
-> const newArr = [...arr];
-> newArr[0] = 4;
-> console.log(arr); // [0, 1, [2, 3]]; 一維沒有問題
-> newArr[2][0] = 5;
-> console.log(arr); // [0, 1, [5, 3]];
-> 
-> const obj = { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Playing basketball'} };
-> const newObj = { ...obj };
-> newObj.name = 'Eric';
-> console.log(obj); // { name: 'Eric', age: 10, info: { gender: 'Male', hobby: 'Playing basketball'} }; 一層沒有問題
-> newObj.info.hobby = 'Playing video games';
-> console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Playing video games'} };
-> ```
+:::tip
+以上方法只適用一維的陣列和一層的物件，在二維以上和兩層的物件就會因為`call by reference`而會受到影響
+:::
+
+```javascript
+const arr = [0, 1, [2, 3]];
+const newArr = [...arr];
+newArr[0] = 4;
+console.log(arr); // [0, 1, [2, 3]]; 一維沒有問題
+newArr[2][0] = 5;
+console.log(arr); // [0, 1, [5, 3]];
+
+const obj = { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Playing basketball'} };
+const newObj = { ...obj };
+newObj.name = 'Eric';
+console.log(obj); // { name: 'Eric', age: 10, info: { gender: 'Male', hobby: 'Playing basketball'} }; 一層沒有問題
+newObj.info.hobby = 'Playing video games';
+console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Playing video games'} };
+```
 
 ## 深拷貝(Deep Copy)
 當要複製陣列或物件有兩層以上，如果需要完全獨立，就必須使用深拷貝
+
 ```javascript
 // 常用的是使用JSON.parse() 和 JSON.stringify()來做深拷貝
 const arr = [0, 1, [2, 3]];
@@ -95,6 +103,7 @@ console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Pl
 ```
 
 利用`JSON.parse()`和`JSON.stringify()`，雖然可以解決兩層以上`call by Reference`的問題，但還是有些狀況會造成value損壞
+
 ```javascript
 const obj = {
   undefined: undefined,
@@ -124,6 +133,7 @@ function -> 遺失
 ```
 
 利用`typeof`並使用遞迴的方式來做深拷貝
+
 ```javascript
 function deepCopy(obj) {
   if (typeof obj !== 'object' || obj === null) {
