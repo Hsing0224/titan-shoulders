@@ -222,6 +222,22 @@ Angular 提供了幾個方法來表示目前表單的狀態
 }
 ```
 
+## 響應式
+
+提供對底層表單物件直接存取。相較範本驅動，他的可擴充性、複用性、測試性都較高。<br />
+響應式表單會直接建立 `FromControl` 、 `FromGroup` 、 `FromArray` 等表單基礎類別。再搭配 `RxJs` 來監控和操作使用者輸入的資料。<br />
+而在**模組裡需要匯入 `ReactiveFormsModule` 才能使用響應式表單**
+
+### FormControl
+
+```typescript
+name = new FormControl();
+```
+
+:::danger TODO
+TODO 未來有碰到自訂表單驗證再補上ＸＤ
+:::
+
 ## Reference
 
 > [官方文件](https://angular.tw/guide/forms-overview)
