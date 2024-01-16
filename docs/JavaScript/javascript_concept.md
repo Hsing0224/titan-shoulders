@@ -3,7 +3,7 @@ sidebar_position: 1
 description: 關於js的那些觀念
 ---
 
-# Javascript的那些觀念
+# JavaScript的那些觀念
 
 ## 立即函式(Immediately-Invoked Function Expression, IIFE)
 ```javascript
