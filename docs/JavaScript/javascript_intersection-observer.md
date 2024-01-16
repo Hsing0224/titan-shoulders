@@ -94,6 +94,10 @@ observer.disconnect();
 ### isIntersecting
 觀察對象是否已被觀察到 `true || false`
 
+:::note
+當畫面第一次載入時會先觸發一次，再來只有與 `root` 交疊時才會觸發 `callback` ，`isIntersecting` 不一定會需要用到
+:::
+
 ### boundingClientRect
 觀察對象的資訊
 ```javascript
@@ -123,20 +127,30 @@ observer.disconnect();
 //   y: 
 // }
 ```
+
+假設閾值是 [0, 0.25, 5, 0.75, 1] 與 `root` 交疊，基本上會有兩段：<br />
+當觀察對象從下方進入 `root`，或是上方離開 `root`。<br />
+這其中差異可以從 `intersectionRect` 的 `top`，來去判斷觀察對象在哪個判斷。<br />
+❗當 `top` 為 `0` 時，觀察對象為上方離開的狀態
+
 :::tip
 top + height = window.innerHeight
 :::
+
 
 ### intersectionRatio
 觀察對象在 `root` 的交疊比例
 
 :::note
-$$ intersectionRatio = \frac{intersectionRect's area}{target element's area} $$
+$$
+intersectionRatio = \frac{intersectionRect's area}{target element's area}
+$$
 觀察對象與 `root` 交疊的 `height` / 觀察對象整體的 `height`
 :::
 
 :::tip
-如果要粗算 `intersectionRatio`，我們可以看所設定的 `threshold`，當觸發是在觀察對象的下半部時， `intersectionRatio` 為 1 - `intersectionRatio` 值
+如果要粗算 `intersectionRatio`，我們可以看所設定的 `threshold`。<br />
+當觸發是在觀察對象的下半部時， `intersectionRatio` 為 1 - `intersectionRatio` 值
 :::
 
 ### rootBounds
@@ -172,14 +186,14 @@ const thresholdPoint = length => {
 
 const callback = (entries) => {
   entries.forEach(entry => {
-		// 觸發值 = 視窗高 * 比例
-		const triggerValue = window.innerHeight * triggerPoint;
-		// 如果交疊的高 大於等於 觸發值，或是觀察對象已完全進入畫面(高度不夠觸發值)
+    // 觸發值 = 視窗高 * 比例
+    const triggerValue = window.innerHeight * triggerPoint;
+    // 如果交疊的高 大於等於 觸發值，或是觀察對象已完全進入畫面(高度不夠觸發值)
     if (!entry.target.classList.contains('show') && entry.intersectionRect.height >= triggerValue || entry.intersectionRatio === 1) {
-			entry.target.classList.add('show');
-			if (toggle === false) {
-				observer.unobserve(entry.target);
-			}
+      entry.target.classList.add('show');
+      if (toggle === false) {
+        observer.unobserve(entry.target);
+      }
     } else if (toggle) {
       entry.target.classList.remove('show');
     }
