@@ -72,6 +72,31 @@ console.log(3 < 2 < 1); // true
 */
 ```
 
+## Event loop (事件循環)
+當有事件發生時，這些事件都會被放到佇列裡。而事件循環會不斷的檢查佇列中是否有待處理的事件。
+
+### 單一執行緒 (single-threaded)
+JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件事。
+
+### 堆疊 (stack)
+1. 後進先出 (Last In, First Out，LIFO)
+2. 在程式執行時，堆疊也用來追蹤函式的呼叫和返回。<br>
+每次呼叫一個函式，該函式會被堆疊到最頂端；當執行完畢時，該函式會從堆疊中彈出。
+
+### 佇列 (Queue)
+1. 先進先出 (First In, First Out，FIFO)
+2. 管理非同步任務。例如： setTimeout 、 ajax
+
+### Web APIs
+主要任務有：
+1. 發送網路請求
+2. 定時器
+3. 事件處理
+
+### 阻塞  (blocking)
+當JavaScript在執行程式碼時，瀏覽器會停止渲染網頁，直到事件結束才會繼續。<br />
+但萬一程式碼等待時間過長造成阻塞，造成網頁體驗不佳。
+
 ## Reference
 [六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)
 [MDN - 語句和聲明](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)
