@@ -73,10 +73,13 @@ console.log(3 < 2 < 1); // true
 ```
 
 ## Event loop (事件循環)
-當有事件發生時，這些事件都會被放到佇列裡。而事件循環會不斷的檢查佇列中是否有待處理的事件。
+[Event Loop 的視覺化呈現](http://latentflip.com/loupe/)
 
-> 頁面載入後，依照寫的程式碼，會先放入 Call Stack ，如果有請求、定時器、事件監聽，則會放入 Web APIs。<br />
-> 此時會繼續處理 Stack 裡的程式碼片段。然而如果在 Stack 裡的程式碼因為等待時間過久，則會造成阻塞。<br />待 Web APIs 處理完後，則會放入佇列。佇列則會再放入 Stack 裡去執行。
+Event Loop 的任務是如果 Stack 是空的，就把 Queue 中的 frame 放到 Stack 中，直到 Stack 和 Queue 都是空的為止。
+
+> 當頁面載入，JavaScript Runtime 時，一個程式碼片段視為一個 frame，會先放入 Call Stack ，如果是 XMLHttpRequest、Timer、Event Listener，則這些 frame 會從 Stack 先移到 Web APIs ，並繼續執行 Stack 裡的程式碼片段。<br />
+> 然而如果在 Stack 裡的程式碼因為等待時間過久，則會造成阻塞。<br />
+> Stack 清空後， Event loop 會將 Web APIs 處理完，放入 Queue 的 frame 移至 Stack 裡去執行。
 
 ### 單一執行緒 (single-threaded)
 JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件事。
@@ -91,20 +94,20 @@ JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件
 2. 管理非同步任務。例如： setTimeout 、 ajax
 
 ### Web APIs
+當 Web APIs 有事件完成後，則會將 frame 移至 Queue。<br />
 主要任務有：
 1. 發送網路請求
 2. 定時器
 3. 事件處理
 
 ### 阻塞 (blocking)
-當JavaScript在執行程式碼時，瀏覽器會停止渲染網頁，直到事件結束才會繼續。<br />
-但萬一程式碼等待時間過長造成阻塞，造成網頁體驗不佳。
-
-> [Event Loop 的視覺化呈現](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+阻塞通常發生在**同步**的操作上。<br />
+當 JavaScript Runtime 時，會執行在 Stack 裡的程式碼片段。<br />
+而萬一程式碼片段執行時間過久，其他任務無法被執行，進而造成瀏覽器停止渲染，使用者感受到卡頓或凍結。造成瀏覽體驗不佳。
 
 ## Reference
 [六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)
 [MDN - 語句和聲明](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)
 [MDN - 運算子優先順序](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
-[loupe - event loop](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+[loupe - event loop](http://latentflip.com/loupe/)
 [JavaScript Event Loop](https://www.javascripttutorial.net/javascript-event-loop/)
