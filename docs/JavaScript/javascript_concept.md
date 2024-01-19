@@ -76,14 +76,14 @@ console.log(3 < 2 < 1); // true
 當有事件發生時，這些事件都會被放到佇列裡。而事件循環會不斷的檢查佇列中是否有待處理的事件。
 
 > 頁面載入後，依照寫的程式碼，會先放入 Call Stack ，如果有請求、定時器、事件監聽，則會放入 Web APIs。<br />
-> 此時會繼續處理 Stack 裡的程式。然而如果在 Stack 裡的程式碼因為等待時間過久，則會造成阻塞。<br />待 Web APIs 處理完後，則會放入佇列。佇列則會再放入 Stack 裡去執行。
+> 此時會繼續處理 Stack 裡的程式碼片段。然而如果在 Stack 裡的程式碼因為等待時間過久，則會造成阻塞。<br />待 Web APIs 處理完後，則會放入佇列。佇列則會再放入 Stack 裡去執行。
 
 ### 單一執行緒 (single-threaded)
 JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件事。
 
 ### 堆疊 (Stack)
 1. 後進先出 (Last In, First Out，LIFO)
-2. 在程式執行時，堆疊也用來追蹤函式的呼叫和返回。<br>
+2. 在程式執行時，堆疊也用來追蹤函式的呼叫和返回。<br />
 每次呼叫一個函式，該函式會被堆疊到最頂端；當執行完畢時，該函式會從堆疊中彈出。
 
 ### 佇列 (Queue)
@@ -100,7 +100,7 @@ JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件
 當JavaScript在執行程式碼時，瀏覽器會停止渲染網頁，直到事件結束才會繼續。<br />
 但萬一程式碼等待時間過長造成阻塞，造成網頁體驗不佳。
 
-> [大神做的 Event Loop 的視覺化呈現](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+> [Event Loop 的視覺化呈現](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 
 ## Reference
 [六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)
