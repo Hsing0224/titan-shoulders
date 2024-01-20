@@ -6,7 +6,8 @@ description: I watch you
 # IntersectionObserver
 
 這個API主要是幫我們觀察，當我們觀察的對象是否與(預設為視窗的viewport)交疊，可以做後續的動作。 <br />
-這在對一個曾經在一個頁面，使用`offsetTop`來判斷目前使用者滑到哪個區塊，來幫側邊導覽列加上對應的狀態的人來說，實在太幸福了
+這對一個曾經在一個頁面，使用`offsetTop`來判斷目前使用者滑到哪個區塊，來幫側邊導覽列加上對應的狀態的人來說，實在太幸福了
+
 :::note
 因為他是建構式，需要使用`new`來產生IntersectionObserver實體
 :::
@@ -51,7 +52,9 @@ const observer = new IntersectionObserver((entries, observer)=>{
 ### threshold
 可設定一個值`0~1`，或是陣列`[0, 0.1, 0.5, 0.7, 1]`
 :::note
-這些數字代表的是，觀察對象與`root`交疊多少比例時觸發
+這些數字代表的是容器的閾值，他會落在容器的多少百分比。<br />
+以上述陣列為例，假設容器為 1000px ，那麼閾值分別落在 0px 、 100px 、 500px 、 700px 、 1000px。<br />
+不過實際上並不是每個閾值都會觸發，而是在與 `root` 有**交疊**的情況下才會觸發。
 :::
 
 
@@ -84,11 +87,19 @@ observer.disconnect();
 ### target
 觀察對象
 
+:::tip
+觀察對象的樣式如有 margin 或 padding ，會影響觸發的閾值。
+:::
+
 ### isIntersecting
 觀察對象是否已被觀察到 `true || false`
 
+:::note
+當畫面第一次載入時會先觸發一次，再來只有與 `root` 交疊時才會觸發 `callback` ，`isIntersecting` 不一定會需要用到
+:::
+
 ### boundingClientRect
-當有觸發事件時，該觀察對象的資訊
+觀察對象的資訊
 ```javascript
 // {
 //   width: ,
@@ -103,13 +114,60 @@ observer.disconnect();
 ```
 
 ### intersectionRect
-當有觸發事件時，該觀察對象與`root`的交集資訊
+觀察對象與`root`的交集資訊
+```javascript
+// {
+//   width: ,
+//   height: ,
+//   top: ,
+//   left: ,
+//   right: ,
+//   bottom: ,
+//   x: ,
+//   y: 
+// }
+```
+
+假設閾值是 [0, 0.25, 5, 0.75, 1] 與 `root` 交疊，基本上會有兩段：<br />
+當觀察對象從下方進入 `root`，或是上方離開 `root`。<br />
+這其中差異可以從 `intersectionRect` 的 `top`，來去判斷觀察對象在哪個判斷。<br />
+❗當 `top` 為 `0` 時，觀察對象為上方離開的狀態
+
+:::tip
+top + height = window.innerHeight
+:::
+
 
 ### intersectionRatio
-當有觸發事件時，該觀察對象跟`root`的交集比例
+觀察對象在 `root` 的交疊比例
+
+:::note
+$$
+intersectionRatio = \frac{intersectionRect's area}{target element's area}
+$$
+觀察對象與 `root` 交疊的 `height` / 觀察對象整體的 `height`
+:::
+
+:::tip
+如果要粗算 `intersectionRatio`，我們可以看所設定的 `threshold`。<br />
+當觸發是在觀察對象的下半部時， `intersectionRatio` 為 1 - `intersectionRatio` 值
+:::
 
 ### rootBounds
-觀察對象的root相關資訊
+如果 `root` 為視窗(null)，這邊的值為 `null` <br />
+當有指定 `root` 時，則是 `root` 的相關資訊。
+```javascript
+// {
+//   width: ,
+//   height: ,
+//   top: ,
+//   left: ,
+//   right: ,
+//   bottom: ,
+//   x: ,
+//   y: 
+// }
+```
 
 ## 額外思考
 因`IntersectionObserver`是畫面進入視窗(我們這邊假定root:null)就觸發。<br />
@@ -118,25 +176,23 @@ observer.disconnect();
 ```javascript
 const toggle = false; // 是否讓.show可以來回觸發
 const triggerPoint = 0.25; // 畫面多少百分比來觸發
-const thresholdPoint = () => {
+const thresholdPoint = length => {
   const thresholdArray = [];
-  for (let i = 0; i <= 10; i++) {
-    thresholdArray.push(i / 10);
+  for (let i = 0; i <= length; i++) {
+    thresholdArray.push(i / length);
   }
   return thresholdArray;
 }
 
 const callback = (entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains('show')) {
-      // 觸發值 = root高 * 百分比
-      const triggerValue = entry.rootBounds.height * triggerPoint;
-      // 如果交疊的高 大於等於 觸發值，或是觀察對象已完全進入畫面(高度不夠觸發值)
-      if (entry.intersectionRect.height >= triggerValue || entry.intersectionRatio === 1) {
-        entry.target.classList.add('show');
-        if (toggle === false) {
-          observer.unobserve(entry.target);
-        }
+    // 觸發值 = 視窗高 * 比例
+    const triggerValue = window.innerHeight * triggerPoint;
+    // 如果交疊的高 大於等於 觸發值，或是觀察對象已完全進入畫面(高度不夠觸發值)
+    if (!entry.target.classList.contains('show') && entry.intersectionRect.height >= triggerValue || entry.intersectionRatio === 1) {
+      entry.target.classList.add('show');
+      if (toggle === false) {
+        observer.unobserve(entry.target);
       }
     } else if (toggle) {
       entry.target.classList.remove('show');
@@ -144,7 +200,7 @@ const callback = (entries) => {
   })
 };
 const options = {
-  threshold: thresholdPoint()
+  threshold: thresholdPoint(10)
 };
 
 const observer = new IntersectionObserver(callback, options);
