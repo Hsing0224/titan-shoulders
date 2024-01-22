@@ -4,8 +4,6 @@ description: 好用的 Set & Map
 ---
 # 好用的 Set & Map
 
-
-
 ## Set
 `Set`可以視為是一個內容只有唯一值的Array(但他不是Array)
 

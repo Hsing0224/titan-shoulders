@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: 關於js的那些觀念
+description: 關於JS的那些觀念
 ---
 
 # JavaScript的那些觀念
@@ -93,6 +93,9 @@ JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件
 1. 先進先出 (First In, First Out，FIFO)
 2. 管理非同步任務。例如： setTimeout 、 ajax
 
+當 Stack 沒有 frame 時， Event loop 會從 Queue 的 frame 移至 Stack 執行。<br />
+由此我們知道，例如當 Web APIs 在 `setTimeout` 所設定的秒數後，將其內容放入 Queue。不是秒數到就**立即執行**，而是**即將被執行**
+
 ### Web APIs
 當 Web APIs 有事件完成後，則會將 frame 移至 Queue。<br />
 主要任務有：
@@ -105,9 +108,47 @@ JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件
 當 JavaScript Runtime 時，會執行在 Stack 裡的程式碼片段。<br />
 而萬一程式碼片段執行時間過久，其他任務無法被執行，進而造成瀏覽器停止渲染，使用者感受到卡頓或凍結。造成瀏覽體驗不佳。
 
+### 範例
+```JavaScript
+console.log('Start');
+
+function blockForAWhile() {
+	const startTime = new Date().getTime();
+	while (new Date().getTime() - startTime < 5000) {}
+}
+
+document.querySelector('button').addEventListener('click', function onClick(){
+	setTimeout(function(){
+		console.log('button click');
+	}, 1000);
+});
+
+blockForAWhile();
+
+setTimeout(function setTimeout2s(){
+	console.log('setTimeout 2s');
+}, 2000);
+
+setTimeout(function setTimeoutZero() {
+	console.log('setTimeout 0');
+}, 0);
+
+console.log('End');
+
+/* 最後輸出的 log
+Start
+End
+setTimeout 0
+setTimeout 2s
+
+(當點擊 button 後 1 秒)
+button click
+*/
+```
+
 ## Reference
-[六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)
-[MDN - 語句和聲明](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)
-[MDN - 運算子優先順序](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
-[loupe - event loop](http://latentflip.com/loupe/)
-[JavaScript Event Loop](https://www.javascripttutorial.net/javascript-event-loop/)
+> [六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)<br />
+> [MDN - 語句和聲明](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)<br />
+> [MDN - 運算子優先順序](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)<br />
+> [loupe - event loop](http://latentflip.com/loupe/)<br />
+> [JavaScript Event Loop](https://www.javascripttutorial.net/javascript-event-loop/)
