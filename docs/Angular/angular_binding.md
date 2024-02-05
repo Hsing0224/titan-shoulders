@@ -7,7 +7,7 @@ description: Angular binding
 
 ## 單向繫結 (One-way Binding)
 
-### 文字插值 (Text interpolation)
+### 內嵌繫結 (Interpolation)
 
 可利用 `{{ }}` 將資料顯示出來
 
@@ -33,8 +33,35 @@ title: string = "Hello World";
 :::
 
 ### 屬性繫結 (Property Binding)
+以 a 標籤為例，在 DOM 物件中，有一個 href 屬性，該屬性的原文為 Property<br />
+可以開啟開發者工具，側邊欄的頁籤指到 `Properties` ，則可以看到該 `tag` 的 `Properties` 。
+
+```typescript
+url = 'https://www.google.com/';
+text = 'This is link.';
+```
+
+```html
+<a [href]="url" [textContent]="text"></a>
+<!-- 輸出為
+<a href="https://www.google.com/">This is link.</a>
+-->
+```
 
 ### 屬性繫結 (Attribute Binding)
+在 HTML 規格中，標籤內屬性的原文為 Attribute<br />
+而當類似 W3C 規範的可以自由擴充的 Attribute `data-*` ，就可以使用
+
+```typescript
+title = 'This is title.';
+```
+
+```html
+<a href="https://www.google.com/" [attr.data-title]="title">This is link.</a>
+<!-- 輸出為
+<a href="https://www.google.com/" data-title="This is title.">This is link.</a>
+-->
+```
 
 ### 類別繫結 (Class Binding)
 
@@ -42,7 +69,7 @@ title: string = "Hello World";
 
 ### 事件繫結 (Event Binding)
 
-將事件綁定在 html 上，當觸發事件，就呼叫 ts 內的 function。也可以將事件或值傳遞進去給 function 使用。
+將事件綁定在 html 上，當觸發事件，就呼叫 ts 內的 method。也可以將事件或值傳遞進去給 method 使用。
 
 ```html
 <button type="button" (click)="onClick($event)">Button</button>
@@ -53,6 +80,10 @@ onClick(event) {
   console.log(event);
 }
 ```
+
+:::tip
+在 `Class` 裡的函式，不是 `function` 而是 `method`
+:::
 
 ## 雙向繫結 (Two-way Binding)
 
