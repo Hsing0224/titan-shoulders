@@ -46,3 +46,18 @@ description: Angular Router
   ],
 }
 ```
+
+## 預先載入
+
+與 `延遲載入` 相反，也可以在 `Router` 設定，將所有 `module` 先都載進來。
+
+```TypeScript
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModule
+    })
+  ],
+  exports: [RouterModule]
+})
+```
