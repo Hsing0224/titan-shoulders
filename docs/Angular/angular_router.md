@@ -9,7 +9,7 @@ description: Angular Router
 
 透過 `children` 屬性定義下一層的路由資訊。
 
-```TypeScript
+```typescript
 {
   path: 'pokemon',
   children: [
@@ -31,7 +31,7 @@ description: Angular Router
 
 為提升效能，可利用 `Router` 的延遲載入機制，在使用者點選頁面時，才載入對應的 `JavaScript` 檔案。
 
-```TypeScript
+```typescript
 {
   path: 'pokemon',
   children: [
@@ -51,7 +51,7 @@ description: Angular Router
 
 與 `延遲載入` 相反，也可以在 `Router` 設定，將所有 `module` 先都載進來。
 
-```TypeScript
+```typescript
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
