@@ -24,7 +24,7 @@ title: string = "Hello World";
 :::
 
 :::caution
-當然你也可以用在 html 標籤裡的 attribute，不過這用**屬性繫結**來綁定會更好。
+當然你也可以用在 html 標籤裡的 attribute，不過這用**屬性繫結**來綁定會更好維護和管理。
 
 ```html
 <h1 title="{{ title }}">{{ title }}</h1>
@@ -64,14 +64,49 @@ title = 'This is title.';
 ```
 
 ### 類別繫結 (Class Binding)
+可以單個設定，或是傳入一組 object 。<br />
+可用三元判斷，或者傳入變數 (boolean) 來控制 class 的顯示 / 隱藏。
+
+```typescript
+isTrue = true;
+isFalse = false;
+```
+
+```html
+<div [ngClass]="{'true-style': isTrue, 'false-style': isFalse}"></div>
+<div [class]="{'true-style': isTrue, 'false-style': isFalse}"></div>
+<div [class.true-style]="isTrue" [class.false-style]="isFalse"></div>
+```
 
 ### 樣式繫結 (Style Binding)
+可以單個設定，或是傳入一組 object 。<br />
+可用三元判斷，或者傳入值來控制 style 的數值或顯示 / 隱藏。
+
+```typescript
+isTrue = true;
+fontSize = 12;
+```
+
+```html
+<div [ngStyle]="{'backgroundColor': isTrue ? 'green' : 'red', 'font-size.px': fontSize}"></div>
+<div [style]="{'background-color': isTrue ? 'green' : 'red', 'font-size.px': fontSize}"></div>
+<div [style.background-color]="isTrue ? 'green' : 'red'" [style.font-size.px]="fontSize"></div>
+```
+
+:::tip
+如果有單位的，就必須寫 `font-size` ，沒有單位則可以寫成 `backgroundColor` 的寫法。看團隊風格而定。
+:::
+
 
 ### 事件繫結 (Event Binding)
 
 將事件綁定在 html 上，當觸發事件，就呼叫 ts 內的 method。也可以將事件或值傳遞進去給 method 使用。
 
 ```html
+<!--
+另一種寫法，但較不易閱讀，不推薦。
+<button type="button" on-click="onClick($event)">Button</button>
+-->
 <button type="button" (click)="onClick($event)">Button</button>
 ```
 
@@ -82,7 +117,7 @@ onClick(event) {
 ```
 
 :::tip
-在 `Class` 裡的函式，不是 `function` 而是 `method`
+在 `Class` 裡的不是 `function` 而是 `method` 。
 :::
 
 ## 雙向繫結 (Two-way Binding)
