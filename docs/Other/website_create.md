@@ -121,7 +121,7 @@ jobs:
 ```
 ## LINE notify
 前往[LINE notify](https://notify-bot.line.me/zh_TW/)，登入後，右上角點`自己名稱 > 個人頁面`，按下`發行權仗`。<br />
-![LINE notify](./img/notify.png)<br />
+![LINE notify](./img/create_notify.png)<br />
 整個訊息的架構為【權杖名稱】 + 設定的訊息
 
 ```yml
