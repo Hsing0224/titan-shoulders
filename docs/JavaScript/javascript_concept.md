@@ -149,14 +149,23 @@ setTimeout 2s
 ```
 
 #### 圖解
-![印出 Start](./img/concept_event-loop-flow_1.png)
-![button 監聽事件轉交 Web APIs](./img/concept_event-loop-flow_2.png)
-![執行 blockForWhile()](./img/concept_event-loop-flow_3.png)
-![模擬 blocking，並按下 button 觸發事件](./img/concept_event-loop-flow_4.png)
-![遇到 setTimeout](./img/concept_event-loop-flow_5.png)
-![遇到 setTimeout，秒數為 0](./img/concept_event-loop-flow_6.png)
-![印出 End](./img/concept_event-loop-flow_7.png)
-![Stack 無 frame，從 Queue 拿 frame 來執行](./img/concept_event-loop-flow_8.png)
+1. 印出 Start
+![印出 Start](./img/concept_event-loop-flow_1.png)<br />
+2. button 監聽事件轉交 Web APIs
+![button 監聽事件轉交 Web APIs](./img/concept_event-loop-flow_2.png)<br />
+3. 執行 blockForWhile()
+![執行 blockForWhile()](./img/concept_event-loop-flow_3.png)<br />
+4. 模擬 blocking，並按下 button 觸發事件
+![模擬 blocking，並按下 button 觸發事件](./img/concept_event-loop-flow_4.png)<br />
+5. 遇到 setTimeout，轉交 Web APIs
+![遇到 setTimeout，轉交 Web APIs](./img/concept_event-loop-flow_5.png)<br />
+6. 模擬遇到秒數為 0 的 setTimeout
+![模擬遇到秒數為 0 的 setTimeout](./img/concept_event-loop-flow_6.png)<br />
+7. 印出 End
+![印出 End](./img/concept_event-loop-flow_7.png)<br />
+8. Stack 無 frame，從 Queue 拿 frame 來執行
+![Stack 無 frame，從 Queue 拿 frame 來執行](./img/concept_event-loop-flow_8.png)<br />
+9. setTimeout 跑完丟到 Queue，再被 Event Loop 拉至 Stack 執行
 ![setTimeout 跑完丟到 Queue，再被 Event Loop 拉至 Stack 執行](./img/concept_event-loop-flow_9.png)
 ![setTimeout 跑完丟到 Queue，再被 Event Loop 拉至 Stack 執行](./img/concept_event-loop-flow_10.png)
 ![setTimeout 跑完丟到 Queue，再被 Event Loop 拉至 Stack 執行](./img/concept_event-loop-flow_11.png)
