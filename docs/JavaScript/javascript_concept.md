@@ -73,27 +73,19 @@ console.log(3 < 2 < 1); // true
 ```
 
 ## Event loop (事件循環)
-[Event Loop 的視覺化呈現](http://latentflip.com/loupe/)
-
-Event Loop 的任務是如果 `Stack` 是空的，就把 `Queue` 中的 frame 放到 `Stack` 中，直到 `Stack` 和 `Queue` 都是空的為止。
-
-### 流程描述
-當頁面載入，`JavaScript Runtime` 時，會依照撰寫的 `JavaScript` ，由上到下依序執行下來，一個程式碼片段視為一個 frame，會先放入 `Call Stack`。<br />
-如果是 `XMLHttpRequest`、`Timer`、`Event Listener`，則這些 frame 會從 `Stack` 先移到 `Web APIs` ，並繼續執行 `Stack` 裡的程式碼片段。<br />
-然而如果在 `Stack` 裡的程式碼因為等待時間過久，則會造成 `blocking`。<br />
-當 `Stack` 清空後， `Event loop` 會將 `Web APIs` 處理完，放入 `Queue` 的 frame 移至 `Stack` 裡去執行。<br />
-直到 `Stack` 和 `Queue` 都為空。
+[用網站看看 Event Loop 的流程視覺化做動](http://latentflip.com/loupe/)<br />
+![Event Loop 視覺化圖片](./img/concept_event-loop-view.jpg)
 
 ### 各作用解釋
 #### 單一執行緒 (single-threaded)
-JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件事。
+`JavaScript` 是單一執行緒，顧名思義就是一個時間點只能做一件事。
 
 #### 堆疊 (Stack)
 1. 後進先出 (Last In, First Out，LIFO)
 2. 每次呼叫一個函式，該函式會被堆疊到最頂端；當執行完畢時，該函式會從堆疊中移出。
 
 #### Web APIs
-當 Web APIs 有事件完成後，則會將 frame 移至 Queue。<br />
+當 `Web APIs` 有事件完成後，則會將 frame 移至 `Queue` 等待 `Event loop` 呼叫。<br />
 主要任務有：
 1. 發送網路請求 (XMLHttpRequest)
 2. 計時器 (Timer) 
@@ -108,11 +100,19 @@ JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件
 
 #### 阻塞 (blocking)
 阻塞通常發生在**同步**的操作上。<br />
-當 JavaScript Runtime 時，會執行在 Stack 裡的程式碼片段。<br />
+當 `JavaScript Runtime` 時，會執行在 `Stack` 裡的程式碼片段。<br />
 而萬一程式碼片段執行時間過久，其他任務無法被執行，進而造成瀏覽器停止渲染，使用者感受到卡頓或凍結。造成瀏覽體驗不佳。
 
+### 工作描述
+當頁面載入，瀏覽器的 `JavaScript` 引擎會依照撰寫的程式碼，由上到下依序執行下來。<br />
+一個程式碼片段視為一個 frame，會先放入 `Call Stack` 做執行。<br />
+當 `Stack` 遇到像是 `XMLHttpRequest`、`Timer`、`Event Listener`，這些 frame 會從 `Stack` 先移到 `Web APIs` ，並繼續執行 `Stack` 裡的程式碼片段。<br />
+萬一有 frame 在 `Stack` 裡因程式碼邏輯導致執行過久，則會造成 `blocking` 。<br />
+**當 `Stack` 清空後， `Event loop` 會將 `Web APIs` 處理完，放入 `Queue` 的 frame 移至 `Stack` 裡去執行**。<br />
+**直到 `Stack` 和 `Queue` 都為空**。
+
 ### 範例
-```JavaScript
+```javascript
 console.log('Start');
 
 function blockForAWhile() {
@@ -143,14 +143,23 @@ console.log('End');
 Start
 End
 setTimeout 0
-setTimeout 2s
-
-(當點擊 button 後 1 秒)
 button click
+setTimeout 2s
 */
 ```
 
-### 圖解
+#### 圖解
+![印出 Start](./img/concept_event-loop-flow_1.png)
+![button 監聽事件轉交 Web APIs](./img/concept_event-loop-flow_2.png)
+![執行 blockForWhile()](./img/concept_event-loop-flow_3.png)
+![模擬 blocking，並按下 button 觸發事件](./img/concept_event-loop-flow_4.png)
+![遇到 setTimeout](./img/concept_event-loop-flow_5.png)
+![遇到 setTimeout，秒數為 0](./img/concept_event-loop-flow_6.png)
+![印出 End](./img/concept_event-loop-flow_7.png)
+![Stack 無 frame，從 Queue 拿 frame 來執行](./img/concept_event-loop-flow_8.png)
+![setTimeout 跑完丟到 Queue，再被 Event Loop 拉至 Stack 執行](./img/concept_event-loop-flow_9.png)
+![setTimeout 跑完丟到 Queue，再被 Event Loop 拉至 Stack 執行](./img/concept_event-loop-flow_10.png)
+![setTimeout 跑完丟到 Queue，再被 Event Loop 拉至 Stack 執行](./img/concept_event-loop-flow_11.png)
 
 ## Reference
 > [六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)<br />
