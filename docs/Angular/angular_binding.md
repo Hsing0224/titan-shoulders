@@ -69,13 +69,12 @@ title = 'This is title.';
 
 ```typescript
 isTrue = true;
-isFalse = false;
 ```
 
 ```html
-<div [ngClass]="{'true-style': isTrue, 'false-style': isFalse}"></div>
-<div [class]="{'true-style': isTrue, 'false-style': isFalse}"></div>
-<div [class.true-style]="isTrue" [class.false-style]="isFalse"></div>
+<div [ngClass]="{'true-style': isTrue, 'false-style': !isTrue}"></div>
+<div [class]="{'true-style': isTrue, 'false-style': !isTrue}"></div>
+<div [class.true-style]="isTrue" [class.false-style]="!isTrue"></div>
 ```
 
 ### 樣式繫結 (Style Binding)
@@ -124,4 +123,5 @@ onClick(event) {
 
 ## Reference
 
-> https://angular.tw/guide/property-binding
+> [理解 Angular - 繫結 ](https://angular.tw/guide/property-binding) <br />
+> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
