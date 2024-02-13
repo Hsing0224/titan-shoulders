@@ -121,7 +121,27 @@ onClick(event) {
 
 ## 雙向繫結 (Two-way Binding)
 
+當在建置頁面的時候，有時需求是在 `input` 輸入值時，要立刻處理並且顯示在網頁上。這時我們可以使用雙向繫結來處理這個需求。
+
+### 使用方式
+
+語法為**屬性繫結**跟**事件繫結**的結合。<br />
+`[()]` *在盒子裡的有根香蕉*，而綁定一個 `Property`。
+
+```typescript
+keyword = '';
+```
+
+```html
+<input type="search" [(ngModel)]="keyword">
+```
+
+:::tip
+需要引入 `FormsModule`
+:::
+
 ## Reference
 
 > [理解 Angular - 繫結 ](https://angular.tw/guide/property-binding) <br />
-> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
+> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/) <br />
+> [凱哥寫程式 - Angular 入門教學](https://www.youtube.com/playlist?list=PLneJIGUTIItu6QrNxEBAUgTXZaHIpO8D9)
