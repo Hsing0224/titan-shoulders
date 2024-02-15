@@ -4,10 +4,11 @@ description: Decorator
 ---
 
 # Decorator(裝飾器)
+`Angular` 用來定義 `Class` 的各種設定
 
 ## @ngModule
 
-當建好一個 angular app，其最主要的`app.module`檔案預設配置是這樣
+當建好一個 angular app，其最主要的 `app.module` 檔案預設配置是這樣
 
 ```typescript app.module.ts
 import { NgModule } from "@angular/core";
