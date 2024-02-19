@@ -8,7 +8,8 @@ description: Decorator
 
 ## @ngModule
 
-當建好一個 angular app，其最主要的 `app.module` 檔案預設配置是這樣
+當建好一個 angular app，其最主要的 `app.module` 檔案預設配置是這樣。<br />
+或是將 `Component` 封裝成 `Module` 時， `*.module.ts` 會有對應的設定。
 
 ```typescript app.module.ts
 import { NgModule } from "@angular/core";
@@ -24,6 +25,19 @@ import { AppComponent } from "./app.component";
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+```
+
+```typescript custom.module.ts
+import { NgModule } from "@angular/core";
+import { CommonModule } from '@angular/common';
+import { CustomComponent } from './custom.component';
+
+@NgModule({
+  declarations: [CustomComponent],
+  imports: [CommonModule],
+  exports: [],
+})
+export class CustomModule {}
 ```
 
 ### declarations
@@ -52,3 +66,30 @@ export class AppModule {}
 
 BrowserModule 提供了啟動和執行瀏覽器應用時必須的服務(也包含 CommonModule)，只適用於根元素。<br />
 CommonModule 包含通用指令(ngIf、ngFor)
+
+
+## @Component
+
+利用 Angular CLI 建立 `Component` 時，在 `*.component.ts` 會宣告該 `Component` 的配置。
+
+```typescript
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-custom',
+  templateUrl: './custom.component.html',
+  styleUrls: ['./custom.component.scss']
+})
+```
+
+### selector
+以 `CSS` 的選擇器觀念去定義 `selector`。這邊也可以改成其他 CSS 選取器，例如： `[app-custom]`。
+
+:::note
+預設為 `app-*` ，如果要修改前綴可以由 `angular.json` 的 `"prefix"` 設定。
+:::
+
+### templateUrl
+一般設定為連至 `HTML`，但也可以將 `templateUrl` 改用 `template`，並使用 `JavaScript` 的字串模板來寫 `HTML`。
+
+### styleUrls
+`styleUrls` 為一個陣列來做宣告，故可以引入多個 `CSS` 來給該 Component 套用樣式。
