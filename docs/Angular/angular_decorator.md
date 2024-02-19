@@ -93,3 +93,14 @@ import { Component } from '@angular/core';
 
 ### styleUrls
 `styleUrls` 為一個陣列來做宣告，故可以引入多個 `CSS` 來給該 Component 套用樣式。
+
+### encapsulation
+設置 Component 的封裝模式。
+
+- `ViewEncapsulation.None` ：不會對 Component 進行封裝。
+- `ViewEncapsulation.Emulated` ：默認的封裝模式，只會對該 Component 有效。
+- `ViewEncapsulation.ShadowDom` ：使用 `Web Components` 的 `Shadow DOM` 技術，當然前提是瀏覽器要支援 `Shadow DOM`。
+
+## Reference
+
+> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/) 
