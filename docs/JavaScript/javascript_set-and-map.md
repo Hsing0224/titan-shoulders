@@ -1,8 +1,8 @@
 ---
 sidebar_position: 12
-description: 好用的 Set & Map
+description: Set & Map
 ---
-# 好用的 Set & Map
+# Set & Map
 
 ## Set
 `Set`可以視為是一個內容只有唯一值的Array(但他不是Array)
