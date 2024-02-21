@@ -5,11 +5,11 @@ description: I watch you
 
 # IntersectionObserver
 
-這個API主要是幫我們觀察，當我們觀察的對象是否與(預設為視窗的viewport)交疊，可以做後續的動作。 <br />
-這對一個曾經在一個頁面，使用`offsetTop`來判斷目前使用者滑到哪個區塊，來幫側邊導覽列加上對應的狀態的人來說，實在太幸福了
+這個API主要是幫我們觀察，當我們觀察的對象是否與 (預設為視窗的 viewport ) 交疊，可以做後續的動作。 <br />
+這對一個曾經在一個頁面，使用 `offsetTop` 來判斷目前使用者滑到哪個區塊，再幫側邊導覽列加上對應的狀態的人來說，實在太幸福了
 
 :::note
-因為他是建構式，需要使用`new`來產生IntersectionObserver實體
+因為他是建構式，需要使用 `new` 來產生 IntersectionObserver 實體
 :::
 ```javascript
 const observer = new IntersectionObserver((entries, observer)=>{
@@ -26,31 +26,30 @@ const observer = new IntersectionObserver((entries, observer)=>{
 ## options
 
 ### root
-如果值為`null`，則為viewport，<br />
-要監聽viewport之外的DOM
+預設為 `null` ，則為 viewport (視窗)。
 ```javascript
 {
   root: document.querySelector('.box')
 }
 ```
 :::note
-.box自己本身需要有scroll，這樣才有效果
+.box 自己本身需要有 scroll ，這樣才有效果
 :::
 :::caution
-如果`root`為`null`，`rootMargin`無作用
+如果 `root` 為 `null` ， `rootMargin` 無作用
 :::
 
 ### rootMargin
-與`margin`一樣可以寫成 1 到 4 個值來控制個邊界
+與 `margin` 一樣可以寫成 1 到 4 個值來控制個邊界
 :::note
 可接受正值或負值，正值為擴大，負值為縮小
 :::
 :::danger
-如果值為`0`，需要寫成`0px`
+如果值為 `0` ，需要寫成 `0px`
 :::
 
 ### threshold
-可設定一個值`0~1`，或是陣列`[0, 0.1, 0.5, 0.7, 1]`
+可設定一個值 `0~1` ，或是陣列 `[0, 0.1, 0.5, 0.7, 1]`
 :::note
 這些數字代表的是容器的閾值，他會落在容器的多少百分比。<br />
 以上述陣列為例，假設容器為 1000px ，那麼閾值分別落在 0px 、 100px 、 500px 、 700px 、 1000px。<br />
@@ -68,16 +67,16 @@ items.forEach(item => observer.observe(item));
 ```
 
 ### unobserve
-註銷觀察的某個對象，可再用`observe`來註冊觀察的對象
+註銷觀察的某個對象，可再用 `observe` 來註冊觀察的對象
 ```javascript
 observer.unobserve(item);
 ```
 :::tip
-註冊或註銷觀察，是傳入element
+註冊或註銷觀察，是傳入 element
 :::
 
 ### disconnect
-將註冊的對象全部移除，但實體還存在，故可再用`observe`來註冊觀察的對象
+將註冊的對象全部移除，但實體還存在，故可再用 `observe` 來註冊觀察的對象
 ```javascript
 observer.disconnect();
 ```
@@ -92,10 +91,10 @@ observer.disconnect();
 :::
 
 ### isIntersecting
-觀察對象是否已被觀察到 `true || false`
+觀察對象是否已被觀察到 `true` || `false`
 
 :::note
-當畫面第一次載入時會先觸發一次，再來只有與 `root` 交疊時才會觸發 `callback` ，`isIntersecting` 不一定會需要用到
+當畫面第一次載入時會先觸發一次，再來只有與 `root` 交疊時才會觸發 `callback` ， `isIntersecting` 不一定會需要用到
 :::
 
 ### boundingClientRect
@@ -114,7 +113,7 @@ observer.disconnect();
 ```
 
 ### intersectionRect
-觀察對象與`root`的交集資訊
+觀察對象與 `root` 的交集資訊
 ```javascript
 // {
 //   width: ,
@@ -128,10 +127,13 @@ observer.disconnect();
 // }
 ```
 
-假設閾值是 [0, 0.25, 5, 0.75, 1] 與 `root` 交疊，基本上會有兩段：<br />
-當觀察對象從下方進入 `root`，或是上方離開 `root`。<br />
+假定觀察對象的整體高度大於 `root` ， 閾值是 [0, 0.25, 5, 0.75, 1] ，在與 `root` 交疊，基本上會有兩段被觸發：<br />
+
+1. 觀察對象上部與 `root` 的交疊。
+2. 觀察對象下部與 `root` 的交疊。
+
 這其中差異可以從 `intersectionRect` 的 `top`，來去判斷觀察對象在哪個判斷。<br />
-❗當 `top` 為 `0` 時，觀察對象為上方離開的狀態
+❗當 `top` 為 `0` 時，觀察對象正貼與 `root` 頂端。
 
 :::tip
 top + height = window.innerHeight
@@ -145,6 +147,7 @@ top + height = window.innerHeight
 $$
 intersectionRatio = \frac{intersectionRect's area}{target element's area}
 $$
+<br />
 觀察對象與 `root` 交疊的 `height` / 觀察對象整體的 `height`
 :::
 
