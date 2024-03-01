@@ -49,7 +49,6 @@ description: 圖片最佳化
    - 依寬度 (width descriptor)。 ex: `300w`
    - 依像素密度 (pixel density descriptor)。 ex: `2x`
 
-#### 範例
 ```html
 <picture>
 	<source
@@ -104,5 +103,21 @@ description: 圖片最佳化
 經測試 `srcset` 搭配 `sizes` ，在行動裝置下才會有作用。<br />
 而當最大尺寸的圖片有載入後，就會使用最大尺寸圖片來呈現。
 :::
+
+```html
+<img
+	src="default.jpg"
+	srcset="
+		small.webp 400w,
+		medium.webp 700w,
+	  large.webp 1000w
+	"
+	sizes="
+		(min-width: 769px) 50vw,
+		500px
+	"
+	alt=""
+/>
+```
 
 [測試範例](https://codepen.io/starRandy/full/PogYwGW)
