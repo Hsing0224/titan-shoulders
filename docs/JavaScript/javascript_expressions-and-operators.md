@@ -1,6 +1,6 @@
 ---
-sidebar_position: 2
-description: 一些不懂的小東西
+sidebar_position: 12
+description: 運算式與運算子
 ---
 
 # 運算式與運算子
