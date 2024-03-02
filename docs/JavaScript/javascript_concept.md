@@ -154,6 +154,10 @@ console.log({} == {}); // false
 console.log([] == []); // false
 ```
 
+## Truthy 和 Falsy
+
+[JavaScript Equality Table/](https://dorey.github.io/JavaScript-Equality-Table/)
+
 ## Reference
 
 > [六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)<br /> > [MDN - 語句和聲明](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)<br /> > [MDN - 運算子優先順序](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
