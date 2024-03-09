@@ -33,12 +33,13 @@ title: string = "Hello World";
 :::
 
 ### 屬性繫結 (Property Binding)
+
 以 a 標籤為例，在 DOM 物件中，有一個 href 屬性，該屬性的原文為 Property<br />
 可以開啟開發者工具，側邊欄的頁籤指到 `Properties` ，則可以看到該 `tag` 的 `Properties` 。
 
 ```typescript
-url = 'https://www.google.com/';
-text = 'This is link.';
+url = "https://www.google.com/";
+text = "This is link.";
 ```
 
 ```html
@@ -49,11 +50,12 @@ text = 'This is link.';
 ```
 
 ### 屬性繫結 (Attribute Binding)
+
 在 HTML 規格中，標籤內屬性的原文為 Attribute<br />
 而當類似 W3C 規範的可以自由擴充的 Attribute `data-*` ，就可以使用
 
 ```typescript
-title = 'This is title.';
+title = "This is title.";
 ```
 
 ```html
@@ -64,6 +66,7 @@ title = 'This is title.';
 ```
 
 ### 類別繫結 (Class Binding)
+
 可以單個設定，或是傳入一組 object 。<br />
 可用三元判斷，或者傳入變數 (boolean) 來控制 class 的顯示 / 隱藏。
 
@@ -78,6 +81,7 @@ isTrue = true;
 ```
 
 ### 樣式繫結 (Style Binding)
+
 可以單個設定，或是傳入一組 object 。<br />
 可用三元判斷，或者傳入值來控制 style 的數值或顯示 / 隱藏。
 
@@ -87,15 +91,17 @@ fontSize = 12;
 ```
 
 ```html
-<div [ngStyle]="{'backgroundColor': isTrue ? 'green' : 'red', 'font-size.px': fontSize}"></div>
-<div [style]="{'background-color': isTrue ? 'green' : 'red', 'font-size.px': fontSize}"></div>
-<div [style.background-color]="isTrue ? 'green' : 'red'" [style.font-size.px]="fontSize"></div>
+<div
+  [ngStyle]="{'backgroundColor': isTrue ? 'green' : 'red', 'fontSize.px': fontSize}"
+></div>
+<div
+  [style]="{'background-color': isTrue ? 'green' : 'red', 'font-size.px': fontSize}"
+></div>
+<div
+  [style.background-color]="isTrue ? 'green' : 'red'"
+  [style.font-size.px]="fontSize"
+></div>
 ```
-
-:::tip
-如果有單位的，就必須寫 `font-size` ，沒有單位則可以寫成 `backgroundColor` 的寫法。看團隊風格而定。
-:::
-
 
 ### 事件繫結 (Event Binding)
 
@@ -126,14 +132,14 @@ onClick(event) {
 ### 使用方式
 
 語法為**屬性繫結**跟**事件繫結**的結合。<br />
-`[()]` *在盒子裡的有根香蕉*，而綁定一個 `Property`。
+`[()]` _在盒子裡的有根香蕉_，而綁定一個 `Property`。
 
 ```typescript
-keyword = '';
+keyword = "";
 ```
 
 ```html
-<input type="search" [(ngModel)]="keyword">
+<input type="search" [(ngModel)]="keyword" />
 ```
 
 :::tip
@@ -142,6 +148,4 @@ keyword = '';
 
 ## Reference
 
-> [理解 Angular - 繫結 ](https://angular.tw/guide/property-binding) <br />
-> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/) <br />
-> [凱哥寫程式 - Angular 入門教學](https://www.youtube.com/playlist?list=PLneJIGUTIItu6QrNxEBAUgTXZaHIpO8D9)
+> [理解 Angular - 繫結 ](https://angular.tw/guide/property-binding) <br /> > [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/) <br /> > [凱哥寫程式 - Angular 入門教學](https://www.youtube.com/playlist?list=PLneJIGUTIItu6QrNxEBAUgTXZaHIpO8D9)
