@@ -12,13 +12,13 @@ description: Directives
 會修改元素的外觀或行為
 
 ### NgModule
-使用方法可參考[繫結 - 雙向繫結](/docs/Angular/angular_binding.md#binding-two-way-binding)
+使用方法可參考[繫結 - 雙向繫結](/docs/Angular/angular_binding.md#雙向繫結-two-way-binding)
 
 ### NgStyle
-使用方法可參考[繫結 - 樣式繫結](/docs/Angular/angular_binding.md#binding-style-binding)
+使用方法可參考[繫結 - 樣式繫結](/docs/Angular/angular_binding.md#樣式繫結-style-binding)
 
 ### NgClass
-使用方法可參考[繫結 - 類別繫結](/docs/Angular/angular_binding.md#binding-class-binding)
+使用方法可參考[繫結 - 類別繫結](/docs/Angular/angular_binding.md#類別繫結-class-binding)
 
 ## 結構型指令 (Structure Directives)
 
