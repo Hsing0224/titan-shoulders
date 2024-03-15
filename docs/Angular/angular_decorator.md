@@ -3,7 +3,7 @@ sidebar_position: 3
 description: Decorator
 ---
 
-# Decorator(裝飾器)
+# Decorator (裝飾器)
 `Angular` 用來定義 `Class` 的各種設定
 
 ## @ngModule
