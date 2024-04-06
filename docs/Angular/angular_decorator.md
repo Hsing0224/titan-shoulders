@@ -151,6 +151,34 @@ export class ChildComponent {
 <app-child fontSize="30"></app-child>
 ```
 
+## @Output
+
+子元件可以透過 @Output 自定義，來讓資料傳遞到 父元件。
+
+```typescript child.component.ts
+export class ChildComponent {
+  @Output() sizeChange = new EventEmmiter<number>();
+
+  sizeChangeHandler(value: number) {
+    this.size = value;
+    this.sizeChange.emit(this.size); // 發出訊號
+  }
+}
+```
+
+```html parent.component.html
+<!-- 當子元件 emit 訊號時觸發，$event 為子元件 emit 的 this.size -->
+<app-child (sizeChange)="onChildSizeChange($event)"></app-child>
+```
+
+```typescript parent.component.ts
+export class ParentComponent {
+  onChildSizeChange(value: number) {
+    console.log(value);
+  }
+}
+```
+
 ## Reference
 
 > [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
