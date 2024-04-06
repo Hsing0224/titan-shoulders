@@ -4,7 +4,8 @@ description: Decorator
 ---
 
 # Decorator (裝飾器)
-`Angular` 用來定義 `Class` 的各種設定
+
+讓開發者能夠使用元數據來定義和配置 Angular 中的 Module、Directives、Service 和 Component，從而實現更好的模組化和可維護性
 
 ## @ngModule
 
@@ -29,8 +30,8 @@ export class AppModule {}
 
 ```typescript custom.module.ts
 import { NgModule } from "@angular/core";
-import { CommonModule } from '@angular/common';
-import { CustomComponent } from './custom.component';
+import { CommonModule } from "@angular/common";
+import { CustomComponent } from "./custom.component";
 
 @NgModule({
   declarations: [CustomComponent],
@@ -67,7 +68,6 @@ export class CustomModule {}
 BrowserModule 提供了啟動和執行瀏覽器應用時必須的服務(也包含 CommonModule)，只適用於根元素。<br />
 CommonModule 包含通用指令(ngIf、ngFor)
 
-
 ## @Component
 
 利用 Angular CLI 建立 `Component` 時，在 `*.component.ts` 會宣告該 `Component` 的配置。
@@ -82,6 +82,7 @@ import { Component } from '@angular/core';
 ```
 
 ### selector
+
 以 `CSS` 的選擇器觀念去定義 `selector`。這邊也可以改成其他 CSS 選取器，例如： `[app-custom]`。
 
 :::note
@@ -89,12 +90,15 @@ import { Component } from '@angular/core';
 :::
 
 ### templateUrl
+
 一般設定為連至 `HTML`，但也可以將 `templateUrl` 改用 `template`，並使用 `JavaScript` 的字串模板來寫 `HTML`。
 
 ### styleUrls
+
 `styleUrls` 為一個陣列來做宣告，故可以引入多個 `CSS` 來給該 Component 套用樣式。
 
 ### encapsulation
+
 設置 Component 的封裝模式。
 
 - `ViewEncapsulation.None` ：不會對 Component 進行封裝。
@@ -103,4 +107,4 @@ import { Component } from '@angular/core';
 
 ## Reference
 
-> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/) 
+> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
