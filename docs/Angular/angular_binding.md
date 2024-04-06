@@ -65,6 +65,12 @@ title = "This is title.";
 -->
 ```
 
+如果要用 `Attribute Binding` 來控制 HTML 標籤的 `disabled` 屬性，其設定值為 `null` 跟 `disabled`。
+
+```html
+<button type="button" [attr.disabled]="condition ? 'disabled': null"></button>
+```
+
 ### 類別繫結 (Class Binding)
 
 可以單個設定，或是傳入一組 object 。<br />
