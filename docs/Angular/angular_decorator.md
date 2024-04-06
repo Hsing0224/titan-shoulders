@@ -135,6 +135,22 @@ export class ChildComponent {
 }
 ```
 
+## @Attribute
+
+如果子元件需要從父層設定屬性值，除了 @Input 之外，也可以使用 @Attribute 來接收。
+
+```typescript child.component.ts
+export class ChildComponent {
+  constructor(@Attribute("fontSize") fontSize: number) {
+    this.fontSize = fontSize || 16; // 可以給予預設值
+  }
+}
+```
+
+```html parent.component.html
+<app-child fontSize="30"></app-child>
+```
+
 ## Reference
 
 > [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
