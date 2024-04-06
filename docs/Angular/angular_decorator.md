@@ -105,6 +105,36 @@ import { Component } from '@angular/core';
 - `ViewEncapsulation.Emulated` ：默認的封裝模式，只會對該 Component 有效。
 - `ViewEncapsulation.ShadowDom` ：使用 `Web Components` 的 `Shadow DOM` 技術，當然前提是瀏覽器要支援 `Shadow DOM`。
 
+## @Input
+
+在元件內用 `@Input` 定義好變數，用來接收父元件的資料。因應各種不同的需求
+
+```typescript child.component.ts
+export class ChildComponent {
+  @Input() fontSize: number = 16; // 可以給予預設值
+}
+```
+
+```html parent.component.html
+<app-child [fontSize]="30"></app-child>
+```
+
+### 可以利用 getter 和 setter 來讓值傳入時可以做處理
+
+```typescript child.component.ts
+export class ChildComponent {
+  private _fontSize: number = 16;
+  @Input()
+  set fontSize(value: number) {
+    this._fontSize = value;
+    console.log(`fonSize 設定值為 #{value}`);
+  }
+  get fontSize(): number {
+    return this._fontSize;
+  }
+}
+```
+
 ## Reference
 
 > [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
