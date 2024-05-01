@@ -127,7 +127,7 @@ export class ChildComponent {
   @Input()
   set fontSize(value: number) {
     this._fontSize = value;
-    console.log(`fonSize 設定值為 #{value}`);
+    console.log(`fonSize 設定值為 ${value}`);
   }
   get fontSize(): number {
     return this._fontSize;
