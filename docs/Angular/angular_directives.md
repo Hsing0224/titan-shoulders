@@ -105,6 +105,28 @@ TODO: trackBy 待補
 </ul>
 ```
 
+### ngTemplateOutlet
+
+搭配範本變數及頁面範本使用，來輸出 `ng-template`，也可以帶值進去，讓資料的呈現有更大的彈性。<br />
+[另一種寫法](/docs/Angular/angular_template-reference.md#ngtemplateoutlet)
+
+```html
+<ng-container
+  *ngTemplateOutlet="data.length ? hasData : empty; context: context"
+></ng-container>
+<ng-template #hasData let-value let-data="name">
+  有資料時會顯示，也會顯示傳入的值： {{ value }}, {{ data }}
+</ng-template>
+<ng-template #empty> 當資料是空的時候顯示這個 </ng-template>
+```
+
+```typescript
+context = {
+  $implicit: "abc",
+  name: 123,
+};
+```
+
 ## Reference
 
 > [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
