@@ -91,17 +91,18 @@ Angular 可以建立一個頁面範本，利用 `ng-content` 做預留的空間�
 ```html title="child.component.html"
 <div style="color: red;">/*-- 沒有特別指定的 ng-content 開始 --*/</div>
 <ng-content></ng-content>
-<div style="color: red;">
-  /*-- 沒有特別指定的 ng-content 結束，ng-content select="header" 開始 --*/
-</div>
+<div style="color: red;">/*-- 沒有特別指定的 ng-content 結束 --*/</div>
+<div style="color: red;">/*-- ng-content select="header" 開始 --*/</div>
 <ng-content select="header"></ng-content>
+<div style="color: red;">/*-- ng-content select="header" 結束 --*/</div>
 <div style="color: red;">
-  /*-- ng-content select="header" 結束，ng-content select="[content]" 開始 --*/
+  /*-- ng-content select="[content]:not(.not-entry-content)" 開始 --*/
 </div>
-<ng-content select="[content]"></ng-content>
+<ng-content select="[content]:not(.not-entry-content)"></ng-content>
 <div style="color: red;">
-  /*-- ng-content select="[content]" 結束，ng-content select=".footer" 開始 --*/
+  /*-- ng-content select="[content]:not(.not-entry-content)" 結束 --*/
 </div>
+<div style="color: red;">/*-- ng-content select=".footer" 開始 --*/</div>
 <ng-content select=".footer"></ng-content>
 <div style="color: red;">/*-- ng-content select=".footer" 結束 --*/</div>
 ```
@@ -113,6 +114,9 @@ Angular 可以建立一個頁面範本，利用 `ng-content` 做預留的空間�
   <div body>這是 attribute [body] 的</div>
   <div content>這會放在 select="[content]"，會依序放入指定的位置</div>
   <div content>這會放在 select="[content]"</div>
+  <div content class="not-entry-content">
+    有 content 這個 attribute，但也有 .not-entry-content
+  </div>
   <div>沒有特別指定的</div>
   <div content>這會放在 select="[content]"，多個也沒關係</div>
   <div>看來不存在指定的內容都會放在純 ng-content 裡</div>
