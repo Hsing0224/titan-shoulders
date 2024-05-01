@@ -13,15 +13,15 @@ description: Directives
 
 會修改元素的外觀或行為
 
-### NgModule
+### ngModule
 
 使用方法可參考[繫結 - 雙向繫結](/docs/Angular/angular_binding.md#雙向繫結-two-way-binding)
 
-### NgStyle
+### ngStyle
 
 使用方法可參考[繫結 - 樣式繫結](/docs/Angular/angular_binding.md#樣式繫結-style-binding)
 
-### NgClass
+### ngClass
 
 使用方法可參考[繫結 - 類別繫結](/docs/Angular/angular_binding.md#類別繫結-class-binding)
 
@@ -33,9 +33,9 @@ description: Directives
 在簡易寫法時，Angular 只允許一個結構型指令
 :::
 
-### NgSwitch
+### ngSwitch
 
-搭配 `NgSwitchCase` 和 `NgSwitchDefault` 使用。
+搭配 `ngSwitchCase` 和 `ngSwitchDefault` 使用。
 
 ```html
 <div [ngSwitch]="condition">
@@ -46,7 +46,7 @@ description: Directives
 </div>
 ```
 
-### NgFor
+### ngFor
 
 ```html
 <ul>
@@ -88,7 +88,7 @@ description: Directives
 TODO: trackBy 待補
 :::
 
-### NgIf
+### ngIf
 
 利用 `true || false`，來決定是否要顯示在頁面上。<br />
 因為一個元素只能一個結構型指令的限制關係，如果多一個 element 來放置結構型指令，則會改變 HTML 的結構；故可以用 `ng-container` 替代，保持 HTML 結構上的完整。
