@@ -1,6 +1,6 @@
 ---
 sidebar_position: 6
-description: Template Reference & Template Reference Variables
+description: Template Reference Variables & Template Reference
 ---
 
 # 範本參考變數及頁面範本
@@ -84,6 +84,42 @@ value = "";
 ```
 
 ### ng-content
+
+Angular 可以建立一個頁面範本，利用 `ng-content` 做預留的空間，讓父元件可以放入內容到指定的位置。<br />
+`ng-content` 也可以指定 `select` 屬性，透過標籤、類別、屬性的方法到指定的 `ng-content` 裡。
+
+```html title="child.component.html"
+<div style="color: red;">/*-- 沒有特別指定的 ng-content 開始 --*/</div>
+<ng-content></ng-content>
+<div style="color: red;">
+  /*-- 沒有特別指定的 ng-content 結束，ng-content select="header" 開始 --*/
+</div>
+<ng-content select="header"></ng-content>
+<div style="color: red;">
+  /*-- ng-content select="header" 結束，ng-content select="[content]" 開始 --*/
+</div>
+<ng-content select="[content]"></ng-content>
+<div style="color: red;">
+  /*-- ng-content select="[content]" 結束，ng-content select=".footer" 開始 --*/
+</div>
+<ng-content select=".footer"></ng-content>
+<div style="color: red;">/*-- ng-content select=".footer" 結束 --*/</div>
+```
+
+```html title="parent.component.html"
+<app-child>
+  <div class="footer">這會放在 select=".footer"</div>
+  <header>這會放在 select="header"</header>
+  <div body>這是 attribute [body] 的</div>
+  <div content>這會放在 select="[content]"，會依序放入指定的位置</div>
+  <div content>這會放在 select="[content]"</div>
+  <div>沒有特別指定的</div>
+  <div content>這會放在 select="[content]"，多個也沒關係</div>
+  <div>看來不存在指定的內容都會放在純 ng-content 裡</div>
+</app-child>
+```
+
+![ng-content 測試結果](./img/angular_template-reference.png)
 
 ## Reference
 
