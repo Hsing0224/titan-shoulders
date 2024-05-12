@@ -65,19 +65,52 @@ class ExampleClass {
 
 ## ngAfterContentInit
 
+`ng-content` ，內容完成嵌套後呼叫。
+
 ## ngAfterContentChecked
+
+在 `ng-content` ，內容變更時會在 `doCheck()` 後觸發。
 
 ## ngAfterViewInit
 
+視圖完成後呼叫。
+
 ## ngAfterViewChecked
 
+視圖更新的時候會被呼叫。值的變更、setTimeout、call API、call Service。
+
 ## ngOnDestroy
+
+當該組件被銷毀時呼叫。
 
 ## 只在瀏覽器端執行的 hook
 
 ### afterRender
 
 ### afterNextRender
+
+## 思考
+
+### 一個父元件包一個子元件，生命週期為何？
+
+測試為兩個 component ，在塞入各個 hook 。<br />
+其狀態為：
+
+```powershell
+parent ngOnInit
+parent ngDoCheck
+parent ngAfterContentInit
+parent ngAfterContentChecked
+child ngOnChanges
+child ngOnInit
+child ngDoCheck
+child ngAfterContentInit
+child ngAfterContentChecked
+child ngAfterViewInit
+child ngAfterViewChecked
+parent ngAfterViewInit
+parent ngAfterViewChecked
+```
 
 ## reference
 
