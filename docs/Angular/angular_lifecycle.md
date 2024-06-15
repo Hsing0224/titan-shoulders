@@ -11,9 +11,10 @@ description: lifecycle
 |    2     |       ngOnInit        |       ngDoCheck       |           |
 |    3     |       ngDoCheck       | ngAfterContentChecked |           |
 |    4     |  ngAfterContentInit   |  ngAfterViewChecked   |           |
-|    5     | ngAfterContentChecked |                       |           |
+|    5     | ngAfterContentChecked |      afterRender      |           |
 |    6     |    ngAfterViewInit    |                       |           |
 |    7     |  ngAfterViewChecked   |                       |           |
+|    8     |    afterNextRender    |                       |           |
 
 可以在 class 使用 `implements` 來讓該 class 需實作這個 hook ，否則會拋出錯誤。
 
@@ -85,9 +86,22 @@ class ExampleClass {
 
 ## 只在瀏覽器端執行的 hook
 
-### afterRender
+```markdown
+:::caution
+這兩個 hook 在 angular 16 以上才可以使用。
+:::
+```
 
 ### afterNextRender
+
+初始化時會執行。<br />
+放在 `constructor` 內，但會在 `ngAfterViewChecked` 後才被呼叫。<br />
+與 `afterRender` 執行的先後順序為在 `constructor` 內的先後順序。
+
+### afterRender
+
+在 DOM 有被改變時觸發。<br />
+順序在 `ngAfterViewChecked` 之後會被呼叫。
 
 ## 思考
 
