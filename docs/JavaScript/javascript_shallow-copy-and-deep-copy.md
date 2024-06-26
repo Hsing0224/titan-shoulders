@@ -97,6 +97,13 @@ console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Pl
 
 ## 深拷貝(Deep Copy)
 
+:::info
+時代在變，現在可以直接使用 `structuredClone()` 來做深拷貝。
+:::
+
+<!-- TODO -->
+<!-- 補充 structuredClone() 使用方法 -->
+
 當要複製陣列或物件有兩層以上，如果需要完全獨立，就必須使用深拷貝
 
 ```javascript
