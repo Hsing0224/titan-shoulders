@@ -45,3 +45,7 @@ nvm use <version>
 ```powershell
 Now using node v20.13.1 (npm v10.8.1)
 ```
+
+## Reference
+
+> [nvm - GitHub](https://github.com/nvm-sh/nvm)
