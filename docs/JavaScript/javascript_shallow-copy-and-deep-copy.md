@@ -173,4 +173,7 @@ function deepCopy(obj) {
 
 ## Reference
 
-> [MDN - Shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)<br /> > [MDN - Deep copy](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)<br /> > [為了轉生而點技能-JavaScript，day8(淺筆記-物件之淺層複製與深層複製](https://ithelp.ithome.com.tw/articles/10282829)<br /> > [JS 中的淺拷貝 (Shallow copy) 與深拷貝 (Deep copy) 原理與實作](https://www.programfarmer.com/articles/2021/javascript-shallow-copy-deep-copy)
+> [Shallow copy - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)<br />
+> [Deep copy - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)<br /> > 
+> [為了轉生而點技能-JavaScript，day8(淺筆記-物件之淺層複製與深層複製 - openthedoor2004](https://ithelp.ithome.com.tw/articles/10282829)<br />
+> [JS 中的淺拷貝 (Shallow copy) 與深拷貝 (Deep copy) 原理與實作 - 城市碼農](https://www.programfarmer.com/articles/2021/javascript-shallow-copy-deep-copy)

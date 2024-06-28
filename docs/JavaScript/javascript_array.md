@@ -520,4 +520,4 @@ arr.with(-1, 4); // [0, 1, 2, 4]
 
 ## Reference
 
-> [MDN - Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
+> [Array - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)

@@ -73,5 +73,6 @@ Angular 裡，一個工作空間 ( Workspace ) 可以新增一至多個專案。
 
 ## Reference
 
-[凱哥 - angular 入門教學](https://www.youtube.com/playlist?list=PLneJIGUTIItu6QrNxEBAUgTXZaHIpO8D9)
-[官方文件](https://angular.io/guide/workspace-config)
+> [angular 入門教學 - 凱哥寫程式](https://www.youtube.com/playlist?list=PLneJIGUTIItu6QrNxEBAUgTXZaHIpO8D9) <br />
+> [Angular workspace configuration - Angular](https://angular.io/guide/workspace-config) <br />
+> [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)

@@ -219,4 +219,5 @@ for (let i = 0; i < 10; i++) {
 
 ## Reference
 
-> [淺入淺出 Generator Function](https://denny.qollie.com/2016/05/08/es6-generator-func/)<br /> > [[JS] JavaScript Generator 的使用](https://pjchender.dev/javascript/js-generator/)
+> [淺入淺出 Generator Function - Denny Ku](https://denny.qollie.com/2016/05/08/es6-generator-func/)<br />
+> [[JS] JavaScript Generator 的使用- PJCHENder](https://pjchender.dev/javascript/js-generator/)

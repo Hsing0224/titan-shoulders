@@ -63,3 +63,6 @@ def = 456; // 未宣告，會被當成是屬性，等同於 window.def = 456;
 delete def; // true，window 物件已刪除
 delete abc; // false，變數不能被刪除
 ```
+
+## Reference
+> [JavaScript 核心篇 - 六角學院](https://www.udemy.com/course/javascript-adv/)

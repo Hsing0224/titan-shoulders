@@ -242,4 +242,5 @@ const observer = new IntersectionObserver(callback, options);
 
 ## Reference
 
-> [MaxLeeBK - 那些被忽略但很好用的 Web API / IntersectionObserver](https://ithelp.ithome.com.tw/articles/10279046)<br /> > [MDN - Intersection Observer API](hhttps://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+> [那些被忽略但很好用的 Web API / IntersectionObserver - MaxLeeBK](https://ithelp.ithome.com.tw/articles/10279046)<br />
+> [Intersection Observer API - MDN](hhttps://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)

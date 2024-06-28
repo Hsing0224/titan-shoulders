@@ -160,4 +160,7 @@ console.log([] == []); // false
 
 ## Reference
 
-> [六角學院 - JavaScript 心機文法篇 - JS 面試常見核心知識](https://www.youtube.com/watch?v=8U5kbb1SvJg)<br /> > [六角學院 - JavaScript 核心篇](https://www.udemy.com/course/javascript-adv/)<br /> > [MDN - 語句和聲明](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)<br /> > [MDN - 運算子優先順序](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
+> [JavaScript 心機文法篇 - JS 面試常見核心知識 - 六角學院](https://www.youtube.com/watch?v=8U5kbb1SvJg)<br />
+> [JavaScript 核心篇 - 六角學院](https://www.udemy.com/course/javascript-adv/)<br />
+> [語句和聲明 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)<br />
+> [運算子優先順序 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)

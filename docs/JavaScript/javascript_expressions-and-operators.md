@@ -77,4 +77,4 @@ if (number & (1 === 0)) {
 
 ## Reference
 
-> [MDN - 運算式與運算子](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_operators)
+> [運算式與運算子 - MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_operators)

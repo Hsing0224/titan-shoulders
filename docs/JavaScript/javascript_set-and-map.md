@@ -271,3 +271,8 @@ for (const key in obj) {
 // 利用Object.entries()來取值
 Object.entries(obj)[1]; // ['2', 'twoValue']
 ```
+
+## Reference
+
+> [[JS] JavaScript 集合（Set）- PJCHENder](https://pjchender.dev/javascript/js-set/)<br />
+> [[JS] JavaScript Map - PJCHENder](https://pjchender.dev/javascript/js-map/)
