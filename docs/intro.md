@@ -22,3 +22,73 @@ sidebar_position: 0
 - [PJCHENder](https://pjchender.dev/) - 當初是看了 PJ 大用 Docusaurus，所以選擇了它，蠻喜歡Docusaurus的配置。而且 PJ 大的文章都很有料👍👍👍
 - [ChatGPT](https://chat.openai.com/) - 幾乎所有範例及相關資訊都會利用 ChatGPT 來做驗證和詢問，非常好用，學習的好夥伴
 - [MDN](https://developer.mozilla.org/en-US/docs/Learn) - 網站開發的百科全書
+
+## 文章一覽
+列出目前有寫過，或是有想到但還沒寫的文章，主要是為了提醒自己🤣
+
+### HTML
+- ✅ 圖片最佳化 #41
+- ❌ Input
+
+### CSS
+- ❌ flex
+- ❌ grid
+- ❌ color
+- ❌ overflow
+- ❌ aspect-ratio
+- ❌ css函數 calc()、min()、max()、clamp()
+- ❌ @container
+- ❌ SCSS RWD
+- ❌ SCSS 使用技巧
+- ❌ master css
+
+### JavaScript
+- ✅ JavaScript 的那些觀念 #10
+- ✅ Event loop #11
+- ✅ 運算式與運算子 #12
+- ✅ Array #20
+- ✏️ Object #21
+- ✅ Set & Map #22
+- ✅ IntersectionObserver #30
+- ✅ GeneratorFunction #33
+- ✅ 淺拷貝與深拷貝 #40
+- ✅ isNaN() vs Number.isNaN() #41
+- ❌ formData
+- ❌ Class
+
+### Angular
+- ✏️ 學習筆記
+- ✅ angular.json #10
+- ✅ Angular CLI #11
+- ✅ 生命週期 #12
+- ✅ Router #13
+- ✅ Angular Core #20
+- ✅ Decorator (裝飾器) #21
+- ✅ Directives (指令) #22
+- ✅ 繫結 #23
+- ❌ Pipe
+- ❌ Service
+- ✅ 範本參考變數及頁面範本 #26
+- ✅ 表單 #29
+
+### TypeScript
+- ❌ 學習筆記
+- ❌ tsconfig 設定
+- ❌ 型別
+
+### DevTools
+- ❌ Sources overrides
+- ❌ 開發者工具指令面板
+
+### VSCode
+- ❌ 設定
+- ❌ 擴充套件
+
+### Terminal
+- ✅ 版本切換 #10
+- ❌ tree
+- ❌ oh my zsh 
+
+### Other
+- ❌ regex
+- ❌ 前端效能調校
