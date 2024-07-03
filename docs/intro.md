@@ -55,6 +55,10 @@ sidebar_position: 0
 - ✅ isNaN() vs Number.isNaN() #41
 - ❌ formData
 - ❌ Class
+- ❌ ResizeObserver
+- ❌ MutationObserver
+- ❌ fetch
+- ❌ promise
 
 ### Angular
 - ✏️ 學習筆記
