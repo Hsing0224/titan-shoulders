@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 26
 description: Template Reference Variables & Template Reference
 ---
 

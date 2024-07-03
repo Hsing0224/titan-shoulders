@@ -1,9 +1,9 @@
 ---
 sidebar_position: 40
-description: 淺拷貝 vs 深拷貝
+description: 淺拷貝與深拷貝
 ---
 
-# 淺拷貝 vs 深拷貝
+# 淺拷貝與深拷貝
 
 在 js 的資料型別主要分為
 
