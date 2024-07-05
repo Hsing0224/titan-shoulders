@@ -46,9 +46,9 @@ sidebar_position: 0
 - ✅ JavaScript 的那些觀念 #10
 - ✅ Event loop #11
 - ✅ 運算式與運算子 #12
-- ✅ Array #20
+- ✏️ Array #20
 - ✏️ Object #21
-- ✅ Set & Map #22
+- ✏️ Set & Map #22
 - ✅ IntersectionObserver #30
 - ✅ GeneratorFunction #33
 - ✅ 淺拷貝與深拷貝 #40
@@ -95,4 +95,5 @@ sidebar_position: 0
 
 ### Other
 - ❌ regex
+- ❌ Github Action
 - ❌ 前端效能調校
