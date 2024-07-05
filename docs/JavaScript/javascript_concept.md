@@ -1,6 +1,6 @@
 ---
 sidebar_position: 10
-description: 關於JS的那些觀念
+description: 關於 JavaScript 的那些觀念
 ---
 
 # JavaScript 的那些觀念
