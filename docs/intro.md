@@ -31,6 +31,7 @@ sidebar_position: 0
 - ❌ Input
 
 ### CSS
+- ✅ CSS 的那些觀念 #10
 - ❌ flex
 - ❌ grid
 - ❌ color
