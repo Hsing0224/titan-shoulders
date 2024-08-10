@@ -5,7 +5,7 @@ sidebar_position: 1
 # 這個網站的誕生
 看到[PJ大的未整理筆記](https://pjchender.dev/)，被版面的配置和功能所吸引，所以也決定來搞一個。<br />
 這網站目的主要是有個空間可以放學習的筆記之外，預防往後工作可能遇到問題，卻忘記曾經學過的東西該如何使用，利用這網站的筆記來喚醒那個沈睡太久(或是消失)的記憶。<br />
-我打算把文件放到自己的Github上，當push時幫我部署到Github Pages，嗯...潮一點再推播到LINE上面😎
+我打算把文件放到自己的 GitHub 上，當push時幫我部署到 GitHub Pages，嗯...潮一點再推播到LINE上面😎
 
 ## 安裝
 依照[官網](https://docusaurus.io/docs/installation)的步驟<br/>
@@ -25,7 +25,7 @@ const config = {
   title: '站在巨人肩膀的學習筆記',
   // 副標題，不過如果沒有要使用它預設的landing page，其實也不會顯示
   tagline: '寫給未來那個有點印象但記不起來的自己',
-  // 這邊因為我是要用Github Pages
+  // 這邊因為我是要用 GitHub Pages
   url: 'https://hsing0224.github.io/',
   // 儲存庫名稱，
   baseUrl: '/titanShoulders/',
@@ -74,9 +74,9 @@ export default function Home() {
 }
 ```
 
-## Github的設定
-### 設定Github Pages
-Github開好repository後，建立一個`gh-pages`分支，在**專案內**的`settings > Pages`，把預設的`master`改為`gh-pages`
+## GitHub 的設定
+### 設定 GitHub Pages
+GitHub 開好repository後，建立一個`gh-pages`分支，在**專案內**的`settings > Pages`，把預設的`master`改為`gh-pages`
 ### 設定Github Actions
 先到**自己帳號(右上角頭像)**的`settings`，`Developer Settings > Personal access tokens > Tokens(classic)`，點選`Generate new token > Generate new token(classic)`，幫Token取個名稱識別，`Expiration`選擇這個token的有效期限，表格勾選這個token的權限(只有部署用，`repo全開即可`)。<br />
 按下`Generate token`後即可得到token，

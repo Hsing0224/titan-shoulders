@@ -1,9 +1,9 @@
 ---
 sidebar_position: 40
-description: 淺拷貝 vs 深拷貝
+description: 淺拷貝與深拷貝
 ---
 
-# 淺拷貝 vs 深拷貝
+# 淺拷貝與深拷貝
 
 在 js 的資料型別主要分為
 
@@ -97,6 +97,13 @@ console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Pl
 
 ## 深拷貝(Deep Copy)
 
+:::info
+時代在變，現在可以直接使用 `structuredClone()` 來做深拷貝。
+:::
+
+<!-- TODO -->
+<!-- 補充 structuredClone() 使用方法 -->
+
 當要複製陣列或物件有兩層以上，如果需要完全獨立，就必須使用深拷貝
 
 ```javascript
@@ -166,4 +173,7 @@ function deepCopy(obj) {
 
 ## Reference
 
-> [MDN - Shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)<br /> > [MDN - Deep copy](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)<br /> > [為了轉生而點技能-JavaScript，day8(淺筆記-物件之淺層複製與深層複製](https://ithelp.ithome.com.tw/articles/10282829)<br /> > [JS 中的淺拷貝 (Shallow copy) 與深拷貝 (Deep copy) 原理與實作](https://www.programfarmer.com/articles/2021/javascript-shallow-copy-deep-copy)
+> [Shallow copy - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)<br />
+> [Deep copy - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)<br /> > 
+> [為了轉生而點技能-JavaScript，day8(淺筆記-物件之淺層複製與深層複製 - openthedoor2004](https://ithelp.ithome.com.tw/articles/10282829)<br />
+> [JS 中的淺拷貝 (Shallow copy) 與深拷貝 (Deep copy) 原理與實作 - 城市碼農](https://www.programfarmer.com/articles/2021/javascript-shallow-copy-deep-copy)

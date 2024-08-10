@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-description: TS的基本型別
+description: TypeScript 的基本型別
 ---
 :::danger TODO
 TODO angular打完補上

@@ -9,20 +9,92 @@ sidebar_position: 0
 感謝同事的讀書會，讓這些書不再是供奉用。<br />
 嗯！我會努力不定期更新它的...吧👊
 
-**ps. 內容或觀念可能有誤，如果您看到有錯誤，那您一定是對的。**<br />
+**ps. 內容或觀念可能有誤，如果您看到有錯誤，那您一定是對的。**
 
 ## 感謝這些讓我站在肩膀的巨人們
 網站內容都是由這些課程、書，在我學習後所做的整理筆記。
-- [JavaScript－優良部份 (JavaScript: The Good Parts)](https://www.tenlong.com.tw/products/9789866840272)
-- [TypeScript 邁向專家之路：零基礎 JavaScript 打通 Angular、React 與 Vue.js 前端框架實戰 (Essential TypeScript: From Beginner to Pro)](https://www.tenlong.com.tw/products/9789863126904)
-- [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)
-- [第 12 屆 iThome 鐵人賽 - 打通 RxJS 任督二脈](https://ithelp.ithome.com.tw/articles/10237728)
+> [JavaScript－優良部份 (JavaScript: The Good Parts)](https://www.tenlong.com.tw/products/9789866840272)<br />
+> [TypeScript 邁向專家之路：零基礎 JavaScript 打通 Angular、React 與 Vue.js 前端框架實戰 (Essential TypeScript: From Beginner to Pro)](https://www.tenlong.com.tw/products/9789863126904)<br />
+> [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)<br />
+> [第 12 屆 iThome 鐵人賽 - 打通 RxJS 任督二脈](https://ithelp.ithome.com.tw/articles/10237728)
 
 ## 特別感謝
-### [PJCHENder](https://pjchender.dev/)
-當初是看了PJ大用Docusaurus，所以選擇了它，蠻喜歡Docusaurus的配置。而且PJ大的文章都很有料👍👍👍
-### [ChatGPT](https://chat.openai.com/)
-幾乎所有範例及相關資訊都會利用ChatGPT來做驗證和詢問，非常好用，學習的好夥伴
+- [PJCHENder](https://pjchender.dev/) - 當初是看了 PJ 大用 Docusaurus，所以選擇了它，蠻喜歡Docusaurus的配置。而且 PJ 大的文章都很有料👍👍👍
+- [ChatGPT](https://chat.openai.com/) - 幾乎所有範例及相關資訊都會利用 ChatGPT 來做驗證和詢問，非常好用，學習的好夥伴
+- [MDN](https://developer.mozilla.org/en-US/docs/Learn) - 網站開發的百科全書
 
-### [MDN](https://developer.mozilla.org/en-US/docs/Learn)
-網站開發的百科全書
+## 文章一覽
+列出目前有寫過，或是有想到但還沒寫的文章，主要是為了提醒自己🤣
+
+### HTML
+- ✅ 圖片最佳化 #41
+- ❌ Input
+
+### CSS
+- ✅ CSS 的那些觀念 #10
+- ❌ flex
+- ❌ grid
+- ❌ color
+- ❌ overflow
+- ❌ aspect-ratio
+- ❌ css函數 calc()、min()、max()、clamp()
+- ❌ @container
+- ❌ SCSS RWD
+- ❌ SCSS 使用技巧
+- ❌ master css
+
+### JavaScript
+- ✅ JavaScript 的那些觀念 #10
+- ✅ Event loop #11
+- ✅ 運算式與運算子 #12
+- ✏️ Array #20
+- ✏️ Object #21
+- ✏️ Set & Map #22
+- ✅ IntersectionObserver #30
+- ✅ GeneratorFunction #33
+- ✅ 淺拷貝與深拷貝 #40
+- ✅ isNaN() vs Number.isNaN() #41
+- ❌ formData
+- ❌ Class
+- ❌ ResizeObserver
+- ❌ MutationObserver
+- ❌ fetch
+- ❌ promise
+
+### Angular
+- ✏️ 學習筆記
+- ✅ angular.json #10
+- ✅ Angular CLI #11
+- ✅ 生命週期 #12
+- ✅ Router #13
+- ✅ Angular Core #20
+- ✅ Decorator (裝飾器) #21
+- ✅ Directives (指令) #22
+- ✅ 繫結 #23
+- ❌ Pipe
+- ❌ Service
+- ✅ 範本參考變數及頁面範本 #26
+- ✅ 表單 #29
+
+### TypeScript
+- ❌ 學習筆記
+- ❌ tsconfig 設定
+- ❌ 型別
+
+### DevTools
+- ❌ Sources overrides
+- ❌ 開發者工具指令面板
+
+### VSCode
+- ❌ 設定
+- ❌ 擴充套件
+
+### Terminal
+- ✅ 版本切換 #10
+- ❌ tree
+- ❌ oh my zsh 
+
+### Other
+- ❌ regex
+- ❌ Github Action
+- ❌ 前端效能調校

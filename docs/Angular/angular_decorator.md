@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 21
 description: Decorator
 ---
 
@@ -11,6 +11,10 @@ description: Decorator
 
 當建好一個 angular app，其最主要的 `app.module` 檔案預設配置是這樣。<br />
 或是將 `Component` 封裝成 `Module` 時， `*.module.ts` 會有對應的設定。
+
+::: tip
+Angular 15 後，可將  `Component` 設定 `standalone: true`，即可直接在 `Component` import 所需的 `Component` 來使用。
+:::
 
 ```typescript app.module.ts
 import { NgModule } from "@angular/core";
@@ -105,6 +109,16 @@ import { Component } from '@angular/core';
 - `ViewEncapsulation.Emulated` ：默認的封裝模式，只會對該 Component 有效。
 - `ViewEncapsulation.ShadowDom` ：使用 `Web Components` 的 `Shadow DOM` 技術，當然前提是瀏覽器要支援 `Shadow DOM`。
 
+:::tip
+standalone、import 為 Angular 15 後的設定
+:::
+
+### standalone
+將 Component 直接 export 給其他 Component 能夠使用，減少對於 ngModule 的依賴。
+
+### import
+可 import 其他 Component 來使用。
+
 ## @Input
 
 在元件內用 `@Input` 定義好變數，用來接收父元件的資料。因應各種不同的需求
@@ -181,4 +195,5 @@ export class ParentComponent {
 
 ## Reference
 
-> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/)
+> [Angular 開發實戰：從零開始](https://www.udemy.com/course/angular-zero/) <br />
+> [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)

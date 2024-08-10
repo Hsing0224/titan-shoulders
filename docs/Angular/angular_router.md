@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 13
 description: Angular Router
 ---
 
@@ -61,3 +61,6 @@ description: Angular Router
   exports: [RouterModule]
 })
 ```
+
+## Reference
+> [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)

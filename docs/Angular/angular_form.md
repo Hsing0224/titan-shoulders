@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 29
 description: Form
 ---
 
@@ -240,4 +240,5 @@ TODO 未來有碰到自訂表單驗證再補上ＸＤ
 
 ## Reference
 
-> [官方文件](https://angular.tw/guide/forms-overview)
+> [Angular 表單簡介 - Angular](https://angular.tw/guide/forms-overview) <br />
+> [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)

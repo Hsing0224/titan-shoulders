@@ -48,4 +48,5 @@ Number.isNaN(false); // false
 
 ## Reference
 
-> [MDN - isNAN()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/isNaN)<br /> > [MDN - Number.isNaN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
+> [sNAN() - MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/isNaN)<br />
+> [Number.isNaN - MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
