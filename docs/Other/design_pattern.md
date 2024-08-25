@@ -8,6 +8,10 @@ sidebar_position: 2
 
 ### YNGNI (You aren't gonna need it)
 
+- 專注實現目前專案需求的功能
+- 不要過早優化程式碼
+- 不要先替未來預設立場而撰寫目前用不到的功能
+
 ### SOLID
 
 五個原則所組成的縮寫字，原則跟原則之間彼此有關係，在實作和應用上是有關的。
@@ -26,11 +30,39 @@ sidebar_position: 2
 
 ### DRY (Don't repeat yourself)
 
-### WET (Write everything twice)
+又稱 OAOO(Once and only once)，過度的抽象化和可讀性是互相衝突的，所以在遵循 DRY 原則，需要拿捏遵循的比例。<br />
+避免重複的原則，可分為四個部分。
 
-違反 DRY 的原則
+#### 強加的重複(Imposed duplication)
+
+開發者認為是開發環境需要的、被強迫需要的；像是不必要的註解或是開發文件。
+如果可以在函式名稱就可以知道這個函式的職責，就不需要特別的註解。<br />
+或是註解寫完但又修改了程式的邏輯而沒更新註解。
+
+#### 無意的重複(inadvertent duplication)
+
+一般是會發生在開發者沒有意識到內容的重複，通常發生在邏輯設計上的內容，<br />舉例來說就是當函式可從 A 參數就可以推導到 B 參數，那 B 參數的設置就是重複的。
+
+#### 懶惰的重複(impatient duplication)
+
+發生在為了節省時間而複製程式碼，造成程式碼上的重複。
+
+#### 開發者間的重複(inter-developer duplication)
+
+在多人協作開發時，同個專案時常會有共同的需求，而沒協調好或是對於專案架構不清楚，導致寫了重複或類似的功能。
+
+### WET (Write everything twice、We enjoy typing)
+
+讓開發者不要過度的追求 DRY 原則而發展出的理念。<br />
+它不是鼓勵可以在撰寫程式碼時無限的重複，而是要在 DRY 和 WET 間取得平衡。
 
 ### ROT (Rule of Three)
+
+此設計原則試圖為 DRY 和 WET 之間找到一個平衡點。
+
+1. 第一次直接寫。
+2. 第二次遇到差不多的邏輯，可以複製且稍作修改即可。
+3. 當遇到第三次差不多的邏輯時，就可以考慮重構。
 
 ### LoD (Law of Demeter)
 
@@ -84,4 +116,4 @@ the solution domain models the problem domain in language and structure
 
 ## reference
 
-> [Alex 宅幹嘛 - 淺談 Javascript 設計模式](https://www.youtube.com/watch?v=2wbX-ZoetF0&list=PLEfh-m_KG4dbCJl3uks6DzLzdkOdmiZpT)
+> [Alex 宅幹嘛 - 淺談 Javascript 設計模式](https://www.youtube.com/watch?v=2wbX-ZoetF0&list=PLEfh-m_KG4dbCJl3uks6DzLzdkOdmiZpT) <br /> > [璇之又璇的網路世界 - YAGNI 原則](https://shawnlin0201.github.io/Methodology/Methodology-003-YAGNI-principle/)
