@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+# Design Pattern
+
 ## 設計原則
 
 在撰寫程式可參考的大方向，利於未來維護。
@@ -76,23 +78,28 @@ sidebar_position: 2
 
 #### Composable
 
-plays well with others
+易於理解。<br />
+要有好的程式架構及命名之外，還包含清楚的文件、註解，和保持程式碼風格的一致性。
 
 #### Unix philosophy
 
-does one thing well
+Unix 哲學<br />
+做好一件事、將複雜任務拆解成一個個小部分。
 
 #### Predictable
 
-does what you expect
+可預測性<br />
+當輸入參數時，可以先預測到相同的結果
 
 #### Idiomatic
 
-feels natural
+符合語言習慣<br />
+每種語言都有內建可使用的函式，可讓程式碼維持可讀性。
 
 #### Domain-based
 
-the solution domain models the problem domain in language and structure
+基於領域<br />
+程式開發應貼近業務需求，直接解決業務上的問題。避免過多的抽象和複雜性。
 
 ### 關注點分離
 
