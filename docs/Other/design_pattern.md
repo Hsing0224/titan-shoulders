@@ -125,4 +125,4 @@ Unix 哲學<br />
 
 ## reference
 
-> [Alex 宅幹嘛 - 淺談 Javascript 設計模式](https://www.youtube.com/watch?v=2wbX-ZoetF0&list=PLEfh-m_KG4dbCJl3uks6DzLzdkOdmiZpT) <br /> > [璇之又璇的網路世界 - YAGNI 原則](https://shawnlin0201.github.io/Methodology/Methodology-003-YAGNI-principle/)
+> [Alex 宅幹嘛 - 淺談 Javascript 設計模式](https://www.youtube.com/watch?v=2wbX-ZoetF0&list=PLEfh-m_KG4dbCJl3uks6DzLzdkOdmiZpT) <br /> [璇之又璇的網路世界 - YAGNI 原則](https://shawnlin0201.github.io/Methodology/Methodology-003-YAGNI-principle/) <br /> [CUPID—for joyful coding](https://dannorth.net/cupid-for-joyful-coding/)
