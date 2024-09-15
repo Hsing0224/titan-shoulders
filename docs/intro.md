@@ -15,7 +15,7 @@ sidebar_position: 0
 
 網站內容都是由這些課程、書，在我學習後所做的整理筆記。
 
-> [JavaScript－優良部份 (JavaScript: The Good Parts)](https://www.tenlong.com.tw/products/9789866840272)<br /> > [TypeScript 邁向專家之路：零基礎 JavaScript 打通 Angular、React 與 Vue.js 前端框架實戰 (Essential TypeScript: From Beginner to Pro)](https://www.tenlong.com.tw/products/9789863126904)<br /> > [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT 邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)<br /> > [第 12 屆 iThome 鐵人賽 - 打通 RxJS 任督二脈](https://ithelp.ithome.com.tw/articles/10237728)
+> [JavaScript－優良部份 (JavaScript: The Good Parts)](https://www.tenlong.com.tw/products/9789866840272)<br /> [TypeScript 邁向專家之路：零基礎 JavaScript 打通 Angular、React 與 Vue.js 前端框架實戰 (Essential TypeScript: From Beginner to Pro)](https://www.tenlong.com.tw/products/9789863126904)<br /> [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT 邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)<br /> [第 12 屆 iThome 鐵人賽 - 打通 RxJS 任督二脈](https://ithelp.ithome.com.tw/articles/10237728)
 
 ## 特別感謝
 
