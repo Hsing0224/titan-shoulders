@@ -77,7 +77,20 @@ sidebar_position: 2
 2. 限制鏈結的長度
 3. 關注局部的知識
 
-### CRP (The Common Reuse Principle)
+### CRP (Common Reuse Principle)
+
+共同重用原則<br />
+強調經常一起被使用的類別需打包在一起。避免把不常使用也一起包一起而衍伸載入引入了不必要的依賴。
+
+### CCP (Common Closure Principle)
+
+共同封閉原則<br />
+強調對於同一種類型的變更，應該只影響同一個模組。
+
+### REP (Reuse/Release Equivalence Principle)
+
+重用/釋放等價原則<br />
+當使用的元件都是需要先發布過的，有屬於自己的文件和版本號。利於未來的追蹤和維護。
 
 組合優於繼承
 
@@ -132,4 +145,4 @@ Unix 哲學<br />
 
 ## reference
 
-> [Alex 宅幹嘛 - 淺談 Javascript 設計模式](https://www.youtube.com/watch?v=2wbX-ZoetF0&list=PLEfh-m_KG4dbCJl3uks6DzLzdkOdmiZpT) <br /> [璇之又璇的網路世界 - YAGNI 原則](https://shawnlin0201.github.io/Methodology/Methodology-003-YAGNI-principle/) <br /> [CUPID—for joyful coding](https://dannorth.net/cupid-for-joyful-coding/)
+> [Alex 宅幹嘛 - 淺談 Javascript 設計模式](https://www.youtube.com/watch?v=2wbX-ZoetF0&list=PLEfh-m_KG4dbCJl3uks6DzLzdkOdmiZpT) <br /> [璇之又璇的網路世界 - YAGNI 原則](https://shawnlin0201.github.io/Methodology/Methodology-003-YAGNI-principle/) <br /> [CUPID—for joyful coding](https://dannorth.net/cupid-for-joyful-coding/) <br /> [元件如何正確歸類 ? | 元件內聚性三大原則 : REP、CCP、CRP - Enoxs](https://devs.tw/post/438)
