@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# Design Pattern
+# Design Pattern & Design Principle
 
-## 設計原則
+## 設計原則 (Design Principle)
 
 在撰寫程式可參考的大方向，利於未來維護。
 
@@ -29,6 +29,8 @@ sidebar_position: 2
 #### 依賴反轉原則(Dependency Inversion Principle)
 
 ### KISS (Keep It Simple, Stupid)
+
+核心觀念為**簡單即是美**<br />強調簡單，避免不必要的複雜性。
 
 ### DRY (Don't repeat yourself)
 
@@ -68,7 +70,12 @@ sidebar_position: 2
 
 ### LoD (Law of Demeter)
 
-### LKP (Least Knowledge Principle)
+迪米特法則，又被稱為最少知識原則 LKP (Least Knowledge Principle)<br />
+主要強調**低耦合**，減少程式間相互依賴，以提高維護性和穩定性。
+
+1. 只與直接相關的程式做耦合
+2. 限制鏈結的長度
+3. 關注局部的知識
 
 ### CRP (The Common Reuse Principle)
 
@@ -107,7 +114,7 @@ Unix 哲學<br />
 
 ### 高內聚＆低耦合
 
-## 設計模式
+## 設計模式 (Design Pattern)
 
 比較偏實作面，當要做某些事情可以參考某些方法。當遇到問題時，可以從這些方法中找到解決方案。
 
