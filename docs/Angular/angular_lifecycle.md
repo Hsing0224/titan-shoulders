@@ -34,7 +34,7 @@ class ExampleClass implements OnInit, DoCheck {
 ### 呼叫時機
 
 - 在 ngOnInit 前會被呼叫，當沒有參數帶入時會略過
-- 當外部所帶入的參數有變更時
+- 當 `@Input` 的參數有變更時
 
 ### parameter
 
@@ -128,5 +128,4 @@ parent ngAfterViewChecked
 
 ## Reference
 
-> [Ray - 希望是最好懂的 Angular 生命週期介紹](https://lt1stsolomid.medium.com/%E5%B8%8C%E6%9C%9B%E6%98%AF%E6%9C%80%E8%A9%B3%E7%B4%B0%E7%9A%84-angular-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E6%96%87%E7%AB%A0-27da6e8b33a9) <br />
-> [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)
+> [Ray - 希望是最好懂的 Angular 生命週期介紹](https://lt1stsolomid.medium.com/%E5%B8%8C%E6%9C%9B%E6%98%AF%E6%9C%80%E8%A9%B3%E7%B4%B0%E7%9A%84-angular-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E6%96%87%E7%AB%A0-27da6e8b33a9) <br /> > [圖像 Angular 開發入門：打造高靈活度的網頁應用程式 (iT 邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349821)
