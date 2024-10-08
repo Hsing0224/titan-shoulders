@@ -28,7 +28,7 @@ const config = {
   // 這邊因為我是要用 GitHub Pages
   url: 'https://hsing0224.github.io/',
   // 儲存庫名稱，
-  baseUrl: '/titanShoulders/',
+  baseUrl: '/titan-shoulders/',
   i18n: {
     defaultLocale: 'zh-Hant',
     locales: ['zh-Hant'],
@@ -42,7 +42,7 @@ const config = {
           // ...
           // 設定這個，在文章頁面按下編輯此頁連結，可以到該頁編輯
           editUrl:
-            'https://github.com/Hsing0224/titanShoulders/tree/master/',
+            'https://github.com/Hsing0224/titan-shoulders/tree/master/',
         },
         // 目前還沒要用，先關閉
         blog: false,
