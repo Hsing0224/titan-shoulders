@@ -42,11 +42,15 @@ class ExampleClass implements OnInit, DoCheck {
 
 ```typescript
 class ExampleClass {
-  @Input value: number;
+  @Input age: number;
   ngOnChanges(changes: SimpleChanges) {
-    console.log(`現在的數值為 ${changes.value.currentValue}`);
-    console.log(`第一次變更嗎： ${changes.value.firstChange}`); // 初始化為 true
-    console.log(`前一次的數值為： ${changes.value.previousValue}`);
+    console.log(`現在的數值為 ${changes.age.currentValue}`);
+    console.log(`第一次變更嗎： ${changes.age.firstChange}`); // 初始化為 true
+    console.log(`前一次的數值為： ${changes.age.previousValue}`);
+
+    if (changes["age"]) {
+      // 當變更的 key 為 age 時觸發
+    }
   }
 }
 ```
