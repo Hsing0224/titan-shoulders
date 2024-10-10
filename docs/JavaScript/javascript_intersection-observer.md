@@ -165,12 +165,6 @@ top + height = window.innerHeight
 觀察對象在 `root` 的交疊比例
 
 :::note
-
-<!-- $$
-intersectionRatio = \frac{intersectionRect's area}{target element's area}
-$$ -->
-
-<br />
 觀察對象與 `root` 交疊的 `height` / 觀察對象整體的 `height`
 :::
 
