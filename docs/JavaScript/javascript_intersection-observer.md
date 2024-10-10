@@ -166,9 +166,9 @@ top + height = window.innerHeight
 
 :::note
 
-$$
+<!-- $$
 intersectionRatio = \frac{intersectionRect's area}{target element's area}
-$$
+$$ -->
 
 <br />
 觀察對象與 `root` 交疊的 `height` / 觀察對象整體的 `height`
@@ -242,5 +242,4 @@ const observer = new IntersectionObserver(callback, options);
 
 ## Reference
 
-> [那些被忽略但很好用的 Web API / IntersectionObserver - MaxLeeBK](https://ithelp.ithome.com.tw/articles/10279046)<br />
-> [Intersection Observer API - MDN](hhttps://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+> [那些被忽略但很好用的 Web API / IntersectionObserver - MaxLeeBK](https://ithelp.ithome.com.tw/articles/10279046)<br /> > [Intersection Observer API - MDN](hhttps://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
