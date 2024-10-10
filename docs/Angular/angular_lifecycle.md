@@ -55,6 +55,19 @@ class ExampleClass {
 }
 ```
 
+:::caution
+當 `@Input()` 傳入為 call by reference 而非 call by value 時，當裡面的值做變更，`ngOnChanges` 則無法去檢測到變更。
+故使用 call by value ，直接將值傳入會比較理想。但如果必須使用 call by reference 方式傳入，則可以將傳入的　 array 或 object，拷貝一個新的出來傳入。讓參考位置不同，觸發變更檢測。
+
+```TypeScript
+changeSize(value: number): void {
+  this.font.size += value;
+  this.font = {...this.font}; // 將 font 賦予一個新的參考位置
+}
+```
+
+:::
+
 ## ngOnInit
 
 生命週期中只會被呼叫一次。<br />
