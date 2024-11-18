@@ -27,12 +27,12 @@ sidebar_position: 0
 
 列出目前有寫過，或是有想到但還沒寫的文章，主要是為了提醒自己 🤣
 
-### HTML
+### HTML #1
 
 - ✅ 圖片最佳化 #41
 - ❌ Input
 
-### CSS
+### CSS #2
 
 - ✅ CSS 的那些觀念 #10
 - ❌ flex
@@ -42,11 +42,15 @@ sidebar_position: 0
 - ❌ aspect-ratio
 - ❌ css 函數 calc()、min()、max()、clamp()
 - ❌ @container
-- ❌ SCSS RWD
-- ❌ SCSS 使用技巧
 - ❌ master css
 
-### JavaScript
+### SCSS #3
+
+- ✏️ 檔案引入 #10
+- ❌ SCSS RWD
+- ❌ SCSS 使用技巧
+
+### JavaScript #4
 
 - ✅ JavaScript 的那些觀念 #10
 - ✅ Event loop #11
@@ -68,7 +72,13 @@ sidebar_position: 0
 - ❌ debounce
 - ❌ throttle
 
-### Angular
+### TypeScript #5
+
+- ❌ 學習筆記
+- ❌ tsconfig 設定
+- ❌ 型別
+
+### Angular #6
 
 - ✏️ 學習筆記
 - ✅ angular.json #10
@@ -84,29 +94,27 @@ sidebar_position: 0
 - ✅ 範本參考變數及頁面範本 #26
 - ✅ 表單 #29
 
-### TypeScript
+### RxJS #7
 
 - ❌ 學習筆記
-- ❌ tsconfig 設定
-- ❌ 型別
 
-### DevTools
+### DevTools #9
 
 - ❌ Sources overrides
 - ❌ 開發者工具指令面板
 
-### VSCode
+### VSCode #10
 
 - ❌ 設定
 - ❌ 擴充套件
 
-### Terminal
+### Terminal #11
 
 - ✅ 版本切換 #10
 - ❌ tree
 - ❌ oh my zsh
 
-### Other
+### Other #99
 
 - ❌ regex
 - ❌ Github Action
