@@ -98,6 +98,10 @@ sidebar_position: 0
 
 - ❌ 學習筆記
 
+### Git #8
+
+- ❌ 學習筆記
+
 ### DevTools #9
 
 - ❌ Sources overrides
