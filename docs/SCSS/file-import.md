@@ -15,11 +15,11 @@ description: SCSS 檔案引入
 
 :::
 
-範例檔案
+## 範例檔案
 
 ```scss title="_color.scss"
 $primary-color: red;
-$secondary-color: green;
+$secondary-color: green !default;
 $third-color: blue;
 ```
 
@@ -38,10 +38,6 @@ $third-color: blue;
 官網已經將 `@import` 標註為棄用。
 :::
 
-:::caution
-因為沒有 namespace 關係，在引入有重複變數時，會有覆蓋的問題。
-:::
-
 ```scss title="_utils.scss"
 @import "color";
 @import "mixin";
@@ -50,7 +46,7 @@ $third-color: blue;
 $primary-color: yellow;
 ```
 
-```scss main.scss
+```scss title="main.scss"
 .test {
   font-size: 24px;
 }
@@ -86,6 +82,36 @@ $primary-color 更改了顏色導致不是最一開始設定的
 ```
 
 ## @forward
+
+`@forward` 感覺像是前置的宣告設定，無法在 `@forward` 抓取引入檔案的變數。<br />
+如果要使用引入檔的變數，需搭配 `@use` 使用。
+
+### as
+
+可以利用 `as` 來將命名作為轉換，當引入該檔案使用，則會依照 `as` 後的名稱去呼叫變數等方法。<br />
+`*` 來表示該檔案裡各個命名。
+
+```scss title="_utils.scss"
+@forward "color" as color-*;
+@forward "mixin" as test*;
+```
+
+```scss title="main.scss"
+@use "./utils";
+
+.text {
+  color: $color-primary-color;
+}
+.box {
+  @include testsquare(30px);
+}
+```
+
+### show
+
+### hide
+
+### with
 
 ## @use
 
