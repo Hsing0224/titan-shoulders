@@ -28,6 +28,42 @@ $third-color: blue;
   width: $value;
   height: $value;
 }
+@mixin is-hide {
+  display: none;
+}
+
+@mixin is-show {
+  display: block;
+}
+```
+
+```scss title="_extend.scss"
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%button-default {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+```
+
+```scss title="_function.scss"
+@function calculate-rem($px, $base-font-size: 16px) {
+  @return $px / $base-font-size * 1rem;
+}
+
+@function pow($number, $exponent) {
+  $result: 1;
+  @for $i from 1 through $exponent {
+    $result: $result * $number;
+  }
+  @return $result;
+}
 ```
 
 ## @import
