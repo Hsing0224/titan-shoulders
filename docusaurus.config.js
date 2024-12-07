@@ -56,8 +56,11 @@ const config = {
       }),
     ],
   ],
-
+  markdown: {
+    mermaid: true
+  },
   themes: [
+    '@docusaurus/theme-mermaid'
     // require.resolve('@docusaurus/theme-live-codeblock'),
     // require.resolve('@docusaurus/theme-search-algolia'),
     // require.resolve('@docusaurus/theme-classic'),
