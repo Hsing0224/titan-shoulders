@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktitan_shoulders=self.webpackChunktitan_shoulders||[]).push([[742],{7093:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);

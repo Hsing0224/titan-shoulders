@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktitan_shoulders=self.webpackChunktitan_shoulders||[]).push([[9720],{9720:(e,s,t)=>{t.d(s,{createArchitectureServices:()=>r.S});var r=t(9936);t(9369)}}]);
