@@ -71,6 +71,17 @@ const config = {
     ({
       prism: {
         additionalLanguages: ['scss', 'powershell'],
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: { start: 'highlight-start', end: 'highlight-end' },
+          },
+          {
+            className: 'code-block-error-line',
+            line: 'This will error',
+          },
+        ],
       },
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
