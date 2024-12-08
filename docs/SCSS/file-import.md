@@ -28,7 +28,7 @@ SCSS 檔案引入有三種相關的方式，分別是 `@import`、`@forward`、`
 
 ## 範例檔案
 
-```scss title="_color.scss"
+```scss title="_variable.scss"
 $primary-color: red;
 $secondary-color: green !default;
 $third-color: blue;
@@ -65,7 +65,7 @@ $third-color: blue;
 
 ```scss title="_function.scss"
 @function calculate-rem($px, $base-font-size: 16px) {
-  @return $px / $base-font-size * 1rem;
+  @return calc($px / $base-font-size) * 1rem;
 }
 
 @function pow($number, $exponent) {
@@ -74,6 +74,28 @@ $third-color: blue;
     $result: $result * $number;
   }
   @return $result;
+}
+```
+
+```mermaid
+graph TD
+    A[_variable] --> E[_utils];
+    B[_mixin] --> E[_utils];
+    C[_extend] --> E[_utils];
+    D[_function] --> E[_utils];
+    E -- 引入 --> F[main];
+    G[insert] -- 引入 --> F[main];
+    G -- 引入 --> H[index];
+    F -- 引入 --> H[index];
+```
+
+多增加一個 insert 的檔案來測試重複載入
+
+```scss title="insert.scss"
+@import "variable";
+
+.insert {
+  color: $primary-color;
 }
 ```
 
@@ -86,71 +108,154 @@ $third-color: blue;
 :::
 
 ```scss title="_utils.scss"
-@import "color";
+@import "variable";
 @import "mixin";
-
-// 假設有個檔案也有 $primary-color
-$primary-color: yellow;
+@import "extend";
+@import "function";
 ```
 
 ```scss title="main.scss"
-.test {
-  font-size: 24px;
+@import "utils";
+@import "insert";
+```
+
+```scss title="index.scss"
+@import "main";
+
+.base-font-size {
+  font-size: calculate-rem(16px);
 }
 
-@import "./utils";
-
-.text {
+.color-primary {
   color: $primary-color;
 }
+.color-secondary {
+  color: $secondary-color;
+}
+
+// 這裡又引入了 insert。模擬重複引入
+@import "insert";
+
 .box {
-  @include square(30px);
+  @include square(50px);
+  @include is-show;
+}
+
+.button-primary {
+  color: $primary-color;
+  @extend %button-default;
+}
+.button-secondary {
+  color: $secondary-color;
+  @extend %button-default;
 }
 ```
 
 編譯後
 
 ```css index.css
-.test {
-  font-size: 24px;
+.button-secondary,
+.button-primary {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-/*
-$primary-color 更改了顏色導致不是最一開始設定的
-*/
-.text {
-  color: yellow;
+.insert {
+  color: red;
+}
+
+.base-font-size {
+  font-size: 1rem;
+}
+
+.color-primary {
+  color: red;
+}
+
+.color-secondary {
+  color: green;
+}
+
+/* 這裡因為重複引入了 insert */
+.insert {
+  color: red;
 }
 
 .box {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+.button-primary {
+  color: red;
+}
+
+.button-secondary {
+  color: green;
 }
 ```
 
 ## @forward
 
-`@forward` 感覺像是前置的宣告設定，無法在 `@forward` 抓取引入檔案的變數。<br />
-如果要使用引入檔的變數，需搭配 `@use` 使用。
+引入檔案會有兩種使用的情境。
+
+- 只引入檔案的樣式：<br />直接使用 `@forward`。
+- 引入後要使用到該檔案的變數等功能：<br />無法直接使用 `@forward`，需搭配 `@use` 使用。
 
 ### as
 
-可以利用 `as` 來將命名作為轉換，當引入該檔案使用，則會依照 `as` 後的名稱去呼叫變數等方法。<br />
+可以利用 `as` 來將命名作為轉換，當引入檔案使用，則會依照 `as` 後的名稱去呼叫變數等方法。<br />
 `*` 來表示該檔案裡各個命名。
 
+:::tip
+
+- 變數: 以 `as var-*` 為例，正確寫法為 `$var-xxxxx`
+- extend: 無需使用別名，即便取了別名也無法套用。
+  :::
+
 ```scss title="_utils.scss"
-@forward "color" as color-*;
-@forward "mixin" as test*;
+@forward "variable" as *; // 使用 * 將檔案內各項名稱
+@forward "mixin" as mixin*; // 也可以不打 dash，只是會很醜
+@forward "extend" as extend-*; // extend 使用別名是無效的
+@forward "function" as fn-*;
 ```
 
 ```scss title="main.scss"
-@use "./utils";
+@use "main";
+@forward "insert"; // insert 在 @forward 無法從中插入
 
-.text {
-  color: $color-primary-color;
+.base-font-size {
+  font-size: main.fn-calculate-rem(16px);
 }
+
+.color-primary {
+  // This will error
+  color: main.var-$primary-color; // 變數 $ 在最前面
+  color: main.$var-primary-color;
+}
+.color-secondary {
+  color: main.$var-secondary-color;
+}
+
 .box {
-  @include testsquare(30px);
+  @include main.mixinsquare(50px);
+  @include main.mixinis-show;
+}
+
+.button-primary {
+  color: main.$var-primary-color;
+  @extend %button-default; // extend 因編譯機制和功能性，不用額外的別名
+}
+.button-secondary {
+  color: main.$var-secondary-color;
+  // This will error
+  @extend %extend-button-default
+      !optional; // 可使用 !optional 來避免編譯錯誤而中斷編譯
+  // This will error
+  @extend extend-%button-default;
 }
 ```
 
