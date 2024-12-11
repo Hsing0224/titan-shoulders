@@ -205,22 +205,29 @@ graph TD
 - 只引入檔案的樣式：<br />直接使用 `@forward`。
 - 引入後要使用到該檔案的變數等功能：<br />無法直接使用 `@forward`，需搭配 `@use` 使用。
 
+:::note
+**as**, **show**, **hide**, **with**，皆無法用在 extend 的設定上。
+:::
+
 ### as
 
+將變數值加上前綴<br />
 可以利用 `as` 來將命名作為轉換，當引入檔案使用，則會依照 `as` 後的名稱去呼叫變數等方法。<br />
 `*` 來表示該檔案裡各個命名。
 
 :::tip
 
 - 變數: 以 `as var-*` 為例，正確寫法為 `$var-xxxxx`
-- extend: 無需使用別名，即便取了別名也無法套用。
+- extend: 無需使用前綴，即便取了前綴也無法套用。
+- `*` 需放在結尾
   :::
 
 ```scss title="_utils.scss"
-@forward "variable" as *; // 使用 * 將檔案內各項名稱
+@forward "variable" as var-*; // 使用 * 將檔案內各項名稱
 @forward "mixin" as mixin*; // 也可以不打 dash，只是會很醜
 @forward "extend" as extend-*; // extend 使用別名是無效的
-@forward "function" as fn-*;
+// This will error
+@forward "function" as *; // 這樣是不允許的，有寫跟沒寫一樣，這邊使用 fn-*
 ```
 
 ```scss title="main.scss"
@@ -233,7 +240,7 @@ graph TD
 
 .color-primary {
   // This will error
-  color: main.var-$primary-color; // 變數 $ 在最前面
+  color: main.var-$primary-color; // 前綴會針對名稱，變數符號 ($) 須在最前面
   color: main.$var-primary-color;
 }
 .color-secondary {
@@ -242,7 +249,6 @@ graph TD
 
 .box {
   @include main.mixinsquare(50px);
-  @include main.mixinis-show;
 }
 
 .button-primary {
@@ -261,9 +267,69 @@ graph TD
 
 ### show
 
+可以限制只想要被取用的
+
 ### hide
 
+讓引入的檔案除了指定隱藏的值之外，其餘皆可使用。
+
+```scss title="_utils.scss"
+@forward "variable" as var-* show $var-primary-color, $var-third-color; // 當有別名的時候， show 及 hide 就需遵守命名規範
+@forward "mixin" as mixin-* hide mixin-is-hide;
+// This will error
+@forward "extend" show %list-reset; // `@forward` 無法指定 show / hide 去指定 extend 的設定
+@forward "function" as fn-* hide fn-calculate-rem;
+```
+
+:::danger
+`@forward` 無法使用 show / hide 去指定 extend 的設定
+:::
+
+```scss title="main.scss"
+@use "main";
+@forward "insert";
+
+.base-font-size {
+  //  This will error
+  font-size: main.fn-calculate-rem(16px); // fn-calculate-rem 已隱藏
+}
+
+.color-primary {
+  color: main.$var-primary-color;
+}
+.color-secondary {
+  // This will error
+  color: main.$var-secondary-color; // 沒有將 $var-secondary-color 設為 show 的一員
+}
+
+.box {
+  @include main.mixin-square(50px);
+  // This will error
+  @include main.mixin-is-hide; // 已經 hide 所以找不到
+}
+
+.button-primary {
+  color: main.$var-primary-color;
+  @extend %button-default; // extend 因編譯機制和功能性，不用額外的別名
+}
+.button-secondary {
+  color: main.$var-secondary-color;
+  @extend %button-default;
+}
+```
+
 ### with
+
+```scss title="_utils.scss"
+@forward "variable" as var-* show $var-primary-color, $var-third-color with($secondary-color:
+        blue !default);
+```
+
+當引入的檔案有設定 `!default` 時，即可使用 with 去設定變數，有幾項需注意的地方
+
+- 須寫在所有設定的最後
+- 當有設定前綴 (as) 時，with 裡面的變數是引用檔裡面的，故不用加上前綴
+- 目前 (2024/12/11) vscode 的套件會顯示語法的錯誤，但仍是可以編譯和作用的。
 
 ## @use
 
