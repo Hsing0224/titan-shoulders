@@ -5,13 +5,12 @@ description: SCSS 檔案引入
 
 # SCSS 檔案引入
 
-在專案開發上，會依不同職責劃分各個 SCSS 檔案。<br />
-最終再利用引入的方式將所需的 SCSS 檔案匯集起來。<br />
+在專案開發上，會依不同職責劃分各個 SCSS 檔案，最終再利用引入的方式將所需的 SCSS 檔案匯集起來。<br />
 SCSS 檔案引入有三種相關的方式，分別是 `@import`、`@forward`、`@use`。
 
 :::note
 
-- 檔名為 `_`，不會被編譯成實體的檔案
+- 檔名前綴為 `_`，不會被編譯成實體的檔案
 - 引入時可以不用寫副檔名
 
 :::
@@ -20,11 +19,15 @@ SCSS 檔案引入有三種相關的方式，分別是 `@import`、`@forward`、`
 
 |              | @import | @forward |   @use   |
 | :----------: | :-----: | :------: | :------: |
-|    作用域    |  全局   | 自身檔案 | 自身檔案 |
+|    作用域    |  全局   |   全局   | 自身檔案 |
 | 隨意位置引入 |   ✅    |    ❌    |    ❌    |
 |  程式碼覆蓋  |   ✅    |    ❌    |    ❌    |
 |  程式碼重複  |   ✅    |    ❌    |    ❌    |
-|    配置性    |   ❌    |    ❌    |    ✅    |
+|    配置性    |   ❌    |    ✅    |    ✅    |
+
+:::tip
+範例裡驗證表格的差異會用 ❗️ 表示
+:::
 
 ## 範例檔案
 
@@ -92,8 +95,7 @@ graph TD
 多增加一個 insert 的檔案來測試重複載入
 
 ```scss title="insert.scss"
-@import "variable";
-
+$primary-color: black;
 .insert {
   color: $primary-color;
 }
@@ -101,7 +103,12 @@ graph TD
 
 ## @import
 
-該 SCSS 使用 `@import` 引入時，也會一併將該 SCSS 裡所 `@import` 的 SCSS 引入。<br />
+最簡單且容易理解的引入方式；無額外設定，只需使用 `@import` 把整份檔案引入。<br />
+
+:::caution
+方便但需注意的方法。<br />
+在使用 `@import`，特性是會一併引入這支檔案裡印入的檔案。
+:::
 
 :::danger
 官網已經將 `@import` 標註為棄用。
@@ -117,6 +124,9 @@ graph TD
 ```scss title="main.scss"
 @import "utils";
 @import "insert";
+@import "insert";
+@import "insert";
+@import "insert"; // ❗️ 編譯後會有許多 insert 裡的實體樣式
 ```
 
 ```scss title="index.scss"
@@ -127,14 +137,13 @@ graph TD
 }
 
 .color-primary {
-  color: $primary-color;
+  color: $primary-color; // ❗️ 因為被 insert.scss 覆蓋，這邊值為 black
 }
 .color-secondary {
-  color: $secondary-color;
+  color: $secondary-color; // ❗️ 可以使用來自 _utils.scss 引入的 _variable.scss 變數
 }
 
-// 這裡又引入了 insert。模擬重複引入
-@import "insert";
+@import "insert"; // ❗️ 可隨意位置引入
 
 .box {
   @include square(50px);
@@ -151,56 +160,9 @@ graph TD
 }
 ```
 
-編譯後
-
-```css index.css
-.button-secondary,
-.button-primary {
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.insert {
-  color: red;
-}
-
-.base-font-size {
-  font-size: 1rem;
-}
-
-.color-primary {
-  color: red;
-}
-
-.color-secondary {
-  color: green;
-}
-
-/* 這裡因為重複引入了 insert */
-.insert {
-  color: red;
-}
-
-.box {
-  width: 50px;
-  height: 50px;
-  display: block;
-}
-
-.button-primary {
-  color: red;
-}
-
-.button-secondary {
-  color: green;
-}
-```
-
 ## @forward
 
-引入檔案會有兩種使用的情境。
+會有兩種使用的情境。
 
 - 只引入檔案的樣式：<br />直接使用 `@forward`。
 - 引入後要使用到該檔案的變數等功能：<br />無法直接使用 `@forward`，需搭配 `@use` 使用。
@@ -227,15 +189,31 @@ graph TD
 @forward "mixin" as mixin*; // 也可以不打 dash，只是會很醜
 @forward "extend" as extend-*; // extend 使用別名是無效的
 // This will error
-@forward "function" as *; // 這樣是不允許的，有寫跟沒寫一樣，這邊使用 fn-*
+@forward "function" as *; // 這樣是不允許的寫法，有寫跟沒寫一樣
+@forward "function";
+```
+
+:::note
+❗️ 引入時會檢查 main & insert 相關的引入檔案，編譯時因為範例裡 $primary-color 有重複導致中斷。<br />
+所以 insert.scss 做個變更
+
+```scss title="insert.scss"
+@use "variable";
+.insert {
+  color: variable.$primary-color;
+}
 ```
 
 ```scss title="main.scss"
 @use "main";
-@forward "insert"; // insert 在 @forward 無法從中插入
+@forward "insert";
+@forward "insert";
+@forward "insert"; // ❗️ insert 在編譯時，實體的樣式只會編譯出一次
 
 .base-font-size {
-  font-size: main.fn-calculate-rem(16px);
+  font-size: main.calculate-rem(
+    16px
+  ); // ❗️ 可以使用來自 _utils.scss 引入的 _function.scss 函式
 }
 
 .color-primary {
@@ -250,6 +228,9 @@ graph TD
 .box {
   @include main.mixinsquare(50px);
 }
+
+// This will error
+@forward "insert"; // ❗️ insert 在 @forward 無法從中插入
 
 .button-primary {
   color: main.$var-primary-color;
@@ -337,6 +318,104 @@ graph TD
 - 不會引入檔案本身的引入
 - 只會編譯一次檔案，即便被多個引入
 
+```scss title="main.scss"
+@use "main";
+@use "insert" as a; // 同個檔案會有 error 導致編譯中斷，需要將來源需要取不同的 namespace 避免衝突，
+@use "insert" as b;
+@use "insert" as c; // ❗️ insert 在編譯時，實體的樣式只會編譯出一次
+```
+
+:::danger
+
+如果在引入後重新指定了變數的樣式，會導致原先的樣式被覆蓋
+
+```scss title="insert.scss"
+@use "variable";
+variable.$primary-color: black; // ❗️ 這行會導致所有引入 variable 的 $primary-color 被覆寫
+```
+
+:::
+
 ### as
 
+與 `@forward` 不同，`@use` 的 `as` 為別名。<br />
+原本預設都是以檔案名稱作為 namespace，而使用 `as` 則可以將 namespace 替換掉。
+
+```scss title="main.scss"
+@use "main" as var;
+.color-primary {
+  color: var.$primary-color;
+}
+.color-secondary {
+  color: var.$secondary-color;
+}
+```
+
+:::note
+也可以使用 `@use "main" as *;` 這樣的技巧，在宣告引入的變數時，則不需要額外寫 namespace
+
+```scss title="main.scss"
+@use "main" as *;
+.color-primary {
+  color: $primary-color;
+}
+.color-secondary {
+  color: $secondary-color;
+}
+```
+
+:::
+
 ### 私有成員
+
+可以在變數、mixin、extend、function 的名稱加上 `-`，設定為私有成員。<br />
+引入私有成員會 error 導致編譯中斷。
+
+```scss
+// 變數
+$-secondary-color: blue;
+
+// mixin
+@mixin -square($value) {
+  width: $value;
+  height: $value;
+}
+
+// extend
+%-list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// function
+@function -calculate-rem($px, $base-font-size: 16px) {
+  @return calc($px / $base-font-size) * 1rem;
+}
+```
+
+### with
+
+同 `@forward` 的做法；當引入的檔案也有使用 `!default`，依照當下的檔案 -> 引入的檔案，來定義該變數所設定的值。
+
+```scss title="_utils.scss"
+@forward "variable" as var-* with($secondary-color: yellow !default);
+```
+
+```scss title="_main.scss"
+@forward "utils";
+```
+
+```scss title="index.scss"
+@use "main" with($secondary-color: yellowgreen !default);
+.color-primary {
+  color: main.$primary-color; // yellowgreen
+}
+```
+
+```scss title="index.scss"
+@use "main";
+.color-primary {
+  color: main.$primary-color; // yellow
+}
+```
