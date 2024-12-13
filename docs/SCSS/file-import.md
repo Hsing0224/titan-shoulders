@@ -1,9 +1,9 @@
 ---
 sidebar_position: 10
-description: SCSS 檔案引入
+description: 檔案引入
 ---
 
-# SCSS 檔案引入
+# 檔案引入
 
 在專案開發上，會依不同職責劃分各個 SCSS 檔案，最終再利用引入的方式將所需的 SCSS 檔案匯集起來。<br />
 SCSS 檔案引入有三種相關的方式，分別是 `@import`、`@forward`、`@use`。
@@ -25,9 +25,11 @@ SCSS 檔案引入有三種相關的方式，分別是 `@import`、`@forward`、`
 |  程式碼重複  |   ✅    |    ❌    |    ❌    |
 |    配置性    |   ❌    |    ✅    |    ✅    |
 
-:::tip
-範例裡驗證表格的差異會用 ❗️ 表示
-:::
+- 🤐 作用域：變數影響的範圍
+- 😈 隨意位置引入：在任何位置引入
+- 🙃 程式碼覆蓋：variable、mixin、extend、function 命名一樣的狀況是否會覆蓋
+- 🤬 程式碼重複：當重複引入檔案時是否會重複編譯
+- 配置性：當 variable 使用 `!default`，可否利用 `with` 帶入的方式替換值
 
 ## 範例檔案
 
@@ -103,7 +105,7 @@ $primary-color: black;
 
 ## @import
 
-最簡單且容易理解的引入方式；無額外設定，只需使用 `@import` 把整份檔案引入。<br />
+最簡單且容易理解的引入方式；無額外設定，只需使用 `@import` 把整份檔案引入。
 
 :::caution
 方便但需注意的方法。<br />
@@ -126,7 +128,7 @@ $primary-color: black;
 @import "insert";
 @import "insert";
 @import "insert";
-@import "insert"; // ❗️ 編譯後會有許多 insert 裡的實體樣式
+@import "insert"; // 🤬 編譯後會有許多 insert 裡的實體樣式
 ```
 
 ```scss title="index.scss"
@@ -137,13 +139,13 @@ $primary-color: black;
 }
 
 .color-primary {
-  color: $primary-color; // ❗️ 因為被 insert.scss 覆蓋，這邊值為 black
+  color: $primary-color; // 🙃 因為被 insert.scss 覆蓋，這邊值為 black
 }
 .color-secondary {
-  color: $secondary-color; // ❗️ 可以使用來自 _utils.scss 引入的 _variable.scss 變數
+  color: $secondary-color; // 🤐 可以使用來自 _utils.scss 引入的 _variable.scss 變數
 }
 
-@import "insert"; // ❗️ 可隨意位置引入
+@import "insert"; // 😈 可隨意位置引入
 
 .box {
   @include square(50px);
@@ -208,12 +210,12 @@ $primary-color: black;
 @use "main";
 @forward "insert";
 @forward "insert";
-@forward "insert"; // ❗️ insert 在編譯時，實體的樣式只會編譯出一次
+@forward "insert"; // 🤬 insert 在編譯時，實體的樣式只會編譯出一次
 
 .base-font-size {
   font-size: main.calculate-rem(
     16px
-  ); // ❗️ 可以使用來自 _utils.scss 引入的 _function.scss 函式
+  ); // 🤐 可以使用來自 _utils.scss 引入的 _function.scss 函式
 }
 
 .color-primary {
@@ -230,7 +232,7 @@ $primary-color: black;
 }
 
 // This will error
-@forward "insert"; // ❗️ insert 在 @forward 無法從中插入
+@forward "insert"; // 😈 insert 在 @forward 無法從中插入
 
 .button-primary {
   color: main.$var-primary-color;
@@ -322,7 +324,7 @@ $primary-color: black;
 @use "main";
 @use "insert" as a; // 同個檔案會有 error 導致編譯中斷，需要將來源需要取不同的 namespace 避免衝突，
 @use "insert" as b;
-@use "insert" as c; // ❗️ insert 在編譯時，實體的樣式只會編譯出一次
+@use "insert" as c; // 🤬 insert 在編譯時，實體的樣式只會編譯出一次
 ```
 
 :::danger
@@ -419,3 +421,7 @@ $-secondary-color: blue;
   color: main.$primary-color; // yellow
 }
 ```
+
+## reference
+
+> [sass-lang - import](https://sass-lang.com/documentation/at-rules/import/)<br />[sass-lang - use](https://sass-lang.com/documentation/at-rules/use/)<br />[sass-lang - forward](https://sass-lang.com/documentation/at-rules/forward/)
