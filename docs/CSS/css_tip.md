@@ -7,7 +7,7 @@ description: 關於 CSS 的那些觀念
 
 ## element 最外層的定位
 
-當有一個 element 設定了 `position: absolute;`。其父層到 `<html>` 都沒有設定到 position(static 除外)，該 element 最終會定位於**視窗**。
+當有一個 element 設定了 **position: absolute;**。其父層到 `<html>` 都沒有設定到 position (static 除外)，該 element 最終會定位於**視窗**。
 
 > [測試頁面](https://codepen.io/starRandy/pen/MWxRbOO)
 
@@ -19,9 +19,10 @@ description: 關於 CSS 的那些觀念
 
 ```css
 .box {
-	z-index: calc(infinity);
+  z-index: calc(infinity);
 }
 ```
 
 ## Reference
+
 > [Playing with Infinity in CSS - codersblock](https://codersblock.com/blog/playing-with-infinity-in-css/)
