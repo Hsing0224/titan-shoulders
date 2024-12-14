@@ -156,11 +156,28 @@ console.log([] == []); // false
 
 ## Truthy 和 Falsy
 
-[JavaScript Equality Table/](https://dorey.github.io/JavaScript-Equality-Table/)
+[JavaScript Equality Table](https://dorey.github.io/JavaScript-Equality-Table/)
+
+## 從以前就存在的錯誤
+
+原本預期 null 在型別上會是 null，但做型別檢查時卻是回傳 object。
+
+```javascript
+console.log(typeof null); // object
+```
+
+:::note
+如果要檢查 null
+
+```javascript
+const x = null;
+console.log(x === null); // true
+```
+
+:::
+
+###
 
 ## Reference
 
-> [JavaScript 心機文法篇 - JS 面試常見核心知識 - 六角學院](https://www.youtube.com/watch?v=8U5kbb1SvJg)<br />
-> [JavaScript 核心篇 - 六角學院](https://www.udemy.com/course/javascript-adv/)<br />
-> [語句和聲明 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)<br />
-> [運算子優先順序 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
+> [JavaScript 心機文法篇 - JS 面試常見核心知識 - 六角學院](https://www.youtube.com/watch?v=8U5kbb1SvJg)<br />[JavaScript 核心篇 - 六角學院](https://www.udemy.com/course/javascript-adv/)<br />[語句和聲明 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)<br />[運算子優先順序 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
