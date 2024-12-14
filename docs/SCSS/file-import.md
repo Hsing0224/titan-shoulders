@@ -320,11 +320,22 @@ $primary-color: black;
 - 不會引入檔案本身的引入
 - 只會編譯一次檔案，即便被多個引入
 
+假設在 main 的時候引入 \_utils.scss 改為 `@use` 來測試變數是否可繼承
+
 ```scss title="main.scss"
+@use "utils";
+```
+
+```scss title="index.scss"
 @use "main";
 @use "insert" as a; // 同個檔案會有 error 導致編譯中斷，需要將來源需要取不同的 namespace 避免衝突，
 @use "insert" as b;
 @use "insert" as c; // 🤬 insert 在編譯時，實體的樣式只會編譯出一次
+
+.color-primary {
+  // This will error
+  color: main.$primary-color; // 🤐 無法獲取 main.$primary-color 的值
+}
 ```
 
 :::danger
