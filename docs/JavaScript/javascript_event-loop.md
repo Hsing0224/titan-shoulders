@@ -1,23 +1,11 @@
 ---
 sidebar_position: 11
-description: Event loop
+description: Event Loop
 ---
 
-# Event loop (事件循環)
+# Event Loop (事件循環)
 
 [Event Loop 的視覺化呈現](http://latentflip.com/loupe/)
-
-Event Loop 的任務是如果 `Stack` 是空的，就把 `Queue` 中的 frame 放到 `Stack` 中，直到 `Stack` 和 `Queue` 都是空的為止。
-
-![Event Loop 工作流程圖](./img/event-loop_flow_view.jpg)
-
-## 流程描述
-
-當頁面載入，`JavaScript Runtime` 時，會依照撰寫的 `JavaScript` ，由上到下依序執行下來，一個程式碼片段視為一個 frame，會先放入 `Call Stack`。<br />
-如果是 `XMLHttpRequest`、`Timer`、`Event Listener`，則這些 frame 會從 `Stack` 先移到 `Web APIs` ，並繼續執行 `Stack` 裡的程式碼片段。<br />
-然而如果在 `Stack` 裡的程式碼因為等待時間過久，則會造成 `blocking`。<br />
-當 `Stack` 清空後， `Event loop` 會將 `Web APIs` 處理完，放入 `Queue` 的 frame 移至 `Stack` 裡去執行。<br />
-直到 `Stack` 和 `Queue` 都為空。
 
 ## 各作用解釋
 
@@ -44,23 +32,30 @@ JavaScript 是單一執行緒，顧名思義就是一個時間點只能做一件
 1. 先進先出 (First In, First Out，FIFO)
 2. 管理非同步任務。例如： setTimeout 、 ajax
 
-前面有提到，當 `Stack` 沒有 frame 時， `Event loop` 會從 `Queue` 的 frame 移至 `Stack` 執行。<br />
-由此我們知道，例如當 Web APIs 在 `setTimeout` 所設定的秒數後，將其內容放入 `Queue`。不是秒數到就**立即執行**，而是**即將被執行**
-
 ### 阻塞 (blocking)
 
 阻塞通常發生在**同步**的操作上。<br />
-當 `JavaScript Runtime` 時，會執行在 `Stack` 裡的程式碼片段。<br />
+當 JavaScript Runtime 時，會執行在 Stack 裡的程式碼片段。<br />
 而萬一程式碼片段執行時間過久，其他任務無法被執行，進而造成瀏覽器停止渲染，使用者感受到卡頓或凍結。造成瀏覽體驗不佳。
 
-## 範例
+## 流程描述
 
-當頁面載入，瀏覽器的 `JavaScript` 引擎會依照撰寫的程式碼，由上到下依序執行下來。<br />
-一個程式碼片段視為一個 frame，會先放入 `Call Stack` 做執行。<br />
-當 `Stack` 遇到像是 `XMLHttpRequest`、`Timer`、`Event Listener`，這些 frame 會從 `Stack` 先移到 `Web APIs` ，並繼續執行 `Stack` 裡的程式碼片段。<br />
-萬一有 frame 在 `Stack` 裡因程式碼邏輯導致執行過久，則會造成 `blocking` 。<br />
-**當 `Stack` 清空後， `Event loop` 會將 `Web APIs` 處理完，放入 `Queue` 的 frame 移至 `Stack` 裡去執行**。<br />
-**直到 `Stack` 和 `Queue` 都為空**。
+Event Loop 的任務是如果 Stack 是空的，就把 Queue 中的 frame 放到 Stack 中，直到 Stack 和 Queue 都是空的為止。
+
+![Event Loop 工作流程圖](./img/event-loop_flow_view.jpg)
+
+當頁面載入，JavaScript Runtime 時，會依照撰寫的程式碼，由上到下依序執行下來，一個程式碼區塊則為一個 frame，會先放入 Call Stack。<br />
+如果這個 frame 是 **XMLHttpRequest** 、 **Timer** 、 **Event Listener**，則會從 Stack 先移到 Web APIs，並繼續執行 Stack 裡的 frame。<br />
+然而如果在 Stack 裡的程式碼因為等待時間過久，則會造成 **blocking。**<br />
+當 Web APIs 處理完，則會將 frame 移至 Queue 存放。<br />
+當 Stack 的 frame 都執行完成後，Event loop 會將 Queue 的 frame 移至 Stack 裡去執行。<br />
+**直到 Stack 和 Queue 都為空**。
+
+:::note
+這樣的流程可以知道，當 Web APIs 在 setTimeout 所設定的秒數後，將其內容放入 Queue。不是秒數到就**立即執行**，而是**即將被執行**
+:::
+
+## 範例
 
 ```javascript
 console.log("Start");
@@ -123,6 +118,4 @@ setTimeout 2s
 
 ## Reference
 
-> [event loop - loupe](http://latentflip.com/loupe/)<br />
-> [JavaScript Visualized: Event Loop - Lydia Hallie](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif)<br />
-> [JavaScript Event Loop - JavaScript Tutorial Website](https://www.javascripttutorial.net/javascript-event-loop/)
+> [event loop - loupe](http://latentflip.com/loupe/)<br />[JavaScript Visualized: Event Loop - Lydia Hallie](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif)<br />[JavaScript Event Loop - JavaScript Tutorial Website](https://www.javascripttutorial.net/javascript-event-loop/)
