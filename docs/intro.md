@@ -46,7 +46,7 @@ sidebar_position: 0
 
 ### SCSS #3
 
-- ✏️ 檔案引入 #10
+- ✅ 檔案引入 #10
 - ❌ SCSS RWD
 - ❌ SCSS 使用技巧
 
