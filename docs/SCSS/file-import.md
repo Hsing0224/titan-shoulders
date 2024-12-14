@@ -206,6 +206,8 @@ $primary-color: black;
 }
 ```
 
+:::
+
 ```scss title="main.scss"
 @use "main";
 @forward "insert";
