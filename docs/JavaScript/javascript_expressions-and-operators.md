@@ -7,7 +7,7 @@ description: 運算式與運算子
 
 ## 可選串連運算子(?.)
 
-當一個 object 無法確定是否有該屬性時，當如果為`undefined`或`null`，又往下層選擇屬性時，會導致程式發生錯誤。使用可選串連運算值可以確保當無該屬性，回傳`undefined`且停止往下繼續動作
+當一個 object 無法確定是否有該屬性時，當如果為 `undefined` 或 `null`，又往下層選擇屬性時，會導致程式發生錯誤。使用可選串連運算值可以確保當無該屬性，回傳 `undefined` 且停止往下繼續動作
 
 ```javascript
 const data = {
@@ -18,8 +18,9 @@ const data = {
   },
 };
 
-// 當沒使用可選串連運算子需要一層一層來避免沒有屬性的錯誤產生
 let movie;
+// 當沒使用可選串連運算子需要一層一層來避免沒有屬性的錯誤產生
+// highlight-next-line
 if (data && data.favorite && data.favorite.movie) {
   movie = data.favorite.movie;
 }
@@ -30,7 +31,7 @@ const movie = data?.favorite?.movie; // undefined
 
 ## 空值合併(??)
 
-當左邊的值為`null`或`undefined`，回傳右邊的值，不然就回傳左邊值
+當左邊的值為 `null` 或 `undefined`，回傳右邊的值，不然就回傳左邊值
 
 ```javascript
 undefined ?? 123; // 123
@@ -41,7 +42,7 @@ NaN ?? 123; // NaN
 
 ## 位元運算子 - 位元 AND(&)
 
-將值轉為二進位，再做`AND`
+將值轉為二進位，再做 `AND`
 
 ```javascript
 10 & 7 = 2;
@@ -62,18 +63,6 @@ Number & 1;
 0 => 偶數
 */
 ```
-
-:::note
-找時間測試，是否此判斷無法成立
-
-```javascript
-const number = 4;
-if (number & (1 === 0)) {
-  // code
-}
-```
-
-:::
 
 ## Reference
 
