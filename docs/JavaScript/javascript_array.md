@@ -39,11 +39,11 @@ const arr2 = new Array("3"); // ['3']
 console.log(arr2[0]); // '3'
 ```
 
-需產生陣列可以參考使用`[3]`或`Array.of(3)`來建立
+需產生陣列可以參考使用 `[3]` 或 `Array.of(3)` 來建立
 
 ## .at()
 
-類似 arr[index]這樣取值，但 bracket notation 方式不允許負數，`.at()`可以允許是負數，它會從後面數
+類似 `arr[index]` 這樣取值，但括號記法 (bracket notation) 方式不允許負數，`.at()` 可以允許負數，會從後面開始往前計算。
 
 ```javascript
 const arr = [0, 1, 2, 3];
@@ -66,15 +66,15 @@ const result = a.concat(b, c); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ## .every()
 
-檢查 Array 的值，如果全符合才會`true`
+檢查 Array 的值，如果全符合才會 `true`
 
 ```javascript
 const arr = [0, 1, 2, 3];
 arr.every((value) => value < 10); // true
 /*
-  arr.every(function(value){
-    return value < 10;
-  });
+arr.every(function(value){
+  return value < 10;
+});
 */
 ```
 
@@ -84,10 +84,10 @@ arr.every((value) => value < 10); // true
 
 ```javascript
 /*
-  fill的參數
+  fill 的參數
   - value 陣列要填滿的值
   - [start] 可接受負值，負值為從陣列往後數
-  - [end] 可以接受負值，指定的位置需在start往後的索引才有作用
+  - [end] 可以接受負值，指定的位置需在 start 往後的索引才有作用
 */
 const arr = Array(3).fill(true); // [true, true, true]
 arr.fill(false, -2, -1); // [true, false, true]
@@ -95,11 +95,11 @@ arr.fill(false, -2, -1); // [true, false, true]
 
 ## .filter()
 
-篩選符合條件的值，`會返回一個新的Array`
+篩選符合條件的值，**會返回一個新的 Array**
 
 ```javascript
 /*
-  filter的參數
+  filter 的參數
   - callbackFn
     - element 當前的值
     - index 當前值的索引
@@ -112,11 +112,11 @@ const result = arr.filter((value) => value > 55); //[90, 80, 70, 60]
 
 ## .find()
 
-返回符合條件的第一個值，如果沒找到會返回`undefined`
+返回符合條件的第一個值，如果沒找到會返回 `undefined`
 
 ```javascript
 /*
-  find的參數
+  find 的參數
   - callbackFn
     - element 當前的值
     - index 當前值的索引
@@ -129,11 +129,11 @@ const result = arr.find((value) => value > 2); // 3
 
 ## .findIndex()
 
-返回符合條件的第一個值的索引值，如果沒找到會回傳`-1`
+返回符合條件的第一個值的索引值，如果沒找到會回傳 `-1`
 
 ```javascript
 /*
-  findIndex的參數
+  findIndex 的參數
   - callbackFn
     - element 當前的值
     - index 當前值的索引
@@ -146,11 +146,11 @@ const result = arr.findIndex((value) => value > 35); // 3
 
 ## .findLast()
 
-類似`.find()`，它是從最後開始找，故回傳是從最後開始找的第一個符合的值，如果沒有找到會返回`undefined`
+類似 `.find()`，它是從最後開始找，故回傳是從最後開始找的第一個符合的值，如果沒有找到會返回 `undefined`
 
 ```javascript
 /*
-  findLast的參數
+  findLast 的參數
   - callbackFn
     - element 當前的值
     - index 當前值的索引
@@ -162,16 +162,19 @@ const result = arr.findLast((value) => value > 2); // 4
 ```
 
 :::note
-跟.indexOf()的差異在 indexOf()是傳入一個值，而.findIndex()是傳入條件
-:::
+與 `.indexOf()` 的差異<br />
+
+- `indexOf()` 是傳入一個值
+- `.findIndex()` 是傳入條件
+  :::
 
 ## .findLastIndex()
 
-類似`.findIndex()`，從最後開始找，回傳第一個符合的索引值，如果沒找到會回傳`-1`
+類似 `.findIndex()`，從最後開始找，回傳第一個符合的索引值，如果沒找到會回傳 `-1`
 
 ```javascript
 /*
-  findLastIndex的參數
+  findLastIndex 的參數
   - callbackFn
     - element 當前的值
     - index 當前值的索引
@@ -184,7 +187,7 @@ const result = arr.findLastIndex((value) => value > 35); // 4
 
 ## .flat()
 
-扁平化陣列，可填入深度，預設為`1`，`會返回一個新的Array`
+扁平化陣列，可填入深度，預設為 `1`，**會返回一個新的 Array**
 
 ```javascript
 /*
@@ -246,7 +249,7 @@ Array.from(Array(4), (num, i) => i); // [0, 1, 2, 3]
 
 ## .includes()
 
-判斷陣列裡是否有包含的值來回傳`true` or `false`
+判斷陣列裡是否有包含的值來回傳 `true` 或 `false`
 
 ```javascript
 /*
@@ -262,7 +265,7 @@ arr.includes(123); // true
 
 ## .indexOf()
 
-判斷陣列裡是否有指定的值，沒有就回傳`-1`
+判斷陣列裡是否有指定的值，沒有就回傳 `-1`
 
 ```javascript
 /*
@@ -276,7 +279,7 @@ arr.indexOf(5); // -1
 
 ## .isArray()
 
-檢查是否為 array，並回傳`true`或`false`
+檢查是否為 array，並回傳 `true` 或 `false`
 
 ```javascript
 /*
@@ -289,7 +292,7 @@ Array.isArray(Array.prototype); // true
 
 ## .join()
 
-將陣列轉成字串(一維)，並在每個 element 中間插入一個區隔的符號(預設為`,`)
+將陣列轉成字串(一維)，並在每個 element 中間插入一個區隔的符號(預設為 `,`)
 
 ```javascript
 /*
@@ -305,7 +308,7 @@ deepArr.join(); // '0,1,2,3,4,5,6,7'
 ```
 
 ~~奇淫技巧~~<br />
-如果搭配字串的.split()，可以達到扁平化陣列的效果，但有個問題是裡面的值不能有`,`，避免輸出錯誤
+如果搭配字串的 `.split()`，可以達到扁平化陣列的效果，但有個問題是裡面的值不能有 `,`，避免輸出錯誤
 
 ```javascript
 const deepArr = [0, 1, [2, 3, [4, 5, [6, 7]]]];
@@ -313,12 +316,12 @@ deepArr.join().split(","); // ['0', '1', '2', '3', '4', '5', '6', '7']
 ```
 
 :::note
-結論:還是乖乖用.flat()
+**結論:**還是乖乖用 `.flat()`
 :::
 
 ## .lastIndexOf()
 
-與`.indexOf`相同，但它是由後面往前找，會回傳符合的第一個索引，_意味為陣列裡最後一個_，當都沒有符合則回傳`-1`
+與 `.indexOf()` 相同，但它是由後面往前找，會回傳符合的第一個索引，_意味為陣列裡最後一個相符的索引_，當都沒有符合則回傳`-1`
 
 ```javascript
 /*
@@ -353,7 +356,7 @@ arr.map((value) => value * 2); // [2, 4, 6, 8]
 
 ```javascript
 /*
-  of的參數
+  of 的參數
   - element1, ..., elementN
 */
 const arr = Array.of(5); // [5]
@@ -402,7 +405,7 @@ const sum = arr.reduce((acc, current) => acc + current, 0); // 15
 
 ## .reverse()
 
-將陣列的值反轉，會影響到原本的陣列，如果不想要影響原本的陣列，可使用`.toReversed()`
+將陣列的值反轉，會影響到原本的陣列，如果不想要影響原本的陣列，可使用 `.toReversed()`
 
 ```javascript
 const arr = [0, 1, 2];
@@ -416,7 +419,7 @@ arr.reverse(); // [2, 1, 0]
 ```javascript
 const arr = ["a", "b", "c"];
 arr.shift(); // 'a'
-console.log(arr); // [1, 2, 3]
+console.log(arr); // ["b", "c"]
 ```
 
 ## .slice()
@@ -435,7 +438,7 @@ arr.slice(2, 3); // [2];
 
 ## .some()
 
-陣列裡是否至少一個符合判斷，回傳`true`或`false`
+陣列裡是否至少一個符合判斷，回傳 `true` 或 `false`
 
 ```javascript
 const arr = [0, 1, 2, 3];
@@ -446,7 +449,7 @@ arr.some((element) => element > 5); // false
 ## .sort()
 
 默認排序是將元素轉為字符，按照 UTF-16 碼以升冪排序。<br />
-兩者以 `-1`, `0`, `1`來決定排序
+兩者以 `-1`, `0`, `1` 來決定排序
 
 | `compareFn(a, b)`回傳值 | 順序                   |
 | :---------------------: | ---------------------- |
@@ -454,12 +457,12 @@ arr.some((element) => element > 5); // false
 |            0            | 保持原來順序           |
 |            1            | `a`在`b`之後，`[b, a]` |
 
-`.sort()`會影響原本的陣列，如果不想要影響原本的陣列，可使用`.toSorted()`
+`.sort()` 會影響原本的陣列，如果不想要影響原本的陣列，可使用 `.toSorted()`
 
 ```javascript
 /*
   sort的參數
-  - [compareFn] 傳入比較的函式，回傳值必須是-1, 0 , 1
+  - [compareFn] 傳入比較的函式，回傳值必須是 -1, 0 , 1
 */
 const arr = [40, 1, 5, 200];
 arr.sort(); // [1, 200, 40, 5]
@@ -473,7 +476,7 @@ arr.sort(compareNumbers); // [1, 5, 40, 200]
 ## .splice()
 
 在指定的位置，移除/替換/新增新的元素<br />
-`.splice()`會影響原本的陣列，如果不想要影響原本的陣列，可使用`.toSpliced()`
+`.splice() `會影響原本的陣列，如果不想要影響原本的陣列，可使用 `.toSpliced()`
 
 ```javascript
 /*
