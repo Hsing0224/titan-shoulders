@@ -7,7 +7,7 @@ description: Set & Map
 
 ## Set
 
-`Set`可以視為是一個內容只有唯一值的 Array(但他不是 Array)
+Set 可以視為是一個內容只有唯一值的 Array (但他不是 Array)
 
 ```javascript
 const testSet = new Set();
@@ -19,14 +19,14 @@ testSet.add({ name: "Hsing", sex: "male" }); // Set(3) {1, 'Hello', {…}}
 
 // 因裡面有值了所以不會新增
 testSet.add(1); // Set(3) {1, 'Hello', {…}}
-// NaN跟undefined也被視為唯一值，即使 NaN !== NaN
+// NaN 跟 undefined 也被視為唯一值，即使 NaN !== NaN
 
-// 不過array跟object是可以成功的
+// 不過 array 跟 object 是可以成功的
 testSet.add({ name: "Hsing", sex: "male" }); // Set(4) {1, 'Hello', {…}, {…}}
 
 // delete
 testSet.delete(1); // true
-testSet.delete(1); // 因為1已被刪掉，如果沒這個值則返回false
+testSet.delete(1); // 因為 1 已被刪掉，如果沒這個值則返回 false
 testSet.delete({ name: "Hsing", sex: "male" }); // false，這樣是刪不掉的
 
 // has
@@ -41,8 +41,9 @@ testSet.size; // 3
 testSet.clear(); // Set(0) {size: 0}
 ```
 
-以剛剛範例，當傳入是`array`或`object`，在`delete`及`has`都失效。<br />
-聰明的你一定發現，就是`call by reference`所影響的
+:::tip
+因為是 JavaScript 特性，當傳入是 array 或 object 是 `call by reference`，在 `delete` 及 `has` 都失效。
+:::
 
 ```javascript
 const obj = { name: "Hsing", sex: "male" };
@@ -55,7 +56,7 @@ testSet.delete(obj); // true
 
 ### 唯一值
 
-用`Set`唯一值的特性，來去除掉重複的值
+用 Set 唯一值的特性，來去除掉重複的值
 
 ```javascript
 const arr = [1, 1, 2, 3, 4, 5, 4];
@@ -63,7 +64,7 @@ const testSet = new Set(arr); // Set(5) {1, 2, 3, 4, 5}
 const uniqueArr = [...testSet]; // [1, 2, 3, 4, 5]
 ```
 
-當如果已經都存在，也可以用迴圈方式來將值一一丟入`Set`裡
+當如果已經都存在，也可以用迴圈方式來將值一一丟入 Set 裡
 
 ```javascript
 const testSet = new Set();
@@ -77,7 +78,7 @@ const uniqueArr = [...testSet]; // [1, 2, 3, 4, 5]
 
 ### 迭代器
 
-在`Set`中，key 和 value 都是同一個
+在 Set 中，key 和 value 都是同一個
 
 ```javascript
 const testSet = new Set([1, 2, 3, 4, 5]);
@@ -102,9 +103,9 @@ const spreadArray = [...testSet]; // (5) [1, 2, 3, 4, 5]
 
 ## Map
 
-- key 的靈活性： `Map`的 Key 可以是數字、字串、物件、函式、 symbol
+- key 的靈活性： Map 的 Key 可以是數字、字串、物件、函式、symbol
   :::tip
-  一般 Object 的 key 只能`string`或`symbol`
+  一般 Object 的 key 只能 string 或 symbol
   :::
 - 資料插入的順序
 
@@ -141,7 +142,7 @@ testMap.get(funcKey); // function key's value
 testMap.get(symbolKey); // symbol key's value
 
 // delete(key)
-testMap.delete(123); // true(如果沒有該key則返回false)
+testMap.delete(123); // true(如果沒有該 key 則返回 false)
 
 // clear
 testMap.clear(); // Map(0) {size: 0}
@@ -168,7 +169,7 @@ three => threeValue
 ### 迭代器
 
 ```javascript
-// keys()，返回一個key的迭代器
+// keys()，返回一個 key 的迭代器
 const keysIterator = testMap.keys(); // MapIterator {0, 'one', 2, 'three', 4}
 for (const key of keysIterator) {
   console.log(key);
@@ -194,7 +195,7 @@ threeValue
 fourValue
 */
 
-// entries()，返回Map所有內容的迭代器
+// entries()，返回 Map 所有內容的迭代器
 const entriesIterator = testMap.entries(); // MapIterator {0 => 'zero value', ... , 4 => 'four value'}
 for (const [key, value] of entriesIterator) {
   console.log(`${key} => ${value}`);
@@ -211,7 +212,7 @@ three => threeValue
 ### 轉陣列
 
 ```javascript
-// 用這方法可以快速建立Map的資料
+// 用這方法可以快速建立 Map 的資料
 const testMap = new Map([
   [0, "zero"],
   [1, "one"],
@@ -243,7 +244,7 @@ newMap.set(1, "one change"); // Map(3) {0 => 'zero', 1 => 'one change', 2 => 't
 ### Object，新增資料後的順序
 
 當 Object 新增資料，key 為數字的時候，其實數字會轉換成字串。而也會導致資料順序上的不一致<br />
-如果有考量到順序及數字，可選擇使用`Map`
+如果有考量到順序及數字，可選擇使用 Map
 
 ```javascript
 const obj = {
@@ -260,7 +261,7 @@ for (const key in obj) {
   console.log(key);
 }
 /*
-這邊也是字串的0、2、4
+這邊也是字串的 0、2、4
 0
 2
 4
@@ -274,5 +275,4 @@ Object.entries(obj)[1]; // ['2', 'twoValue']
 
 ## Reference
 
-> [[JS] JavaScript 集合（Set）- PJCHENder](https://pjchender.dev/javascript/js-set/)<br />
-> [[JS] JavaScript Map - PJCHENder](https://pjchender.dev/javascript/js-map/)
+> [[JS] JavaScript 集合（Set）- PJCHENder](https://pjchender.dev/javascript/js-set/)<br />[[JS] JavaScript Map - PJCHENder](https://pjchender.dev/javascript/js-map/)

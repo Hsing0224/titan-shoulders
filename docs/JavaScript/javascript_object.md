@@ -23,10 +23,10 @@ const obj = new Object(data);
 ```
 
 :::tip
-使用建構式需要注意。<br />如果是 `new Object(1)` 的話，會產生一個數字的包裹物件 `Number {1}`。<br />如果是字串， `new Object('1')` 的話，會產生一個數字的包裹物件 `String {1}`。
+使用建構式需要注意。<br />如果是 `new Object(1)` 的話，會產生一個數字的包裹物件 **Number {1}**。<br />如果是字串， `new Object('1')` 的話，會產生一個數字的包裹物件 **String {1}**。
 :::
 
-純值無法再被賦予屬性，而當用建構式產生的物件，即便是 `Number` 或 `String`，是可以再指定屬性的。
+純值無法再被賦予屬性，而當用建構式產生的物件，即便是 Number 或 String，是可以再指定屬性的。
 
 ```javascript
 const text = "純文字";
@@ -65,4 +65,5 @@ delete abc; // false，變數不能被刪除
 ```
 
 ## Reference
+
 > [JavaScript 核心篇 - 六角學院](https://www.udemy.com/course/javascript-adv/)
