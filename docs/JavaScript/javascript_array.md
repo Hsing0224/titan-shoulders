@@ -66,7 +66,7 @@ const result = a.concat(b, c); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ## .every()
 
-檢查 Array 的值，如果全符合才會 `true`
+檢查 Array 的值，如果全符合才會回傳 `true`
 
 ```javascript
 const arr = [0, 1, 2, 3];

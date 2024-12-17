@@ -7,7 +7,7 @@ description: isNaN() vs Number.isNaN()
 
 ## isNaN()
 
-判斷值是否為 NaN(Not a Number)，js 會轉型來判斷，如果無法轉成數字，那將會`return true`<br />
+判斷值是否為 NaN(Not a Number)，js 會轉型來判斷，如果無法轉成數字，那將會 **return true**<br />
 example:
 
 ```javascript
@@ -22,7 +22,7 @@ isNaN(false); // false
 
 ## Number.isNaN()
 
-ES6 後所新增，不會強制轉換非數字的值，它只為在值本身為 NaN 時候才會`return true`<br />
+ES6 後所新增，不會強制轉換非數字的值，它只為在值本身為 NaN 時候才會 **return true**<br />
 會出現 NaN 的狀況
 
 ```javascript
@@ -48,5 +48,4 @@ Number.isNaN(false); // false
 
 ## Reference
 
-> [sNAN() - MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/isNaN)<br />
-> [Number.isNaN - MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
+> [sNAN() - MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/isNaN)<br /> [Number.isNaN - MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)

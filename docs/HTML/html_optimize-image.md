@@ -22,21 +22,21 @@ description: 圖片最佳化
 
 ### PNG
 
-支援透明度，但檔案相較於 `JPG` 來說大
+支援透明度，但檔案相較於 JPG 來說大
 
 ### WebP
 
-支援透明度，檔案大小與壓縮過的 `JPG` ，差不多。但也不一定優於 `JPG`
+支援透明度，檔案大小與壓縮過的 JPG ，差不多。但也不一定優於 JPG
 
 ### SVG
 
 向量圖片。不會有失真的問題，適用於簡單的圖形。<br />
-圖片的 `SVG` 是無法用 `CSS` 改變顏色，但如果是用 `symbol` 方式是可以達成需求。
+圖片的 SVG 是無法用 CSS 改變顏色，但如果是用 `symbol` 方式是可以達成需求。
 
 ### Base64
 
-一種編碼的方式。可以利用打包工具或線上轉換服務將檔案較小的圖片以 `Base64` 方式儲存，可以得到更小的檔案大小。<br />
-雖然可以減少 `HTTP Request` ，但無法被瀏覽器快取。
+一種編碼的方式。可以利用打包工具或線上轉換服務將檔案較小的圖片以 **Base64** 方式儲存，可以得到更小的檔案大小。<br />
+雖然可以減少 HTTP Request，但無法被瀏覽器快取。
 
 ### AVIF
 
@@ -50,7 +50,7 @@ description: 圖片最佳化
 
 #### media
 
-類似 `CSS` 設定 `media query` 做法，讓瀏覽器依設定抓取對應的圖片。
+類似 CSS 設定 media query 做法，讓瀏覽器依設定抓取對應的圖片。
 
 #### srcset
 
@@ -84,7 +84,7 @@ description: 圖片最佳化
 </picture>
 ```
 
-當裝置的 viewport 落在對應的 `media` 後，會再依 `srcset` 去讀取對應的圖片(如果有設定的話)。
+當裝置的 viewport 落在對應的 media query 後，會再依 `srcset` 去讀取對應的圖片(如果有設定的話)。
 
 [測試範例](https://codepen.io/starRandy/full/abMeLeE)
 

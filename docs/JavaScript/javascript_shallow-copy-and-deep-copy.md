@@ -5,14 +5,14 @@ description: 淺拷貝與深拷貝
 
 # 淺拷貝與深拷貝
 
-在 js 的資料型別主要分為
+在 JavaScript 的資料型別主要分為
 
-- Primitive type data，`string`、`number`、`boolean`、`undefined`、`null`、`symbol`，複製時會`call by value`
-- Object data，`object`、`array`、`function`，複製時是屬於`call by reference`
+- Primitive type data，`string`、`number`、`boolean`、`undefined`、`null`、`symbol`，複製時會 call by value
+- Object data，`object`、`array`、`function`，複製時是屬於 call by Reference
 
 ## 淺拷貝(Shallow Copy)
 
-當在 js 要複製一個陣列或物件，因 js 的特性，陣列或物件是屬於`call by reference`
+當要複製一個陣列或物件，因 JavaScript 的特性，陣列或物件是屬於 call by Reference
 
 ```javascript
 const arr = [0, 1, 2];
@@ -26,7 +26,7 @@ newObj.name = "Eric";
 console.log(obj); // { name: 'Eric', age: 10 }
 ```
 
-當要複製一個陣列或物件，受到`call by reference`特性影響，我們可以用幾個方式來達成淺拷貝<br />
+當要複製一個陣列或物件，受到 call by Reference 特性影響，我們可以用幾個方式來達成淺拷貝<br />
 
 ### 陣列淺拷貝的方法
 
@@ -72,7 +72,7 @@ console.log(obj); // { name: 'Stan', age: 10 }
 ```
 
 :::tip
-以上方法只適用一維的陣列和一層的物件，在二維以上和兩層的物件就會因為`call by reference`而會受到影響
+以上方法只適用一維的陣列和一層的物件，在二維以上和兩層的物件就會因為 call by Reference 而受到影響
 :::
 
 ```javascript
@@ -90,7 +90,7 @@ const obj = {
 };
 const newObj = { ...obj };
 newObj.name = "Eric";
-console.log(obj); // { name: 'Eric', age: 10, info: { gender: 'Male', hobby: 'Playing basketball'} }; 一層沒有問題
+console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Playing basketball'} }; 一層沒有問題
 newObj.info.hobby = "Playing video games";
 console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Playing video games'} };
 ```
@@ -107,7 +107,7 @@ console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Pl
 當要複製陣列或物件有兩層以上，如果需要完全獨立，就必須使用深拷貝
 
 ```javascript
-// 常用的是使用JSON.parse() 和 JSON.stringify()來做深拷貝
+// 常見方法是使用 JSON.parse() 和 JSON.stringify() 來做深拷貝
 const arr = [0, 1, [2, 3]];
 const newArr = JSON.parse(JSON.stringify(arr));
 newArr[2][0] = 4;
@@ -123,7 +123,7 @@ newObj.info.hobby = "Playing video games";
 console.log(obj); // { name: 'Stan', age: 10, info: { gender: 'Male', hobby: 'Playing basketball'} }
 ```
 
-利用`JSON.parse()`和`JSON.stringify()`，雖然可以解決兩層以上`call by Reference`的問題，但還是有些狀況會造成 value 損壞
+利用 `JSON.parse()` 和 `JSON.stringify()`，雖然可以解決兩層以上 call by Reference 的問題，但還是有些狀況會造成 value 損壞
 
 ```javascript
 const obj = {
@@ -153,7 +153,7 @@ function -> 遺失
 */
 ```
 
-利用`typeof`並使用遞迴的方式來做深拷貝
+利用 `typeof` 並使用遞迴的方式來做深拷貝
 
 ```javascript
 function deepCopy(obj) {

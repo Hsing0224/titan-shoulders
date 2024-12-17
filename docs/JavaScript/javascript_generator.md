@@ -9,26 +9,18 @@ description: GeneratorFunction
 
 ## 如何使用
 
-`function *name`或是`function* name`，都是可以的。他都是名稱為`name`的 generator function
-
 ```javascript
-function* generator() {
-  yield 1;
-  yield 2;
-  yield 3;
-  // return 'end';
+/* 寫法
+函式
+function *name
+function* name
+
+匿名函式
+const name = function* () {
+  code...
 }
 
-/*
-可以這樣寫
-function *generator() {
-  ...
-}
-const generator = function* () {
-  ...
-}
-
-如果是在object內
+object 內
 const obj = {
   *generator() {
     ...
@@ -36,21 +28,28 @@ const obj = {
 }
 */
 
+function* generator() {
+  yield 1;
+  yield 2;
+  yield 3;
+  // return 'end';
+}
+
 const iterator = generator();
 iterator.next(); // {value: 1, done: false}
 iterator.next(); // {value: 2, done: false}
 iterator.next(); // {value: 3, done: false}
 iterator.next(); // {value: undefined, done: true}
-// 如果在generator function最後寫一個return，那當最後一個的時後會是{value: 'end', done: true}
+// 如果在 generator function 最後寫一個 return，那當最後一個的時後會是 {value: 'end', done: true}
 ```
 
 ## yield
 
-當執行 generator function 時，就會得到一個`iterator`，而執行了`.next()`這個方法，就會執行函式的內容，直到遇到`yield`時，函式就會暫停，直到下次呼叫`.next()`
+當執行 generator function 時，就會得到一個 iterator，而執行了 `.next()` 這個方法，就會執行函式的內容，直到遇到 yield 時，函式就會暫停，直到下次呼叫 `.next()`
 
-### yield\*
+## yield\*
 
-當 generator function 在執行內容時，遇到`yield*`，這時會把控制權移交到另一個函式，由另一個 generator function 執行，直到 done 為 true 才又回到原本的函式裡
+當 generator function 在執行內容時，遇到 `yield*`，這時會把控制權移交到另一個函式，由另一個 generator function 執行，直到 done 為 true 才又回到原本的函式裡
 
 ```javascript
 function* delegate() {
@@ -75,15 +74,15 @@ iterator.next().value; // 6
 
 ## .next()
 
-使用`.next()`可以走訪到一個`yield`，回傳會是一個 object`{value: yield的值, done: 此函式是否已經結束}`<br />
-Generator function 的執行分成兩個階段
+使用 `.next()` 可以走訪到一個 yield，回傳會是一個 object `{value: yield的值, done: 此函式是否已經結束}`<br />
+generator function 的執行分成兩個階段
 
-1. 啟動: 在呼叫`.next()`時，函式還沒正式開始，而是在第一個`yield`之前暫停
-2. 恢復: 再次呼叫`.next()`，函式從上次暫停的地方恢復執行
+1. 啟動: 在呼叫 `.next()` 時，函式還沒正式開始，而是在第一個 yield 之前暫停
+2. 恢復: 再次呼叫 `.next()`，函式從上次暫停的地方恢復執行
 
-### .next()傳參數
+### 傳參數
 
-需要注意執行第一次`.next()`時，參數是無效的，因為是把參數塞入上一個`yield`的地方，而`yield`本身並沒有回傳值，或是只會回傳`undefined`，所以當沒有值傳入時候，並不是回傳`yield`接續的值，而是`undefined`
+需要注意執行第一次 `.next()` 時，參數是無效的，因為是把參數塞入上一個 yield 的地方，而 yield 本身並沒有回傳值，或是只會回傳 undefined，所以當沒有值傳入時候，並不是回傳 yield 接續的值，而是 undefined
 
 ```javascript
 function* generator() {
@@ -101,7 +100,7 @@ iterator.next("e"); // nextValue: e {value: 4, done: false}
 
 ## .return()
 
-如果使用 return，會直接結束 generator function 並回傳指定的值。之後再使用`.next()`呼叫時則不會執行接下來的值
+如果使用 return，會直接結束 generator function 並回傳指定的值。之後再使用 `.next()` 呼叫時則不會執行接下來的值
 
 ```javascript
 function* generator() {
@@ -134,7 +133,7 @@ iterator.next(); // {value: undefined, done: true}
 
 ## .throw()
 
-此方法是從 generator function 丟出一個 error，並結束，之後再使用`.next()`呼叫時則不會執行接下來的值
+此方法是從 generator function 丟出一個 error，並結束，之後再使用 `.next()` 呼叫時則不會執行接下來的值
 
 ```javascript
 function* generator() {
@@ -143,7 +142,7 @@ function* generator() {
     yield 2;
     yield 3;
   } catch (error) {
-    // 如果沒用return，回傳的done還會是false
+    // 如果沒用 return，回傳的 done 還會是 false
     return `Error Message: ${error}`;
   }
 }
@@ -176,7 +175,7 @@ iterator.next(); // {value: undefined, done: true}
 
 ## for...of
 
-使用`for...of`可以自動執行 generator function 產生的 iterator 物件，此方法不需要使用`.next()`
+使用 `for...of` 可以自動執行 generator function 產生的 iterator 物件，此方法不需要使用 `.next()`
 
 ```javascript
 function* generator() {
@@ -219,5 +218,4 @@ for (let i = 0; i < 10; i++) {
 
 ## Reference
 
-> [淺入淺出 Generator Function - Denny Ku](https://denny.qollie.com/2016/05/08/es6-generator-func/)<br />
-> [[JS] JavaScript Generator 的使用- PJCHENder](https://pjchender.dev/javascript/js-generator/)
+> [淺入淺出 Generator Function - Denny Ku](https://denny.qollie.com/2016/05/08/es6-generator-func/)<br />[[JS] JavaScript Generator 的使用- PJCHENder](https://pjchender.dev/javascript/js-generator/)
