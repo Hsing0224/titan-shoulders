@@ -1,6 +1,6 @@
 ---
 sidebar_position: 10
-sidebar_label: Docusaurus小幫手
+sidebar_label: Docusaurus 小幫手
 ---
 
 # Docusaurus 的一些用法
@@ -100,5 +100,39 @@ keywords: #關鍵詞
 
 ## code block
 
-在 markdown 裡使用程式碼區塊，可以支援的語言
-[支援的語言](https://prismjs.com/#supported-languages)
+在 markdown 裡使用程式碼區塊，可以[支援的語言](https://prismjs.com/#supported-languages)
+
+### magic comments
+
+可以加上一些預設的 highlight 來讓程式碼更容易閱讀。<br />
+[安裝方法](https://docusaurus.io/docs/markdown-features/code-blocks#custom-magic-comments)<br />
+
+區塊 highlight<br />
+使用 `// highlight-start` 和 `// highlight-end` 來界定範圍
+
+```javascript
+// highlight-start
+function highlightBlock() {
+  // code
+}
+// highlight-end
+```
+
+單行 highlight<br />
+使用 `// highlight-next-line` 來讓下一行 highlight
+
+```javascript
+// highlight-next-line
+function highlightBlock() {
+  // code
+}
+```
+
+error<br />
+使用 `// This will error` 來讓下一行顯示 error 狀態
+
+```javascript
+const test = 123;
+// This will error
+test = 456;
+```
