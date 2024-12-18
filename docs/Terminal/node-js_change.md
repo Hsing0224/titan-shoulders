@@ -14,13 +14,13 @@ sidebar_label: node.js 切換版本
 
 ## 指令
 
-查看可安裝的版本
+### 查看可安裝的版本
 
 ```powershell
 nvm ls-remote
 ```
 
-查看可安裝的版本(只顯示 LTS )
+### 查看可安裝的版本(只顯示 LTS )
 
 ```powershell
 nvm ls-remote --lts
@@ -30,13 +30,15 @@ nvm ls-remote --lts
 LTS = Long-term support，意指長期支援的版本
 :::
 
-查看已安裝的 node.js 版本
+### 查看已安裝的 node.js 版本
 
 ```powershell
 nvm ls
 ```
 
-切換 node.js 版本
+<!-- 補回傳的訊息 -->
+
+### 切換 node.js 版本
 
 ```powershell
 nvm use <version>
@@ -45,6 +47,10 @@ nvm use <version>
 :::tip
 版本號要帶 v ，例： v20.13.1
 :::
+
+每次都要輸入一長串的版本號是很麻煩的
+
+### 切換成功
 
 切換 node.js 版本後，會有一段訊息，其中也有顯示使用的 npm 版本
 
