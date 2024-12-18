@@ -121,5 +121,5 @@ sidebar_position: 0
 ### Other #99
 
 - ❌ regex
-- ❌ Github Action
+- ❌ GitHub Action
 - ❌ 前端效能調校

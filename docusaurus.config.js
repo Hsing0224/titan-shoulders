@@ -121,7 +121,7 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Github',
+                label: 'GitHub',
                 href: 'https://github.com/Hsing0224',
               },
             ],
