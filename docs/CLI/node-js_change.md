@@ -1,6 +1,6 @@
 ---
 sidebar_position: 10
-sidebar_label: node.js 切換版本
+sidebar_label: node 切換版本
 ---
 
 # node 版本切換
@@ -48,7 +48,39 @@ nvm use <version>
 版本號要帶 v ，例： v20.13.1
 :::
 
-每次都要輸入一長串的版本號是很麻煩的
+每次都要輸入一長串的版本號是很麻煩，因此有兩個方法比較簡易。
+
+- 利用 CLI 的自動填入(按 Tab)
+
+```powershell
+nvm use v20 # 這邊按 tab
+```
+
+:::caution
+當 v20 版本只有一個的時候才可以使用 tab 讓 CLI 自動填入
+:::
+
+- 利用 nvm 部分匹配功能
+
+```powershell
+nvm use v20
+```
+
+:::note
+直接輸入讓 nvm 匹配目前安裝的版本
+:::
+
+- 建立 **.nvmrc** 檔案讓 nvm 可以使用對應的版本
+
+```powershell
+nvm use
+```
+
+- 將版本改為預設
+
+```powershell
+nvm alias default <version> # 當下次開啟 CLI 介面時，預設就會是該版本
+```
 
 ### 切換成功
 
