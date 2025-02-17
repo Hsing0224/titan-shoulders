@@ -62,6 +62,7 @@ sidebar_position: 0
 - ✅ GeneratorFunction #33
 - ✅ 淺拷貝與深拷貝 #40
 - ✅ isNaN() vs Number.isNaN() #41
+- ✅ curry function #42
 - ❌ formData
 - ❌ Class
 - ❌ ResizeObserver
