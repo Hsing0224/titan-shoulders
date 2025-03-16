@@ -25,87 +25,32 @@ SCSS 檔案引入有三種相關的方式，分別是 `@import`、`@forward`、`
 |  程式碼重複  |   ✅    |    ❌    |    ❌    |
 |    配置性    |   ❌    |    ✅    |    ✅    |
 
-- 🤐 作用域：變數影響的範圍
-- 😈 隨意位置引入：在任何位置引入
-- 🙃 程式碼覆蓋：variable、mixin、extend、function 命名一樣的狀況是否會覆蓋
-- 🤬 程式碼重複：當重複引入檔案時是否會重複編譯
+- 作用域：變數影響的範圍
+- 隨意位置引入：在任何位置引入
+- 程式碼覆蓋：variable、mixin、extend、function 命名一樣的狀況是否會覆蓋
+- 程式碼重複：當重複引入檔案時是否會重複編譯
 - 配置性：當 variable 使用 `!default`，可否利用 `with` 帶入的方式替換值
 
-## 範例檔案
+## 如何使用
 
-```scss title="_variable.scss"
-$primary-color: red;
-$secondary-color: green !default;
-$third-color: blue;
-```
-
-```scss title="_mixin.scss"
-@mixin square($value) {
-  width: $value;
-  height: $value;
-}
-@mixin is-hide {
-  display: none;
-}
-
-@mixin is-show {
-  display: block;
-}
-```
-
-```scss title="_extend.scss"
-%list-reset {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-%button-default {
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-```
-
-```scss title="_function.scss"
-@function calculate-rem($px, $base-font-size: 16px) {
-  @return calc($px / $base-font-size) * 1rem;
-}
-
-@function pow($number, $exponent) {
-  $result: 1;
-  @for $i from 1 through $exponent {
-    $result: $result * $number;
-  }
-  @return $result;
-}
-```
-
-```mermaid
-graph TD
-    A[_variable] --> E[_utils];
-    B[_mixin] --> E[_utils];
-    C[_extend] --> E[_utils];
-    D[_function] --> E[_utils];
-    E -- 引入 --> F[main];
-    G[insert] -- 引入 --> F[main];
-    G -- 引入 --> H[index];
-    F -- 引入 --> H[index];
-```
-
-多增加一個 insert 的檔案來測試重複載入
-
-```scss title="insert.scss"
-$primary-color: black;
-.insert {
-  color: $primary-color;
-}
-```
+- @import: 可隨時隨地的引用，方法最為簡單，將整份檔案寫入指定的位置。
+- @forward: 將 SCSS 檔案轉發的功能。須放在開頭。
+  - show / hide: 轉發時可指定想顯示、隱藏哪些。
+  - as: 引入時替檔案加上前綴。
+  - with: 將引入檔案內的 `!default` 來給予設定值。
+- @use: 本身帶有命名空間的引入，預設的命名空間為檔名。
+  - as: 變更命名空間，也可使用 `*` 讓命名空間取消變為全域，使用上需注意變數重複導致覆蓋的問題。
+  -
 
 ## @import
 
-最簡單且容易理解的引入方式；無額外設定，只需使用 `@import` 把整份檔案引入。
+### 優點
+
+簡單易用。
+
+### 缺點
+
+檔案容易肥大，或覆蓋問題，造成維護上困難。
 
 :::caution
 方便但需注意的方法。<br />
@@ -116,58 +61,26 @@ $primary-color: black;
 官網已經將 `@import` 標註為棄用。
 :::
 
-```scss title="_utils.scss"
-@import "variable";
-@import "mixin";
-@import "extend";
-@import "function";
-```
-
-```scss title="main.scss"
+```scss
 @import "utils";
 @import "insert";
 @import "insert";
-@import "insert";
-@import "insert"; // 🤬 編譯後會有許多 insert 裡的實體樣式
-```
-
-```scss title="index.scss"
-@import "main";
-
-.base-font-size {
-  font-size: calculate-rem(16px);
+.test {
+  color: block;
 }
-
-.color-primary {
-  color: $primary-color; // 🙃 因為被 insert.scss 覆蓋，這邊值為 black
-}
-.color-secondary {
-  color: $secondary-color; // 🤐 可以使用來自 _utils.scss 引入的 _variable.scss 變數
-}
-
-@import "insert"; // 😈 可隨意位置引入
-
-.box {
-  @include square(50px);
-  @include is-show;
-}
-
-.button-primary {
-  color: $primary-color;
-  @extend %button-default;
-}
-.button-secondary {
-  color: $secondary-color;
-  @extend %button-default;
-}
+@import "insert"; // 隨意插入
+@import "insert"; // 編譯後會有許多 insert 裡的實體樣式
 ```
 
 ## @forward
 
-會有兩種使用的情境。
+### 優點
 
-- 只引入檔案的樣式：<br />直接使用 `@forward`。
-- 引入後要使用到該檔案的變數等功能：<br />無法直接使用 `@forward`，需搭配 `@use` 使用。
+只負責轉發的動作，而轉發之外也可控制引入檔案的呈現。
+
+### 缺點
+
+本身不具備 SCSS 的功能模組，意味著 variable、mixin、extend、function 都無法使用。
 
 :::note
 **as**, **show**, **hide**, **with**，皆無法用在 extend 的設定上。
@@ -176,7 +89,7 @@ $primary-color: black;
 ### as
 
 將變數值加上前綴<br />
-可以利用 `as` 來將命名作為轉換，當引入檔案使用，則會依照 `as` 後的名稱去呼叫變數等方法。<br />
+利用 `as` 來將命名作為轉換，當引入檔案使用，則會依照 `as` 後的名稱去呼叫變數等方法。<br />
 `*` 來表示該檔案裡各個命名。
 
 :::tip
@@ -186,7 +99,7 @@ $primary-color: black;
 - `*` 需放在結尾
   :::
 
-```scss title="_utils.scss"
+```scss
 @forward "variable" as var-*; // 使用 * 將檔案內各項名稱
 @forward "mixin" as mixin*; // 也可以不打 dash，只是會很醜
 @forward "extend" as extend-*; // extend 使用別名是無效的
@@ -195,53 +108,17 @@ $primary-color: black;
 @forward "function";
 ```
 
-:::note
-❗️ 引入時會檢查 main & insert 相關的引入檔案，編譯時因為範例裡 $primary-color 有重複導致中斷。<br />
-所以 insert.scss 做個變更
-
-```scss title="insert.scss"
-@use "variable";
-.insert {
-  color: variable.$primary-color;
-}
-```
-
-:::
-
-```scss title="main.scss"
+```scss
 @use "main";
 @forward "insert";
 @forward "insert";
-@forward "insert"; // 🤬 insert 在編譯時，實體的樣式只會編譯出一次
-
-.base-font-size {
-  font-size: main.calculate-rem(
-    16px
-  ); // 🤐 可以使用來自 _utils.scss 引入的 _function.scss 函式
-}
+@forward "insert"; // insert 在編譯時，實體的樣式只會編譯出一次
 
 .color-primary {
   // This will error
   color: main.var-$primary-color; // 前綴會針對名稱，變數符號 ($) 須在最前面
   color: main.$var-primary-color;
-}
-.color-secondary {
-  color: main.$var-secondary-color;
-}
-
-.box {
   @include main.mixinsquare(50px);
-}
-
-// This will error
-@forward "insert"; // 😈 insert 在 @forward 無法從中插入
-
-.button-primary {
-  color: main.$var-primary-color;
-  @extend %button-default; // extend 因編譯機制和功能性，不用額外的別名
-}
-.button-secondary {
-  color: main.$var-secondary-color;
   // This will error
   @extend %extend-button-default
       !optional; // 可使用 !optional 來避免編譯錯誤而中斷編譯
@@ -254,54 +131,21 @@ $primary-color: black;
 
 可以限制只想要被取用的
 
+```scss title="_utils.scss"
+@forward "variable" as var-* show $var-primary-color, $var-third-color; // 當有別名的時候， show 及 hide 就需遵守命名規範
+```
+
 ### hide
 
 讓引入的檔案除了指定隱藏的值之外，其餘皆可使用。
 
 ```scss title="_utils.scss"
-@forward "variable" as var-* show $var-primary-color, $var-third-color; // 當有別名的時候， show 及 hide 就需遵守命名規範
-@forward "mixin" as mixin-* hide mixin-is-hide;
-// This will error
-@forward "extend" show %list-reset; // `@forward` 無法指定 show / hide 去指定 extend 的設定
-@forward "function" as fn-* hide fn-calculate-rem;
+@forward "mixin" as mixin-* hide mixin-is-hide; // 當有別名的時候， show 及 hide 就需遵守命名規範
 ```
 
 :::danger
 `@forward` 無法使用 show / hide 去指定 extend 的設定
 :::
-
-```scss title="main.scss"
-@use "main";
-@forward "insert";
-
-.base-font-size {
-  //  This will error
-  font-size: main.fn-calculate-rem(16px); // fn-calculate-rem 已隱藏
-}
-
-.color-primary {
-  color: main.$var-primary-color;
-}
-.color-secondary {
-  // This will error
-  color: main.$var-secondary-color; // 沒有將 $var-secondary-color 設為 show 的一員
-}
-
-.box {
-  @include main.mixin-square(50px);
-  // This will error
-  @include main.mixin-is-hide; // 已經 hide 所以找不到
-}
-
-.button-primary {
-  color: main.$var-primary-color;
-  @extend %button-default; // extend 因編譯機制和功能性，不用額外的別名
-}
-.button-secondary {
-  color: main.$var-secondary-color;
-  @extend %button-default;
-}
-```
 
 ### with
 
@@ -318,21 +162,19 @@ $primary-color: black;
 
 ## @use
 
-- 有自己的命名空間
-- 不會引入檔案本身的引入
-- 只會編譯一次檔案，即便被多個引入
+### 優點
 
-假設在 main 的時候引入 \_utils.scss 改為 `@use` 來測試變數是否可繼承
+- 本身帶有命名空間
 
-```scss title="main.scss"
-@use "utils";
-```
+### 缺點
 
-```scss title="index.scss"
+- 每次都要打前綴(as \* 除外)
+
+```scss
 @use "main";
 @use "insert" as a; // 同個檔案會有 error 導致編譯中斷，需要將來源需要取不同的 namespace 避免衝突，
 @use "insert" as b;
-@use "insert" as c; // 🤬 insert 在編譯時，實體的樣式只會編譯出一次
+@use "insert" as c; // insert 在編譯時，實體的樣式只會編譯出一次
 
 .color-primary {
   // This will error
@@ -413,25 +255,14 @@ $-secondary-color: blue;
 
 同 `@forward` 的做法；當引入的檔案也有使用 `!default`，依照當下的檔案 -> 引入的檔案，來定義該變數所設定的值。
 
-```scss title="_utils.scss"
+```scss
 @forward "variable" as var-* with($secondary-color: yellow !default);
 ```
 
-```scss title="_main.scss"
-@forward "utils";
-```
-
-```scss title="index.scss"
+```scss
 @use "main" with($secondary-color: yellowgreen !default);
 .color-primary {
   color: main.$primary-color; // yellowgreen
-}
-```
-
-```scss title="index.scss"
-@use "main";
-.color-primary {
-  color: main.$primary-color; // yellow
 }
 ```
 
