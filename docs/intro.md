@@ -65,19 +65,20 @@ sidebar_position: 0
 - ✅ curry function #42
 - ❌ formData
 - ❌ Class
-- ❌ ResizeObserver
-- ❌ MutationObserver
+- ❌ ResizeObserver #31
+- ❌ MutationObserver #32
 - ❌ fetch
 - ❌ promise
 - ❌ closure
-- ❌ debounce
-- ❌ throttle
+- ❌ debounce #34
+- ❌ throttle #35
 
 ### TypeScript #5
 
 - ❌ 學習筆記
 - ❌ tsconfig 設定
-- ❌ 型別
+- ❌ 基礎型別
+- ❌ 別名
 
 ### Angular #6
 
