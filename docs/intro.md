@@ -119,8 +119,17 @@ sidebar_position: 0
 - ❌ tree
 - ❌ oh my zsh
 
+### Course #12
+
+- ✅ 前端效能調教 #10
+- ✅ GitHub Copilot 進階開發實戰 #20
+- ❌ 全面掌握 GitHub Copilot 代理人模式：打造專屬 AI 開發助手 #21
+- ❌ 實戰 API 測試：使用 Postman 測試工具 #30
+- ❌ NotebookLM 錦囊妙計：掌握九大應用場景的創意用法 #31
+- ❌ 一小時 No-Code 打造可搜尋的 AI 知識庫系統 (RAG) #32
+- ❌ 實戰 E2E 測試：使用 Playwright 測試框架 #33
+
 ### Other #99
 
 - ❌ regex
 - ❌ GitHub Action
-- ❌ 前端效能調校
