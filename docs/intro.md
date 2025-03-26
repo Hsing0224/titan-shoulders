@@ -70,7 +70,7 @@ sidebar_position: 0
 - ❌ fetch
 - ❌ promise
 - ❌ closure #34
-- ❌ debounce #35
+- ✅ debounce #35
 - ❌ throttle #36
 
 ### TypeScript #5
