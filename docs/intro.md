@@ -69,9 +69,9 @@ sidebar_position: 0
 - ❌ MutationObserver #32
 - ❌ fetch
 - ❌ promise
-- ❌ closure
-- ❌ debounce #34
-- ❌ throttle #35
+- ❌ closure #34
+- ❌ debounce #35
+- ❌ throttle #36
 
 ### TypeScript #5
 
