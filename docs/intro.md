@@ -111,6 +111,7 @@ sidebar_position: 0
 
 ### VSCode #10
 
+- ✏️ 使用技巧 #10
 - ❌ 設定
 - ❌ 擴充套件
 
