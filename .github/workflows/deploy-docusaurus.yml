@@ -34,16 +34,16 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }} # 使用之前設定的 Secrets
           LINE_ID: ${{ secrets.LINE_ID }} # 使用之前設定的 Secrets
         run: |
-          "messages": [
-            {
-              "type": "text",
-              "text": "因為 "'"${GITHUB_ACTOR}"'" 的餵食，Docusaurus 又長大了"
-            }
-          ]
-          curl -v -X POST https://api.line.me/v2/bot/message/push \
-          -H 'Content-Type: application/json' \
-          -H 'Authorization: Bearer $CHANNEL_ACCESS_TOKEN' \
-          -d '{
-              "to": $LINE_ID,
-              "messages": $messages
+          json_payload='{
+            "to": "'"${LINE_ID}"'",
+            "messages": [
+              {
+                "type": "text",
+                "text": "因為 $GITHUB_ACTOR 的餵食，Docusaurus 又長大了"
+              }
+            ]
           }'
+          curl -v -X POST https://api.line.me/v2/bot/message/push \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer $CHANNEL_ACCESS_TOKEN" \
+          -d "$json_payload"
