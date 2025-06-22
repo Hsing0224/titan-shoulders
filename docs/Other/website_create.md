@@ -6,7 +6,7 @@ sidebar_position: 1
 
 看到[PJ 大的未整理筆記](https://pjchender.dev/)，被版面的配置和功能所吸引，所以也決定來搞一個。<br />
 這網站目的主要是有個空間可以放學習的筆記之外，預防往後工作可能遇到問題，卻忘記曾經學過的東西該如何使用，利用這網站的筆記來喚醒那個沈睡太久(或是消失)的記憶。<br />
-我打算把文件放到自己的 GitHub 上，當 push 時幫我部署到 GitHub Pages，嗯...潮一點再推播到 LINE 上面 😎
+我打算把文件放到自己的 GitHub 上，當 push 時幫我部署到 GitHub Pages，嗯...潮一點再推播到 LINE 上面通知網站更新 😎
 
 ## 安裝
 
@@ -17,7 +17,7 @@ sidebar_position: 1
 npx create-docusaurus@latest <WebsiteName> classic
 ```
 
-安裝完後利用指令到建立的資料夾後將網站 run 起來，預設是`http://localhost:3000`
+安裝完後利用指令到建立的資料夾後將網站 run 起來，預設是 `http://localhost:3000`
 
 ---
 
@@ -135,7 +135,76 @@ jobs:
           publish_dir: ./build
 ```
 
+## LINE Message API
+
+### 建立 LINE
+
+建立一個 [LINE 官方帳號](https://entry.line.biz/form/entry/unverified)<br />
+稍後再進行官方認證，將帳號先建立起來。之後會跳轉到管理介面。<br />
+
+:::tip
+可以從此區域得知目前還剩下多少推播的額度。
+![推播額度](./img/create_message_limit.jpg)
+❗️ 當推播對象為群組，一則的額度計算為 1 \* 群組人數
+:::
+
+### 開啟 Message API
+
+在功能列最右方的 Setting，可以進入 Account settings。除了更改個人頭像外，左側選單有個 **Message API**。將其開啟。<br />
+這邊會需要你選擇 provider，可以選擇或建立一個新的 provider，沒有什麼差別，一路確定後即可開啟 Message API 的功能。<br />
+當開啟後會看到頻道的資訊，這邊可以拿到我們推播時需要的 **channel secret**<br />
+也可以從下方的 **You can find more related settings in the LINE Developers Console.** 連至[開發者頁面](https://developers.line.biz/console/)<br />
+
+### 創建 Channel access token
+
+從開發者頁面，選取剛剛的 provider 後，即可找到創立的帳號。在此我們需要開啟 **Channel access token**。<br />
+按下 issue 即可發布且顯示該 token。
+
+:::tip
+如果 token 有更新的需求，則可以按下 Reissue，重新再產生一組新的 token
+:::
+
+### 設定 deploy
+
+在 github action 推播的所需資訊
+
+- Channel secret
+- Channel access token
+
+參照 [LINE Developers Document 的 Message API](https://developers.line.biz/en/reference/messaging-api/#send-push-message) <br />
+將推播的所需格式填入對應的資訊。
+
+```yml
+- name: Send LINE Message API
+  env:
+    CHANNEL_ACCESS_TOKEN: ${{ secrets.CHANNEL_ACCESS_TOKEN }} # LINE Messaging API 的存取權杖
+    GITHUB_ACTOR: ${{ github.actor }} # 哪位使用者觸發了這次部署
+    LINE_ID: ${{ secrets.LINE_ID }} # 要推播的 LINE ID
+  run: |
+    json_payload='{
+      "to": "'"${LINE_ID}"'",
+      "messages": [
+        {
+          "type": "text",
+          "text": "因為 "'"${GITHUB_ACTOR}"'" 的餵食，Docusaurus 又長大了"
+        }
+      ]
+    }'
+    curl -v -X POST https://api.line.me/v2/bot/message/push \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $CHANNEL_ACCESS_TOKEN" \
+    -d "$json_payload"
+```
+
+:::tip
+所傳入的 $json_payload 內容都為字串。如需要斷行，則可以在 yml 使用 **\n**
+:::
+
 ## LINE notify
+
+:::danger
+LINE 官方在 2025/3/31 關閉 LINE notify 服務，可改用 LINE Message API 來處理訊息推播(每個月 200 則免費)
+:::
 
 前往 [LINE notify](https://notify-bot.line.me/zh_TW/)，登入後，**右上角點 自己名稱 > 個人頁面**，按下發行權仗。<br />
 ![LINE notify](./img/create_notify.png)<br />
@@ -145,8 +214,8 @@ jobs:
 # 發送 LINE Notify 通知
 - name: Send LINE Notify
   env:
-    LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }} # 使用之前設定的 Secrets
-    GITHUB_ACTOR: ${{ github.actor }} # 使用之前設定的 Secrets
+    LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }} # LINE notify 的存取權杖
+    GITHUB_ACTOR: ${{ github.actor }} # 哪位使用者觸發了這次部署
   run: |
     curl -X POST https://notify-api.line.me/api/notify \
     -H "Authorization: Bearer $LINE_NOTIFY_TOKEN" \
