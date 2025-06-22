@@ -186,7 +186,7 @@ jobs:
       "messages": [
         {
           "type": "text",
-          "text": "因為 \"${GITHUB_ACTOR}\" 的餵食，Docusaurus 又長大了"
+          "text": "因為 $GITHUB_ACTOR 的餵食，Docusaurus 又長大了"
         }
       ]
     }'
