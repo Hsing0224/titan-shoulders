@@ -34,12 +34,13 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }} # 哪位使用者觸發了這次部署
           LINE_ID: ${{ secrets.LINE_ID }} # 要推播的 LINE ID
         run: |
+          echo 
           json_payload='{
             "to": "'"${LINE_ID}"'",
             "messages": [
               {
                 "type": "text",
-                "text": "因為 ${GITHUB_ACTOR} 的餵食，Docusaurus 又長大了"
+                "text": "因為 '"${GITHUB_ACTOR}"' 的餵食，Docusaurus 又長大了"
               }
             ]
           }'
