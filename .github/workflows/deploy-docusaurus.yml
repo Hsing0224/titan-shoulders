@@ -30,9 +30,9 @@ jobs:
       # 發送 LINE Message API 通知
       - name: Send LINE Message API
         env:
-          CHANNEL_ACCESS_TOKEN: ${{ secrets.CHANNEL_ACCESS_TOKEN }} # 使用之前設定的 Secrets
-          GITHUB_ACTOR: ${{ github.actor }} # 使用之前設定的 Secrets
-          LINE_ID: ${{ secrets.LINE_ID }} # 使用之前設定的 Secrets
+          CHANNEL_ACCESS_TOKEN: ${{ secrets.CHANNEL_ACCESS_TOKEN }} # LINE Messaging API 的存取權杖
+          GITHUB_ACTOR: ${{ github.actor }} # 哪位使用者觸發了這次部署
+          LINE_ID: ${{ secrets.LINE_ID }} # 要推播的 LINE ID
         run: |
           json_payload='{
             "to": "'"${LINE_ID}"'",
