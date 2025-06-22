@@ -3,7 +3,7 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '站在巨人肩膀的學習筆記',
+  title: 'Hsing 站在巨人肩膀的學習筆記',
   tagline: '寫給未來那個有點印象但記不起來的自己',
   favicon: 'img/favicon.ico',
 

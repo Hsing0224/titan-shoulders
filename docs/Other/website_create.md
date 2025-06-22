@@ -26,7 +26,7 @@ npx create-docusaurus@latest <WebsiteName> classic
 ```javascript title="./docusaurus.config.js"
 const config = {
   // 網站的title
-  title: "站在巨人肩膀的學習筆記",
+  title: "Hsing 站在巨人肩膀的學習筆記",
   // 副標題，不過如果沒有要使用它預設的landing page，其實也不會顯示
   tagline: "寫給未來那個有點印象但記不起來的自己",
   // 這邊因為我是要用 GitHub Pages
