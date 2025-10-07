@@ -35,12 +35,12 @@ sidebar_position: 0
 ### CSS #2
 
 - ✅ CSS 的那些觀念 #10
-- ❌ flex
-- ❌ grid
-- ❌ color
-- ❌ overflow
-- ❌ aspect-ratio
-- ❌ css 函數 calc()、min()、max()、clamp()
+- ❌ color #20
+- ❌ overflow #21
+- ❌ aspect-ratio #22
+- ❌ css 函數 calc()、min()、max()、clamp() #23
+- ❌ flex #24
+- ✏️ grid #25
 - ❌ @container
 - ❌ master css
 
