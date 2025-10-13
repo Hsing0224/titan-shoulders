@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 11
 sidebar_label: node 切換版本
 ---
 
@@ -16,13 +16,13 @@ sidebar_label: node 切換版本
 
 ### 查看可安裝的版本
 
-```powershell
+```shell
 nvm ls-remote
 ```
 
 ### 查看可安裝的版本(只顯示 LTS )
 
-```powershell
+```shell
 nvm ls-remote --lts
 ```
 
@@ -32,7 +32,7 @@ LTS = Long-term support，意指長期支援的版本
 
 ### 查看已安裝的 node.js 版本
 
-```powershell
+```shell
 nvm ls
 ```
 
@@ -40,7 +40,7 @@ nvm ls
 
 ### 切換 node.js 版本
 
-```powershell
+```shell
 nvm use <version>
 ```
 
@@ -52,7 +52,7 @@ nvm use <version>
 
 - 利用 CLI 的自動填入(按 Tab)
 
-```powershell
+```shell
 nvm use v20 # 這邊按 tab
 ```
 
@@ -62,7 +62,7 @@ nvm use v20 # 這邊按 tab
 
 - 利用 nvm 部分匹配功能
 
-```powershell
+```shell
 nvm use v20
 ```
 
@@ -72,13 +72,13 @@ nvm use v20
 
 - 建立 **.nvmrc** 檔案讓 nvm 可以使用對應的版本
 
-```powershell
+```shell
 nvm use
 ```
 
 - 將版本改為預設
 
-```powershell
+```shell
 nvm alias default <version> # 當下次開啟 CLI 介面時，預設就會是該版本
 ```
 
@@ -86,7 +86,7 @@ nvm alias default <version> # 當下次開啟 CLI 介面時，預設就會是該
 
 切換 node.js 版本後，會有一段訊息，其中也有顯示使用的 npm 版本
 
-```powershell
+```shell
 Now using node v20.13.1 (npm v10.8.1)
 ```
 
