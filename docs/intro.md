@@ -115,9 +115,13 @@ sidebar_position: 0
 - ❌ 設定
 - ❌ 擴充套件
 
-### Terminal #11
+### Shell #11
 
-- ✅ 版本切換 #10
+- ✏️ 基礎知識 #10
+- ✅ node 版本切換 #11
+- ✏️ Codex CLI #12
+- ❌ Gemini CLI #13
+- ❌ Claude Code #14
 - ❌ tree
 - ❌ oh my zsh
 
