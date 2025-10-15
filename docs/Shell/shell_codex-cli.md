@@ -128,19 +128,19 @@ Codex CLI 預設使用啟動所在的目錄作為 cwd, 可透過 --cwd/-C 覆寫
 ### 簡化模式
 #### 全自動模式
 ```shell
-$ codex --full-auto
+$ codex --full-auto "prompt"
 ```
 或是
 ```shell
-$ codex -a on-failure --sandbox workspace-write
+$ codex -a on-failure --sandbox workspace-write "prompt"
 ```
 #### yolo mode
 ```shell
-$ codex --yolo
+$ codex --yolo "prompt"
 ```
 或是
 ```shell
-$ codex --dangerously-bypass-approvals-and-sandbox
+$ codex --dangerously-bypass-approvals-and-sandbox "prompt"
 ```
 
 ## Reference
