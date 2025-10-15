@@ -49,14 +49,6 @@ $ codex exec "prompt"
 $ codex --search "prompt"
 ```
 
-### 安全性
-透過 `--approval-mode` (`-a`) 可以設定自動核准政策
-- 建議模式(預設)：
-```shell
-$ codex -a suggest "prompt"
-```
-!!!!!
-
 ### 接續工作
 開啟最近對話的選擇器
 
@@ -97,7 +89,59 @@ args = ["-y", "@upstash/context7-mcp@latest"]
 
 可參考保哥的 [Codex 文件](https://github.com/doggy8088/codex/blob/zh-tw-codex/docs/config.md)
 
-## sandbox_mode
+## 安全性
+透過 `--approval-mode` (`-a`) 可以設定自動核准政策
+- 建議模式(預設)：
+```shell
+$ codex -a suggest "prompt"
+```
+!!!!!
+
+
+### sandbox_mode
+#### 唯讀 (read-only)
+指令可讀取磁碟上的任何檔案，但嘗試寫入檔案和存取網路會被封鎖
+
+#### 工作區可寫入 (workspace-write)
+目前工作目錄會允許寫入<br />
+Codex CLI 預設使用啟動所在的目錄作為 cwd, 可透過 --cwd/-C 覆寫
+#### 危險的完整存取 (danger-full-access)
+完全停用沙盒機制
+
+### 核准政策 (approval_policy)
+#### 不信任 (untrusted)
+執行不在清單內的指令前，會先提示使用者核准
+
+#### 發生錯誤時 (on-failure)
+若在沙盒中執行指令失敗，Codex 會請求權限，以便在沙盒外重試
+
+#### 由模型決定 (on-request)
+由模型決定何時升級權限
+
+#### 完全不用核准 (never)
+永不提示使用者：若指令失敗，Codex 會自動嘗試其他做法
+
+:::tip
+若 Codex CLI 執行在非互動模式下，核准模式永遠為 never
+:::
+
+### 簡化模式
+#### 全自動模式
+```shell
+$ codex --full-auto
+```
+或是
+```shell
+$ codex -a on-failure --sandbox workspace-write
+```
+#### yolo mode
+```shell
+$ codex --yolo
+```
+或是
+```shell
+$ codex --dangerously-bypass-approvals-and-sandbox
+```
 
 ## Reference
 
