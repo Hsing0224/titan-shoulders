@@ -1,5 +1,6 @@
 ---
-sidebar_position: 10
+sidebar_position: 30
+sidebar_label: SCSS 檔案引入
 description: 檔案引入
 ---
 

@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+sidebar_position: 11
+sidebar_label: spec-kit
 ---
 
 # 規格驅動開發實戰：AI 時代的軟體開發新典範 - 以 GitHub Spec Kit 為例

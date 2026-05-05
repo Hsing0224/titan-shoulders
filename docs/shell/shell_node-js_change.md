@@ -1,6 +1,6 @@
 ---
 sidebar_position: 11
-sidebar_label: node 切換版本
+sidebar_label: node 版本切換
 ---
 
 # node 版本切換

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 41
+sidebar_position: 40
 description: isNaN() vs Number.isNaN()
 ---
 
