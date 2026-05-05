@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+sidebar_position: 12
+sidebar_label: 設計模式與原則
 ---
 
 # Design Pattern & Design Principle

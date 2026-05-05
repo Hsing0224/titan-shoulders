@@ -1,6 +1,6 @@
 ---
 sidebar_position: 10
-description: 使用技巧
+sidebar_label: 使用技巧
 ---
 
 # VSCode 使用技巧

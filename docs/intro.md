@@ -27,13 +27,13 @@ sidebar_position: 0
 
 列出目前有寫過，或是有想到但還沒寫的文章，主要是為了提醒自己 🤣
 
-### HTML & Web Foundation #01
+### HTML #01
 
 - ✅ 圖片最佳化 #10
 - ✅ 前端效能調教 #11
 - ❌ Input #20
 
-### Modern CSS & SCSS #02
+### Styles #02
 
 - ✅ CSS 的那些觀念 #10
 - ❌ css selector #11
@@ -110,7 +110,7 @@ sidebar_position: 0
 - ❌ 實戰 API 測試：使用 Postman 測試工具 #20
 - ❌ 實戰 E2E 測試：使用 Playwright 測試框架 #21
 
-### shell #09
+### Shell #09
 
 - ✏️ 基礎知識 #10
 - ✅ node 版本切換 #11
@@ -121,7 +121,7 @@ sidebar_position: 0
 
 - ✏️ 學習筆記
 
-### AI Augmented Development #11
+### AI Tools #11
 
 - ✅ GitHub Copilot 進階開發實戰 #10
 - ❌ 全面掌握 GitHub Copilot 代理人模式：打造專屬 AI 開發助手 #11
@@ -130,17 +130,12 @@ sidebar_position: 0
 - ❌ Claude Code #14
 - ❌ Gemini CLI #15
 
-### AI Knowledge Management #12
-
-- ❌ NotebookLM 錦囊妙計：掌握九大應用場景的創意用法 #10
-- ❌ 一小時 No-Code 打造可搜尋的 AI 知識庫系統 (RAG) #11
-
-### DevTools #13
+### DevTools #12
 
 - ❌ Sources overrides
 - ❌ 開發者工具指令面板
 
-### VSCode #14
+### VSCode #13
 
 - ✏️ 使用技巧 #10
 - ❌ 設定
@@ -148,5 +143,10 @@ sidebar_position: 0
 
 ### Other #99
 
+- 這個網站的誕生 #10
+- Docusaurus 小幫手 #11
+- ✏️ 設計模式與原則 #12
 - ❌ regex
 - ❌ GitHub Action
+- ❌ NotebookLM 錦囊妙計：掌握九大應用場景的創意用法 #30
+- ❌ 一小時 No-Code 打造可搜尋的 AI 知識庫系統 (RAG) #31
