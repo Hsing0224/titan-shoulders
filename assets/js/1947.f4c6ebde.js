@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktitan_shoulders=globalThis.webpackChunktitan_shoulders||[]).push([[1947],{1947(e,s,a){a.d(s,{createWardleyServices:()=>h.J});var h=a(2295);a(2519)}}]);

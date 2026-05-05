@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktitan_shoulders=globalThis.webpackChunktitan_shoulders||[]).push([[2634],{192(s,t,r){r.r(t),r.d(t,{default:()=>n});r(6540);var u=r(6347),a=r(4848);function n(){return(0,a.jsx)(u.rd,{to:"docs/intro"})}}}]);

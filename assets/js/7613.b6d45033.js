@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktitan_shoulders=globalThis.webpackChunktitan_shoulders||[]).push([[7613],{7613(e,s,a){a.d(s,{createPieServices:()=>h.f});var h=a(9515);a(2519)}}]);
