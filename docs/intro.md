@@ -27,113 +27,124 @@ sidebar_position: 0
 
 列出目前有寫過，或是有想到但還沒寫的文章，主要是為了提醒自己 🤣
 
-### HTML #1
+### HTML & Web Foundation #01
 
-- ✅ 圖片最佳化 #41
-- ❌ Input
+- ✅ 圖片最佳化 #10
+- ✅ 前端效能調教 #11
+- ❌ Input #20
 
-### CSS #2
+### Modern CSS & SCSS #02
 
 - ✅ CSS 的那些觀念 #10
+- ❌ css selector #11
+- ❌ css pseudo-classes & pseudo-elements #12
 - ❌ color #20
 - ❌ overflow #21
 - ❌ aspect-ratio #22
 - ❌ css 函數 calc()、min()、max()、clamp() #23
 - ❌ flex #24
 - ✏️ grid #25
-- ❌ @container
-- ❌ master css
+- ❌ @container #26
+- ✅ SCSS 檔案引入 #30
+- ❌ SCSS RWD #31
+- ❌ SCSS 使用技巧 #32
+- ❌ master css #40
 
-### SCSS #3
-
-- ✅ 檔案引入 #10
-- ❌ SCSS RWD
-- ❌ SCSS 使用技巧
-
-### JavaScript #4
+### JavaScript #03
 
 - ✅ JavaScript 的那些觀念 #10
 - ✅ Event loop #11
 - ✅ 運算式與運算子 #12
+- ✅ 淺拷貝與深拷貝 #13
 - ✏️ Array #20
 - ✏️ Object #21
 - ✏️ Set & Map #22
 - ✅ IntersectionObserver #30
-- ✅ GeneratorFunction #33
-- ✅ 淺拷貝與深拷貝 #40
-- ✅ isNaN() vs Number.isNaN() #41
-- ✅ curry function #42
-- ❌ formData
-- ❌ Class
 - ❌ ResizeObserver #31
 - ❌ MutationObserver #32
+- ✅ GeneratorFunction #33
+- ✅ isNaN() vs Number.isNaN() #40
+- ✅ curry function #41
+- ✅ debounce #42
+- ❌ throttle #43
+- ❌ closure #44
+- ❌ formData
+- ❌ Class
 - ❌ fetch
 - ❌ promise
-- ❌ closure #34
-- ✅ debounce #35
-- ❌ throttle #36
 
-### TypeScript #5
+### TypeScript #04
 
 - ❌ 學習筆記
 - ❌ tsconfig 設定
 - ❌ 基礎型別
 - ❌ 別名
 
-### Angular #6
+### RxJS #05
+
+- ❌ 學習筆記
+
+### Angular #06
+
+- ✏️ 學習筆記 #10
+- ✅ angular.json #11
+- ✅ Angular CLI #12
+- ✅ 生命週期 #20
+- ✅ Decorator (裝飾器) #21
+- ✅ Angular Core #22
+- ✅ Router #23
+- ✅ 繫結 #24
+- ✅ Directives (指令) #25
+- ✅ 範本參考變數及頁面範本 #26
+- ✅ 表單 #27
+- ❌ Service #30
+- ❌ Pipe #31
+
+### SDD #07
+
+- 基礎知識 #10
+- spec-kit #11
+
+### Testing #08
+
+- ❌ 實戰 API 測試：使用 Postman 測試工具 #20
+- ❌ 實戰 E2E 測試：使用 Playwright 測試框架 #21
+
+### shell #09
+
+- ✏️ 基礎知識 #10
+- ✅ node 版本切換 #11
+- ❌ oh my zsh #30
+- ❌ tree #31
+
+### Git #10
 
 - ✏️ 學習筆記
-- ✅ angular.json #10
-- ✅ Angular CLI #11
-- ✅ 生命週期 #12
-- ✅ Router #13
-- ✅ Angular Core #20
-- ✅ Decorator (裝飾器) #21
-- ✅ Directives (指令) #22
-- ✅ 繫結 #23
-- ❌ Pipe
-- ❌ Service
-- ✅ 範本參考變數及頁面範本 #26
-- ✅ 表單 #29
 
-### RxJS #7
+### AI Augmented Development #11
 
-- ❌ 學習筆記
+- ✅ GitHub Copilot 進階開發實戰 #10
+- ❌ 全面掌握 GitHub Copilot 代理人模式：打造專屬 AI 開發助手 #11
+- ❌ Copilot CLI #12
+- ✏️ Codex CLI #13
+- ❌ Claude Code #14
+- ❌ Gemini CLI #15
 
-### Git #8
+### AI Knowledge Management #12
 
-- ❌ 學習筆記
+- ❌ NotebookLM 錦囊妙計：掌握九大應用場景的創意用法 #10
+- ❌ 一小時 No-Code 打造可搜尋的 AI 知識庫系統 (RAG) #11
 
-### DevTools #9
+### DevTools #13
 
 - ❌ Sources overrides
 - ❌ 開發者工具指令面板
 
-### VSCode #10
+### VSCode #14
 
 - ✏️ 使用技巧 #10
 - ❌ 設定
 - ❌ 擴充套件
-
-### Shell #11
-
-- ✏️ 基礎知識 #10
-- ✅ node 版本切換 #11
-- ✏️ Codex CLI #12
-- ❌ Gemini CLI #13
-- ❌ Claude Code #14
-- ❌ tree
-- ❌ oh my zsh
-
-### Course #12
-
-- ✅ 前端效能調教 #10
-- ✅ GitHub Copilot 進階開發實戰 #20
-- ❌ 全面掌握 GitHub Copilot 代理人模式：打造專屬 AI 開發助手 #21
-- ❌ 實戰 API 測試：使用 Postman 測試工具 #30
-- ❌ NotebookLM 錦囊妙計：掌握九大應用場景的創意用法 #31
-- ❌ 一小時 No-Code 打造可搜尋的 AI 知識庫系統 (RAG) #32
-- ❌ 實戰 E2E 測試：使用 Playwright 測試框架 #33
 
 ### Other #99
 
