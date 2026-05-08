@@ -121,14 +121,3 @@ Now I want you to go and audit the implementation plan and the implementation de
 1. GitHub Spec-kit 的官方 repository
 2. 從 Release 點擊最新版本
 3. 輸入安裝指令
-
-## 如何好的描述
-
-### 行爲導向 (When/Then/Expect)
-
-這是 行為驅動開發(BDD) 的語法，但在 SDD 裡，它是 AI 的母語。<br />
-它讓意圖「意圖」具體化。
-
-- When 使用者輸入密碼錯誤三次
-- Then 系統鎖定帳號 5 分鐘
-- Expect 鎖定期間登入嘗試應被拒絕
