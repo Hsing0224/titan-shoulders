@@ -16,6 +16,29 @@ AWS 開發的一套 IDE，用來實現 SDD 的開發工具
 - 工作區：`.kiro/steering`
 - 全域：`~/.kiro/steering`
 
+### 讀取
+
+在文件上方宣告此文件哪時候被抓取
+
+```yaml
+---
+inclusion: always
+---
+```
+
+```yaml
+---
+inclusion: fileMatch
+fileMatchPattern: "components/**/*.ts"
+---
+```
+
+```yaml
+---
+inclusion: manual
+---
+```
+
 ### 產生指導文件
 
 產出會像例如 Claude Code, Gemini CLI, Codex CLI 的 `/init` 斜線命令的基礎文件，會拆分三個文件：
