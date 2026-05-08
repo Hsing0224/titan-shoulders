@@ -11,7 +11,8 @@ sidebar_label: spec-kit
 
 ### constitution
 
-訂定憲法、準則
+訂定憲法、準則。<br />
+為**專案不可違背的原則**。
 
 - 參與角色：團隊成員
 - 指令： `/speckit.constitution`
@@ -76,6 +77,10 @@ sidebar_label: spec-kit
 
 :::note
 如果產出不是你要的，把程式碼砍掉，修規格，修技術架構
+:::
+
+:::tip
+`speckit.clarify` 和 `/speckit.analyze` 是用來幫助規格一致性
 :::
 
 ## 適用於 Spec Kit 的開發階段
