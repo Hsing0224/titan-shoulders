@@ -121,3 +121,7 @@ Now I want you to go and audit the implementation plan and the implementation de
 1. GitHub Spec-kit 的官方 repository
 2. 從 Release 點擊最新版本
 3. 輸入安裝指令
+
+## Reference
+
+> [規格驅動開發實戰：AI 時代的軟體開發新典範 - Will 保哥](https://learn.duotify.com/courses/sdd)
