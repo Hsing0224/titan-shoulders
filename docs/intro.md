@@ -104,6 +104,7 @@ sidebar_position: 0
 
 - 基礎知識 #10
 - spec-kit #11
+- kiro #12
 
 ### Testing #08
 
@@ -124,7 +125,6 @@ sidebar_position: 0
 ### AI Tools #11
 
 - ✅ GitHub Copilot 進階開發實戰 #10
-- ❌ 全面掌握 GitHub Copilot 代理人模式：打造專屬 AI 開發助手 #11
 - ❌ Copilot CLI #12
 - ✏️ Codex CLI #13
 - ❌ Claude Code #14
@@ -145,7 +145,8 @@ sidebar_position: 0
 
 - 這個網站的誕生 #10
 - Docusaurus 小幫手 #11
-- ✏️ 設計模式與原則 #12
+- ✏️ MacOS 開發環境建置 #12
+- ✏️ 設計模式與原則 #13
 - ❌ regex
 - ❌ GitHub Action
 - ❌ NotebookLM 錦囊妙計：掌握九大應用場景的創意用法 #30

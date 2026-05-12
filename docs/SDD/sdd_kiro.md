@@ -81,3 +81,7 @@ inclusion: manual
 - 手動觸發已啟動
 - 特定檔案修改
 - 檔案建立、儲存、刪除
+
+## Reference
+
+> [規格驅動開發實戰：AI 時代的軟體開發新典範 - Will 保哥](https://learn.duotify.com/courses/sdd)
