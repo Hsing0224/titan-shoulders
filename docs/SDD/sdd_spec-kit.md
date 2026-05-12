@@ -7,6 +7,90 @@ sidebar_label: spec-kit
 
 實現 SDD 方法論的完整工具組
 
+## 安裝
+
+### 必要套件(git, uv, node, ripgrep)
+
+> 可以參考 [MacOS 開發環境建置](/docs/Other/other_macos_setup.md#homebrew) 來安裝必要的套件
+
+### 安裝 specify-cli
+
+```shell
+$ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+```
+
+## specify CLI
+
+### 環境檢查 check
+
+確認目前環境上安裝的工具，僅參考用，最主要第一個 `Git version control` 有綠燈即可
+
+```shell
+$ specify check
+```
+
+### 初始化 init
+
+為當前目錄建立一個 specify 專案，載入基礎的 sepc-kit 的檔案<br />
+初始化時會依序執行：
+
+1. 檢查必要工具
+2. 選擇 AI 代理人工具 (非互動介面預設為 `copilot`)
+3. 選擇腳本類型 (`ps` 或 `sh`)
+4. 從 github 下載模板
+5. 初始化新的 git 儲存庫(除非指定 `--no-git` 或目錄下已有儲存庫)
+
+```shell
+$ specify init --ai copilot --script sh .
+```
+
+- `--integration <Agent>` 或 `--ai`：指定使用建立初始模板用的 AI 代理工具，可輸入 copilot, gemini, cursor, codex
+- `--script <sh | ps>`：強制指定腳本格式，Windows 預設為 `ps`，其餘為 `sh`
+- `--ignore-agent-tools`：跳過對環境 AI 工具是否正確安裝的檢查，直接產出範本
+- `--here` 或 `.`：在目前所在的資料夾直接初始化，而不是建立新的資料夾
+- `--no-git`：跳過建立 Git 儲存庫，預設會執行 `git init`
+- `--debug`：開啟除錯模式，顯示更詳細的執行日誌
+
+### 版本資訊 version
+
+確認版本與環境
+
+```shell
+$ specify version
+```
+
+### 當前目錄檢查 self
+
+- check 檢查更新：確認本地安裝的 CLI 是否為最新版，僅唯讀
+- upgrade 升級：目前預留（尚未實作）
+
+### 插件管理 extension
+
+可至 [SpecKit 擴充功能網站](https://speckit-community.github.io/extensions/all-extensions)來瀏覽
+
+- list：已安裝的擴充功能
+- add：新增擴充功能
+- remove：移除擴充功能
+- search：搜尋可用的擴充功能，但直接從網站瀏覽會更好
+- info：顯示擴充功能詳細資訊
+- update：更新擴充功能
+- enable：開啟擴充功能
+- disable：關閉擴充功能
+- set-priority：當擴充功能有衝突時，此指令可以手動指定權重
+- catalog：私有的擴充功能，可透過此指令來新增/切換不同的來源伺服器
+
+### 預設集 preset
+
+目前專案上比較難以用到
+
+### 程式碼代理人 integration
+
+管理現有的程式碼代理人(coding agent)，本身系統預設已夠用
+
+### 工作流 workflow
+
+目前專案上比較難以用到
+
 ## 流程
 
 ### constitution
@@ -107,7 +191,7 @@ sidebar_label: spec-kit
 可以在 `/speckit.plan` 之前，先執行
 
 ```shell
-Now I want you to go and audit the implementation plan and the implementation detail files. Read through it with an eye on determining whether or not there is a sequence of tasks that you need to be doing that are obvious from reading this. Because I don't know if there's enough here. For example, when I look at the core implementation, it would be useful to reference the appropriate places in the implementation details where it can find the information as it walks through each step in the core implementation or in the refinement.
+$ Now I want you to go and audit the implementation plan and the implementation detail files. Read through it with an eye on determining whether or not there is a sequence of tasks that you need to be doing that are obvious from reading this. Because I don't know if there's enough here. For example, when I look at the core implementation, it would be useful to reference the appropriate places in the implementation details where it can find the information as it walks through each step in the core implementation or in the refinement.
 ```
 
 :::note
