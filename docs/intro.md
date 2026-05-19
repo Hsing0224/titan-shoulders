@@ -128,7 +128,7 @@ sidebar_position: 0
 - ❌ Copilot CLI #12
 - ✏️ Codex CLI #13
 - ❌ Claude Code #14
-- ❌ Gemini CLI #15
+- ✏️ Gemini CLI #15
 
 ### DevTools #12
 
