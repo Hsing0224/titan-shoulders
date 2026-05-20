@@ -1,9 +1,13 @@
 ---
-sidebar_position: 15
+sidebar_position: 16
 sidebar_label: Gemini CLI
 ---
 
 # Gemini CLI
+
+:::danger
+2026.5.20 宣布 Gemini CLI 即將在 棄用。替代產品為 Antigravity CLI
+:::
 
 ## 登入
 
@@ -30,14 +34,14 @@ sidebar_label: Gemini CLI
 
 ### 核心管理
 
-| 指令                 | 說明                                                                   |
-| :------------------- | :--------------------------------------------------------------------- |
-| `/about`             | 顯示版本資訊與環境詳情                                                 |
-| `/help` 或是 `?`     | 顯示 Gemini CLI 相關用法說明                                           |
-| `/quit` 或是 `/exit` | 退出 CLI如果加上 `--delete` 可以徹底刪除該此對話所有本地記錄和暫存檔案 |
-| `/stats`             | 顯示會話、模型或工具的使用統計數據                                     |
-| `/upgrade`           | 開啟 Gemini Code Assist 升級頁面                                       |
-| `/settings`          | 開啟互動式設定編輯器，修改 `.gemini/settings.json`                     |
+| 指令                 | 說明                                                                    |
+| :------------------- | :---------------------------------------------------------------------- |
+| `/about`             | 顯示版本資訊與環境詳情                                                  |
+| `/help` 或是 `?`     | 顯示 Gemini CLI 相關用法說明                                            |
+| `/quit` 或是 `/exit` | 退出 CLI 如果加上 `--delete` 可以徹底刪除該此對話所有本地記錄和暫存檔案 |
+| `/stats`             | 顯示會話、模型或工具的使用統計數據                                      |
+| `/upgrade`           | 開啟 Gemini Code Assist 升級頁面                                        |
+| `/settings`          | 開啟互動式設定編輯器，修改 `.gemini/settings.json`                      |
 
 ### 會話與歷史
 
@@ -131,153 +135,6 @@ GEMINI.md 有階層式特性，可依照專案量身打照
 - 子目錄：
   - 位置：Gemini CLI 會掃描當前目錄的子目錄中設定的情境
   - 範圍：針對特定元件、模組等提供高度的指示
-
-### 提供圖片當成上下文
-
-除了文字輸入，也可以輸入圖片來提問
-
-```shell
-$ codex -i demo.png "prompt"
-```
-
-或是多張圖片
-
-```shell
-$ codex --image demo1.png,demo2.jpg "prompt"
-```
-
-### 支援非互動模式 (CI 模式)
-
-```shell
-$ codex exec "prompt"
-```
-
-### 搜尋能力
-
-允許 Ccodex 可以搜尋，預設為關閉。
-
-```shell
-$ codex --search "prompt"
-```
-
-### 接續工作
-
-開啟最近對話的選擇器
-
-```shell
-$ codex --resume
-```
-
-<br />
-直接延續最近一次對話
-
-```shell
-$ codex --continue
-```
-
-## AGENTS.md
-
-可以使用 `AGENTS.md` 提供額外的 prompt。<br />
-Codex 會依照位置尋找 `AGENTS.md`，並由上而下合併。
-
-| 位置                       | 備註                                |
-| -------------------------- | ----------------------------------- |
-| ~/.codex/AGENTS.md         | 個人全域指導(優先權最低)            |
-| 根目錄 AGENTS.md           | 共享專案備註                        |
-| 目前工作目錄中的 AGENTS.md | 子資料夾 / 功能特定資訊(優先權最高) |
-
-## 自訂斜線命令(自訂提示)
-
-可以將常用提示字串儲存為 Markdown，便可從斜線命令選單快速重用。<br />
-檔案路徑：`$CODEX_HOME/prompts/`，預設為(`~/.codex/prompts`)<br />
-例如：檔案名為 `commit.md`，輸入則為 `/commit`
-
-## MCP
-
-檔案路徑：`~/.codex/config.toml`，以設定 context7 為例：
-
-```toml
-[mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp@latest"]
-```
-
-可參考保哥的 [Codex 文件](https://github.com/doggy8088/codex/blob/zh-tw-codex/docs/config.md)
-
-## 安全性
-
-透過 `--approval-mode` (`-a`) 可以設定自動核准政策
-
-- 建議模式(預設)：
-
-```shell
-$ codex -a suggest "prompt"
-```
-
-!!!!!
-
-### sandbox_mode
-
-#### 唯讀 (read-only)
-
-指令可讀取磁碟上的任何檔案，但嘗試寫入檔案和存取網路會被封鎖
-
-#### 工作區可寫入 (workspace-write)
-
-目前工作目錄會允許寫入<br />
-Codex CLI 預設使用啟動所在的目錄作為 cwd, 可透過 --cwd/-C 覆寫
-
-#### 危險的完整存取 (danger-full-access)
-
-完全停用沙盒機制
-
-### 核准政策 (approval_policy)
-
-#### 不信任 (untrusted)
-
-執行不在清單內的指令前，會先提示使用者核准
-
-#### 發生錯誤時 (on-failure)
-
-若在沙盒中執行指令失敗，Codex 會請求權限，以便在沙盒外重試
-
-#### 由模型決定 (on-request)
-
-由模型決定何時升級權限
-
-#### 完全不用核准 (never)
-
-永不提示使用者：若指令失敗，Codex 會自動嘗試其他做法
-
-:::tip
-若 Codex CLI 執行在非互動模式下，核准模式永遠為 never
-:::
-
-### 簡化模式
-
-#### 全自動模式
-
-```shell
-$ codex --full-auto "prompt"
-```
-
-或是
-
-```shell
-$ codex -a on-failure --sandbox workspace-write "prompt"
-```
-
-#### yolo mode
-
-```shell
-$ codex --yolo "prompt"
-```
-
-或是
-
-```shell
-$ codex --dangerously-bypass-approvals-and-sandbox "prompt"
-```
 
 ## Reference
 
