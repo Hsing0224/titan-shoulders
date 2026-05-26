@@ -153,6 +153,13 @@ hooks 會使用最高權限來執行 shell commands
 
 啟動互動式對話，將需求和規格釐清
 
+## Flags
+
+- `--add-dir`
+- `-c`: `--continue` 的簡短別名
+- `--dangerously-skip-permissions`: yolo mode
+- `-p`: `--print` 與 `--prompt` 的簡短別名
+
 ## Reference
 
 > [Antigravity Docs](https://antigravity.google/docs/cli-features)
