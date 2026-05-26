@@ -100,15 +100,23 @@ sidebar_label: Antigravity CLI
 | `/skills`            | 管理代理技能                                                                 |
 | `/mcp`               | 管理 Model Context Protocol 伺服器                                           |
 | `/hooks`             | 在生命週期時間點來觸發設定的任務                                             |
-| `/goal`              | 在生命週期時間點來觸發設定的任務                                             |
+| `/goal`              | 自主達成任務                                                                 |
 | `/grill-me`          | 在生命週期時間點來觸發設定的任務                                             |
 
 #### /agents
 
-會有分兩個地方的 Agents
+會有分兩個地方的 Agents。可隨時查看代理人的狀態
 
 - Workspace: `.agents/agents/{agent_name}/agent.json`
 - Global: `~/.gemini/antigravity-cli/agents/{agent_name}/agent.json`
+
+#### /schedule
+
+設定一次性或週期性的任務觸發。支援 [Cron 表達式](./../Other/other_cron.md)
+
+```shell
+$ /schedule 每小時執行一次單元測試
+```
 
 #### /skills
 
@@ -125,19 +133,24 @@ sidebar_label: Antigravity CLI
    - PostInvocation: LLM 調用後
    - Stop: 當 Agent 結束或退出時
 2. 設定好 hooks 的設定檔
-   1. Matcher: 觸發條件
-      - Write(single tool): 寫入新檔案時
-      - Write|Edit(multiple tools): 寫入新檔案或是編輯舊檔案
-      - Web.\*(regex pattern): 使用正規表達式
-   2. Name: 該 hook 的名稱
-   3. command: 執行的命令
-   4. Timeout(seconds): 超過多久則停止
+   - Matcher: 觸發條件
+     - Write(single tool): 寫入新檔案時
+     - Write|Edit(multiple tools): 寫入新檔案或是編輯舊檔案
+     - Web.\*(regex pattern): 使用正規表達式
+   - Name: 該 hook 的名稱
+   - command: 執行的命令
+   - Timeout(seconds): 超過多久則停止
 
 :::tip
 hooks 會使用最高權限來執行 shell commands
 :::
 
+#### /goal
+
+讓 AI 自行依照規劃、執行、驗證的循環來達成給予的任務目標
+
+#### /grill-me
+
 ## Reference
 
-> [Gemini](https://gemini.google.com/)<br />
 > [Antigravity Docs](https://antigravity.google/docs/cli-features)

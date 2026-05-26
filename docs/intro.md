@@ -148,6 +148,7 @@ sidebar_position: 0
 - Docusaurus 小幫手 #11
 - ✏️ MacOS 開發環境建置 #12
 - ✏️ 設計模式與原則 #13
+- ✅ Cron #20
 - ❌ regex
 - ❌ GitHub Action
 - ❌ NotebookLM 錦囊妙計：掌握九大應用場景的創意用法 #30
