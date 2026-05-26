@@ -151,6 +151,8 @@ hooks 會使用最高權限來執行 shell commands
 
 #### /grill-me
 
+啟動互動式對話，將需求和規格釐清
+
 ## Reference
 
 > [Antigravity Docs](https://antigravity.google/docs/cli-features)
