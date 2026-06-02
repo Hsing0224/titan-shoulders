@@ -34,7 +34,6 @@ sidebar_label: Antigravity CLI
 | :----------------------- | :---------------------------------------------------------------------- |
 | `/help` 或 `?`           | 顯示相關用法說明，可用左右方向鍵切換分頁                                |
 | `/exit` 或 `/exit`       | 退出 CLI 如果加上 `--delete` 可以徹底刪除該此對話所有本地記錄和暫存檔案 |
-| `/statsline`             | 顯示/隱藏會話、模型或工具的使用統計數據                                 |
 | `/usage` 或 `/quota`     | 檢視目前各個模組使用狀況                                                |
 | `/upgrade`               | 開啟 Gemini Code Assist 升級頁面                                        |
 | `/config` 或 `/settings` | 調整 Antigravity CLI 設定                                               |
@@ -86,6 +85,55 @@ sidebar_label: Antigravity CLI
 | `/model`       | 選擇使用的模組                                             |
 | `/open`        | 打開檔案並進入編輯                                         |
 | `/permissions` | 管理資料夾的信任權限                                       |
+| `/statusline`  | 顯示/隱藏會話、模型或工具的使用統計數據                    |
+| `/title`       | 設定 terminal 上方標題的顯示格式                           |
+
+#### /statusline
+
+在 `~/.gemini/antigravity-cli/settings.json` 中設定
+
+```json
+{
+  "statusLine": {
+    "type": "command",
+    "command": "~/.gemini/antigravity-cli/statusline.sh"
+  }
+}
+```
+
+且將該檔案加入執行的權限。
+
+```shell
+$ chmod +x ~/.gemini/antigravity-cli/statusline.sh
+```
+
+#### /title
+
+同 `statusline`，在 `~/.gemini/antigravity-cli/settings.json` 中設定
+
+```json
+{
+  "title": {
+    "type": "command",
+    "command": "~/.gemini/antigravity-cli/title.sh"
+  }
+}
+```
+
+且將該檔案加入執行的權限。
+
+```shell
+$ chmod +x ~/.gemini/antigravity-cli/title.sh
+```
+
+可設定幾種狀態
+
+- initializing: 初始化
+- idle: 閒置
+- thinking: 思考中
+- working: 工作中
+- tool_use: 使用工具
+- \*: 任意狀態
 
 ### 擴充與功能
 
