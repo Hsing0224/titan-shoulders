@@ -26,15 +26,46 @@ $ ls
 
 ## 使用技巧
 
-## echo
+### &&、||、;
 
-## source
+- `&&`: 前面指令成功接續執行
+- `||`: 前面指令失敗才執行
+- `;`: 不管成功與否皆執行
 
-## alias
-
-### &&
+```shell
+$ mkdir dist && cp app.js dist/
+$ ping host || echo "unreachable"
+$ cd /tmp ; ls ; pwd
+```
 
 ### |
+
+把前一個指令輸出結果往後傳
+
+```shell
+$ ls -la | grep ".js"
+```
+
+### >、>>
+
+- `>`: 覆蓋
+- `>>`: 新增至檔案最後一行
+
+```shell
+echo "hello" > out.text # 檔案內容會只有輸入的內容
+echo "world" >> out.text
+```
+
+### alias
+
+別名，為指令來自定義輸入的指令
+
+```shell
+alias ll="ls -la"
+alias gs="git status"
+alias # 顯示全部別名
+unalias ll # unalias 為取消
+```
 
 ### 自定義函式
 
@@ -60,20 +91,6 @@ mkcd() {
 | `$0`    | 執行的指令或腳本名稱本身 | `mkdir` 或 `./script.sh`     |
 | `$1`    | 第一個參數               | `mkdir folder1` 的 `folder1` |
 | `${10}` | 第十個以上的參數         | 超過 9 之後要加大括號        |
-
-如果有需要長文來引入，可以使用 `cat` 來將長文引入至命令列
-
-```markdown title="long-text.md"
-這是一串很長的描述
-```
-
-```shell
-$ "$(cat './long-text.md')"
-```
-
-:::tip
-前後一定需要加上雙引號
-:::
 
 ## Reference
 
