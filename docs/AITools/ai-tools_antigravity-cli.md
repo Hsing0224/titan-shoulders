@@ -90,6 +90,7 @@ sidebar_label: Antigravity CLI
 
 #### /statusline
 
+可以在互動對話框下自定義狀態列，顯示自己想要看的資訊<br />
 在 `~/.gemini/antigravity-cli/settings.json` 中設定
 
 ```json
@@ -109,6 +110,7 @@ $ chmod +x ~/.gemini/antigravity-cli/statusline.sh
 
 #### /title
 
+自訂每個 terminal 上方的標題<br />
 同 `statusline`，在 `~/.gemini/antigravity-cli/settings.json` 中設定
 
 ```json
