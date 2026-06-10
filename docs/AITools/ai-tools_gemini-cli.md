@@ -6,7 +6,7 @@ sidebar_label: Gemini CLI
 # Gemini CLI
 
 :::danger
-2026.5.20 宣布 Gemini CLI 即將在 棄用。替代產品為 Antigravity CLI
+2026.5.20 宣布 Gemini CLI 即將在 2026.6.18 棄用。替代產品為 Antigravity CLI
 :::
 
 ## 登入
