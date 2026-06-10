@@ -20,7 +20,8 @@ sidebar_position: 0
 ## 特別感謝
 
 - [PJCHENder](https://pjchender.dev/) - 當初是看了 PJ 大用 Docusaurus，所以選擇了它，蠻喜歡 Docusaurus 的配置。而且 PJ 大的文章都很有料 👍👍👍
-- [ChatGPT](https://chat.openai.com/) - 幾乎所有範例及相關資訊都會利用 ChatGPT 來做驗證和詢問，非常好用，學習的好夥伴
+- [Gemini](https://gemini.google.com/app?hl=zh-TW) - 學習路上的好夥伴
+- [ChatGPT](https://chat.openai.com/) - 學習路上的好夥伴
 - [MDN](https://developer.mozilla.org/en-US/docs/Learn) - 網站開發的百科全書
 
 ## 文章一覽
