@@ -205,10 +205,12 @@ hooks 會使用最高權限來執行 shell commands
 
 ## Flags
 
-- `--add-dir`
-- `-c`: `--continue` 的簡短別名
+- `-p`: 此次 session 的指令，`--print` 與 `--prompt` 的簡短別名
+- `--model`: 選擇模型
 - `--dangerously-skip-permissions`: yolo mode
-- `-p`: `--print` 與 `--prompt` 的簡短別名
+- `--sandbox`: 開啟沙盒模式
+- `-c`: `--continue` 的簡短別名
+- `--add-dir`: 新增目錄至此次 session
 
 ## Reference
 
