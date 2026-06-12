@@ -27,7 +27,3 @@ JavaScript 執行環境
 ### uv
 
 Python 套件管理工具
-
-### ripgrep
-
-純文字搜尋工具
