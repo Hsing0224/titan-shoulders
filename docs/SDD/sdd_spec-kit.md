@@ -15,7 +15,7 @@ sidebar_label: spec-kit
 
 ### 安裝 specify-cli
 
-```shell
+```bash
 $ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 ```
 
@@ -25,7 +25,7 @@ $ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 
 確認目前環境上安裝的工具，僅參考用，最主要第一個 `Git version control` 有綠燈即可
 
-```shell
+```bash
 $ specify check
 ```
 
@@ -40,7 +40,7 @@ $ specify check
 4. 從 github 下載模板
 5. 初始化新的 git 儲存庫(除非指定 `--no-git` 或目錄下已有儲存庫)
 
-```shell
+```bash
 $ specify init --ai copilot --script sh .
 ```
 
@@ -55,7 +55,7 @@ $ specify init --ai copilot --script sh .
 
 確認版本與環境
 
-```shell
+```bash
 $ specify version
 ```
 
@@ -190,7 +190,7 @@ $ specify version
 
 可以在 `/speckit.plan` 之前，先執行
 
-```shell
+```bash
 $ Now I want you to go and audit the implementation plan and the implementation detail files. Read through it with an eye on determining whether or not there is a sequence of tasks that you need to be doing that are obvious from reading this. Because I don't know if there's enough here. For example, when I look at the core implementation, it would be useful to reference the appropriate places in the implementation details where it can find the information as it walks through each step in the core implementation or in the refinement.
 ```
 

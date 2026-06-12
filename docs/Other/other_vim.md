@@ -8,7 +8,7 @@ sidebar_position: 20
 
 ## 開啟
 
-```shell
+```bash
 $ vim 檔案.副檔名
 ```
 

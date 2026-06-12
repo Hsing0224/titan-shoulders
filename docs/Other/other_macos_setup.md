@@ -8,11 +8,11 @@ sidebar_position: 12
 
 Homebrew 是 MacOS/Linux 系統的套件管理工具，可至[官網](https://brew.sh/)透過步驟安裝
 
-```shell
+```bash
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-```shell
+```bash
 $ brew install [要安裝的套件]
 ```
 
