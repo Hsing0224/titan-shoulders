@@ -55,7 +55,7 @@ sidebar_label: Gemini CLI
 
 :::note
 
-```bash
+```shell
 $ /chat save "TAG" # 用 /chat resume "TAG" 可以恢復儲存的對話
 ```
 

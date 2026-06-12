@@ -37,19 +37,19 @@ sidebar_label: Codex CLI
 
 除了文字輸入，也可以輸入圖片來提問
 
-```bash
+```shell
 $ codex -i demo.png "prompt"
 ```
 
 或是多張圖片
 
-```bash
+```shell
 $ codex --image demo1.png,demo2.jpg "prompt"
 ```
 
 ### 支援非互動模式 (CI 模式)
 
-```bash
+```shell
 $ codex exec "prompt"
 ```
 
@@ -57,7 +57,7 @@ $ codex exec "prompt"
 
 允許 Ccodex 可以搜尋，預設為關閉。
 
-```bash
+```shell
 $ codex --search "prompt"
 ```
 
@@ -65,14 +65,14 @@ $ codex --search "prompt"
 
 開啟最近對話的選擇器
 
-```bash
+```shell
 $ codex --resume
 ```
 
 <br />
 直接延續最近一次對話
 
-```bash
+```shell
 $ codex --continue
 ```
 
@@ -111,7 +111,7 @@ args = ["-y", "@upstash/context7-mcp@latest"]
 
 - 建議模式(預設)：
 
-```bash
+```shell
 $ codex -a suggest "prompt"
 ```
 
@@ -158,25 +158,25 @@ Codex CLI 預設使用啟動所在的目錄作為 cwd, 可透過 --cwd/-C 覆寫
 
 #### 全自動模式
 
-```bash
+```shell
 $ codex --full-auto "prompt"
 ```
 
 或是
 
-```bash
+```shell
 $ codex -a on-failure --sandbox workspace-write "prompt"
 ```
 
 #### yolo mode
 
-```bash
+```shell
 $ codex --yolo "prompt"
 ```
 
 或是
 
-```bash
+```shell
 $ codex --dangerously-bypass-approvals-and-sandbox "prompt"
 ```
 
