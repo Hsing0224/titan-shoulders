@@ -172,5 +172,5 @@ args = ["-y", "@upstash/context7-mcp@latest"]
 
 ## Reference
 
-> [Open AI Developers](https://developers.openai.com/codex)
+> [Open AI Developers](https://developers.openai.com/codex)<br />
 > [AI 程式設計代理人開發全攻略：從入門到實戰 - Will 保哥](https://learn.duotify.com/courses/openai-codex-cli)
