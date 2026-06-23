@@ -43,7 +43,7 @@ users = [
 :::
 
 ### 區域變數
-`@for` 有幾個區域變數可以使用。可參考 (/docs/Angular/angular_directives.md#ngFor)
+`@for` 有幾個區域變數可以使用。可參考 [ngFor](/docs/Angular/angular_directives#ngfor)
 
 ### @empty
 當 `@for` 的 $count 為 0 時，如果有 `@empty` ，則會顯示該 scope 的內容。
