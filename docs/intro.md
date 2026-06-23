@@ -129,8 +129,8 @@ sidebar_position: 0
 
 - ✅ GitHub Copilot 進階開發實戰 #10
 - ❌ Copilot CLI #12
-- ✏️ Codex CLI #13
-- ❌ Claude Code #14
+- ✅ Codex CLI #13
+- ✅ Claude Code #14
 - ✅ Antigravity CLI #15
 - ✅ Gemini CLI #16
 
