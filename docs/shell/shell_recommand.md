@@ -9,13 +9,13 @@ sidebar_label: 推薦套件
 
 ### btop
 
-為 [top](/docs/Shell/shell_common.md#top) 的加強版，擁有清楚的排版。
+為 [top](/docs/shell/shell_common#top) 的加強版，擁有清楚的排版。
 
 ## 現代化核心指令替換
 
 ### eza
 
-為 [ls](/docs/Shell/shell_common.md#ls) 的加強版，提供更好的色彩和圖示，並整合 Git 狀態顯示。
+為 [ls](/docs/shell/shell_common#ls) 的加強版，提供更好的色彩和圖示，並整合 Git 狀態顯示。
 
 ```shell
 alias ls="eza --icons"                  # 基礎列表並顯示圖示
@@ -42,11 +42,11 @@ tree() {
 
 ### bat
 
-為 [cat](/docs/Shell/shell_common.md#cat) 的加強版，擁有 highlight 方便閱讀。
+為 [cat](/docs/shell/shell_common#cat) 的加強版，擁有 highlight 方便閱讀。
 
 ### zoxide
 
-為 [cd](/docs/Shell/shell_common.md#cd) 的功能擴充版，可進行模糊搜尋來前往以前訪問過的目錄
+為 [cd](/docs/shell/shell_common#cd) 的功能擴充版，可進行模糊搜尋來前往以前訪問過的目錄
 
 ```shell
 $ z pro cms # 會跳到路徑中同時包含 pro (projects) 和 cms 的目錄
@@ -58,7 +58,7 @@ $ z pro cms # 會跳到路徑中同時包含 pro (projects) 和 cms 的目錄
 
 ### tlrc
 
-為 [man](/docs/Shell/shell_common.md#man) 的加強版。提供範例和更好的閱讀介面
+為 [man](/docs/shell/shell_common#man) 的加強版。提供範例和更好的閱讀介面
 
 ## 檔案與內容搜尋
 
@@ -68,7 +68,7 @@ $ z pro cms # 會跳到路徑中同時包含 pro (projects) 和 cms 的目錄
 
 ### rg
 
-ripgrep 的縮寫，為 [grep](/docs/Shell/shell_common.md#grep) 的加強版，且自動遵守 `.gitignore` 規則跳過不必要的檔案。
+ripgrep 的縮寫，為 [grep](/docs/shell/shell_common#grep) 的加強版，且自動遵守 `.gitignore` 規則跳過不必要的檔案。
 
 ### fzf
 
