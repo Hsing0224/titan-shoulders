@@ -123,7 +123,7 @@ Gemini CLI 提供多種設定，設定黨會依照層級順序套用（愈接近
 
 ## 記憶
 
-預設名稱為 GEMINI.md，但可以透過 [contextFileName](#contextFileName) 來調整要抓的檔名等應用<br />
+預設名稱為 GEMINI.md，但可以透過 [contextFileName](#contextfilename) 來調整要抓的檔名等應用<br />
 GEMINI.md 有階層式特性，可依照專案量身打照
 
 - 全域情境：
