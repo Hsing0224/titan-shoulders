@@ -125,7 +125,7 @@ Codex 會依照位置尋找 `AGENTS.md`，並由上而下合併。
 | 根目錄 AGENTS.md           | 共享專案備註                        |
 | 目前工作目錄中的 AGENTS.md | 子資料夾 / 功能特定資訊(優先權最高) |
 
-## command line
+## flag
 
 更多設定可參考 [Command line options](https://developers.openai.com/codex/cli/reference)
 
