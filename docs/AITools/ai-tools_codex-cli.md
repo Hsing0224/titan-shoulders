@@ -134,7 +134,7 @@ Codex 會依照位置尋找 `AGENTS.md`，並由上而下合併。
 - yolo mode： `--dangerously-bypass-approvals-and-sandbox`, `--yolo`
 - 搜尋： `--search`
 - 非互動模式 (CI 模式)： `codex exec "prompt"`
-- 接續上一次對話： `codex resume`
+- 接續上一次對話： `codex resume --last`
 
 ### 圖片
 
