@@ -14,8 +14,7 @@ const testSet = new Set();
 
 // add
 testSet.add(1); // Set(1) {1}
-testSet.add("Hello"); // Set(2) {1, 'Hello'}
-testSet.add({ name: "Hsing", sex: "male" }); // Set(3) {1, 'Hello', {…}}
+testSet.add("Hello").add({ name: "Hsing", sex: "male" }); // 可使用鏈式新增
 
 // 因裡面有值了所以不會新增
 testSet.add(1); // Set(3) {1, 'Hello', {…}}
@@ -32,7 +31,7 @@ testSet.delete({ name: "Hsing", sex: "male" }); // false，這樣是刪不掉的
 // has
 testSet.has(1); // false
 testSet.has("Hello"); // true
-testSet.has({ name: "Hsing", sex: "male" }); // false
+testSet.has({ name: "Hsing", sex: "male" }); // false；因為是認 call by reference
 
 // size
 testSet.size; // 3
@@ -41,17 +40,36 @@ testSet.size; // 3
 testSet.clear(); // Set(0) {size: 0}
 ```
 
-:::tip
+:::note
 因為是 JavaScript 特性，當傳入是 array 或 object 是 `call by reference`，在 `delete` 及 `has` 都失效。
 :::
 
 ```javascript
+// 要傳入物件的話，最好的方式是先將 reference 保留起來
 const obj = { name: "Hsing", sex: "male" };
 const testSet = new Set();
 
 testSet.add(obj); // Set(1) {{…}}
 testSet.has(obj); // true
 testSet.delete(obj); // true
+
+// 如果是直接建立
+testSet.add({ name: "Hsing", sex: "male" });
+// 直接找到符合的物件
+const target = [...testSet].find(
+  (item) => item.name === "Hsing" && item.sex === "male",
+);
+if (target) {
+  testSet.delete(target);
+}
+
+// 或是用 for...of
+for (const item of testSet) {
+  if (item.name === "Hsing" && item.sex === "male") {
+    testSet.delete(item);
+    break; // 中斷迴圈
+  }
+}
 ```
 
 ### 唯一值
@@ -70,10 +88,18 @@ const uniqueArr = [...testSet]; // [1, 2, 3, 4, 5]
 const testSet = new Set();
 const arr = [1, 1, 2, 3, 4, 5, 4];
 
-for (value of arr) {
+for (const value of arr) {
   testSet.add(value);
 } // Set(5) {1, 2, 3, 4, 5}
-const uniqueArr = [...testSet]; // [1, 2, 3, 4, 5]
+
+// 可以使用 for...of 來取出 Set 的值
+for (const item of testSet) {
+  console.log(item);
+}
+// 或者用 forEach
+testSet.forEach((item) => {
+  console.log(item);
+});
 ```
 
 ### 迭代器
