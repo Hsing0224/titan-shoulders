@@ -157,6 +157,17 @@ git show --stat
 git show HEAD~1
 ```
 
+:::note
+`--stat` 此參數是用來產生差異統計。<br />
+常用的指令有：
+
+- git log --stat
+- git diff --stat
+- git show --stat
+- git merge --stat
+- git apply --stat
+  :::
+
 ### git mv / git rm
 
 與 Linux 的指令一樣功能，只是如果已被 Git 所追蹤，則需要(以 mv 為例)
