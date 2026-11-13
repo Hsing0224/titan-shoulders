@@ -206,6 +206,12 @@ git config --global --list
 
 # git log, git diff, git show，使用 bat 檢視
 git config --global core.pager "bat"
+
+# git pull 使用 rebase
+git config --global pull.rebase true
+
+# 預設開啟遠端分支刪除，自動清理本地分支
+git config --global fetch.prune true
 ```
 
 #### alias
